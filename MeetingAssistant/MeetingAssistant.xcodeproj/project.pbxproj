@@ -574,6 +574,7 @@
 				E45A78681F58F801006BD787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E45A78691F58F801006BD787 /* Build configuration list for PBXNativeTarget "MeetingAssistantTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +583,7 @@
 				E45A786B1F58F801006BD787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E45A786C1F58F801006BD787 /* Build configuration list for PBXNativeTarget "MeetingAssistantUITests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +592,7 @@
 				E45A786E1F58F801006BD787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
