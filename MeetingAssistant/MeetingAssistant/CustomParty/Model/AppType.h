@@ -11,3 +11,10 @@
 @interface AppType : NSObject
 
 @end
+
+@interface AppUserInfo : AppType
+
+@property (strong, nonatomic) NSString *user_id;
+@property (strong, nonatomic) NSString *user_name;
+
+@end

@@ -15,8 +15,11 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    if ([UserPublic getInstance].userData) {
+        [[AppPublic getInstance] goToMainVC];
+    }
     
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];

@@ -298,14 +298,26 @@ NSString *stringFromDate(NSDate *date, NSString *format) {
 }
 
 - (void)logout {
-    
+    [self goToLoginCompletion:^{
+        [[UserPublic getInstance] clear];
+    }];
 }
 
 - (void)loginDoneWithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password {
+    if (!data || !username) {
+        return;
+    }
     
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:username forKey:kUserName];
+    
+    [[UserPublic getInstance] saveUserData:[AppUserInfo mj_objectWithKeyValues:data]];
+    [self goToMainVC];
 }
 
 - (void)goToMainVC {
+//    [UserPublic getInstance].mainTabNav = [[MainTabNavController alloc] initWithRootViewController:[MainTabBarController new]];
+//    [[UIApplication sharedApplication].delegate window].rootViewController = [UserPublic getInstance].mainTabNav;
 }
 
 - (void)goToLoginCompletion:(void (^)(void))completion {

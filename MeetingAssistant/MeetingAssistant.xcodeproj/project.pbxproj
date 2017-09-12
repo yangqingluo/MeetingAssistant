@@ -179,6 +179,7 @@
 		E4E3A2FF1F67B32B00019065 /* 配置按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */; };
 		E4E3A3001F67B32B00019065 /* 配置按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */; };
 		E4E3A3031F67C3B500019065 /*  JLinXin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A3021F67C3B500019065 /*  JLinXin.ttf */; };
+		E4E3A3061F67EC7600019065 /* PublicNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A3051F67EC7600019065 /* PublicNavViewController.m */; };
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -424,6 +425,8 @@
 		E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@2x.png"; sourceTree = "<group>"; };
 		E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@3x.png"; sourceTree = "<group>"; };
 		E4E3A3021F67C3B500019065 /*  JLinXin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = " JLinXin.ttf"; sourceTree = "<group>"; };
+		E4E3A3041F67EC7600019065 /* PublicNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicNavViewController.h; sourceTree = "<group>"; };
+		E4E3A3051F67EC7600019065 /* PublicNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicNavViewController.m; sourceTree = "<group>"; };
 		E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E4ECD3B01F678941005AE1B1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -500,6 +503,8 @@
 			children = (
 				E4E3A14A1F67B0EB00019065 /* AppPublic.h */,
 				E4E3A14B1F67B0EB00019065 /* AppPublic.m */,
+				E4E3A15D1F67B0EB00019065 /* UserPublic.h */,
+				E4E3A15E1F67B0EB00019065 /* UserPublic.m */,
 				E4E3A14C1F67B0EB00019065 /* AppType.h */,
 				E4E3A14D1F67B0EB00019065 /* AppType.m */,
 				E4E3A14E1F67B0EB00019065 /* NSData+HTTPRequest.h */,
@@ -509,8 +514,6 @@
 				E4E3A1521F67B0EB00019065 /* UIImage+Categories */,
 				E4E3A15B1F67B0EB00019065 /* UIResponder+Router.h */,
 				E4E3A15C1F67B0EB00019065 /* UIResponder+Router.m */,
-				E4E3A15D1F67B0EB00019065 /* UserPublic.h */,
-				E4E3A15E1F67B0EB00019065 /* UserPublic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -548,6 +551,8 @@
 				E4E3A16A1F67B0EB00019065 /* AppBasicTableViewController.m */,
 				E4E3A16B1F67B0EB00019065 /* AppBasicViewController.h */,
 				E4E3A16C1F67B0EB00019065 /* AppBasicViewController.m */,
+				E4E3A3041F67EC7600019065 /* PublicNavViewController.h */,
+				E4E3A3051F67EC7600019065 /* PublicNavViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1079,6 +1084,7 @@
 				E4E3A17F1F67B0EB00019065 /* QKNetworkSingleton.m in Sources */,
 				E4E3A21F1F67B1D500019065 /* AFSecurityPolicy.m in Sources */,
 				E4E3A1EB1F67B1A100019065 /* MBProgressHUD+TVAssistant.m in Sources */,
+				E4E3A3061F67EC7600019065 /* PublicNavViewController.m in Sources */,
 				E4E3A1F41F67B1A100019065 /* NSObject+MJClass.m in Sources */,
 				E4E3A1DF1F67B1A100019065 /* IQUIView+Hierarchy.m in Sources */,
 				E4E3A1F81F67B1A100019065 /* NSString+MJExtension.m in Sources */,
