@@ -1,0 +1,19 @@
+//
+//  MeetingAssistantPrefix.pch
+//  MeetingAssistant
+//
+//  Created by 7kers on 2017/9/12.
+//  Copyright © 2017年 yangqingluo. All rights reserved.
+//
+
+#ifndef MeetingAssistantPrefix_pch
+#define MeetingAssistantPrefix_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "AppPublic.h"
+#import "UserPublic.h"
+#import "AppBasicViewController.h"
+
+#endif /* MeetingAssistantPrefix_pch */

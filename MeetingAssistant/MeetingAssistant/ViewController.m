@@ -29,7 +29,6 @@
     self.title = @"会议小助手";
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
