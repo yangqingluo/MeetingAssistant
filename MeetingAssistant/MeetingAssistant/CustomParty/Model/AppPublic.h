@@ -147,6 +147,9 @@ NSString *stringFromDate(NSDate *date, NSString *format);
 + (void)roundCornerRadius:(UIView *)view;
 + (void)roundCornerRadius:(UIView *)view cornerRadius:(CGFloat)radius;
 
+//设置视图autoresizingMask
++ (void)autoresizeMaskFlexibleLeftAndRightMargin:(UIView *)view;
+
 //顶部状态栏颜色
 + (void)changeStatusBarLightContent:(BOOL)isWhite;
 

@@ -272,6 +272,11 @@ NSString *stringFromDate(NSDate *date, NSString *format) {
     view.layer.masksToBounds = YES;
 }
 
+//设置视图autoresizingMask
++ (void)autoresizeMaskFlexibleLeftAndRightMargin:(UIView *)view {
+    view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+}
+
 //顶部状态栏颜色
 + (void)changeStatusBarLightContent:(BOOL)isWhite {
     [[UIApplication sharedApplication] setStatusBarStyle:isWhite ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault];

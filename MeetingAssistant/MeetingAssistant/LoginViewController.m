@@ -79,10 +79,11 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.usernameTextField.text = [ud objectForKey:kUserName];
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.view endEditing:YES];
+    
+    [AppPublic autoresizeMaskFlexibleLeftAndRightMargin:logoView];
+    [AppPublic autoresizeMaskFlexibleLeftAndRightMargin:nameLabel];
+    [AppPublic autoresizeMaskFlexibleLeftAndRightMargin:inputView];
+    [AppPublic autoresizeMaskFlexibleLeftAndRightMargin:loginButton];
 }
 
 - (void)addTextField:(UITextField *)textField imageName:(NSString *)imageName{
@@ -125,6 +126,17 @@
                 [weakself showHint:@"网络出错"];
             }
         }];
+    }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        // 横屏
+        self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"登录页面背景图-横版"].CGImage);
+    }
+    else {
+        //竖屏
+        self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"登录界面竖版背景图"].CGImage);
     }
 }
 
