@@ -73,6 +73,111 @@
 		E4E3A2291F67B1D500019065 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A2181F67B1D500019065 /* UIProgressView+AFNetworking.m */; };
 		E4E3A22A1F67B1D500019065 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A21A1F67B1D500019065 /* UIRefreshControl+AFNetworking.m */; };
 		E4E3A22B1F67B1D500019065 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A21C1F67B1D500019065 /* UIWebView+AFNetworking.m */; };
+		E4E3A2981F67B32B00019065 /* 下载按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A22F1F67B32B00019065 /* 下载按钮.png */; };
+		E4E3A2991F67B32B00019065 /* 下载按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2301F67B32B00019065 /* 下载按钮@2x.png */; };
+		E4E3A29A1F67B32B00019065 /* 下载按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2311F67B32B00019065 /* 下载按钮@3x.png */; };
+		E4E3A29B1F67B32B00019065 /* 会议室图标1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2321F67B32B00019065 /* 会议室图标1.png */; };
+		E4E3A29C1F67B32B00019065 /* 会议室图标1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2331F67B32B00019065 /* 会议室图标1@2x.png */; };
+		E4E3A29D1F67B32B00019065 /* 会议室图标1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2341F67B32B00019065 /* 会议室图标1@3x.png */; };
+		E4E3A29E1F67B32B00019065 /* 会议室图标2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2351F67B32B00019065 /* 会议室图标2.png */; };
+		E4E3A29F1F67B32B00019065 /* 会议室图标2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2361F67B32B00019065 /* 会议室图标2@2x.png */; };
+		E4E3A2A01F67B32B00019065 /* 会议室图标2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2371F67B32B00019065 /* 会议室图标2@3x.png */; };
+		E4E3A2A11F67B32B00019065 /* 会议室图标3.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2381F67B32B00019065 /* 会议室图标3.png */; };
+		E4E3A2A21F67B32B00019065 /* 会议室图标3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2391F67B32B00019065 /* 会议室图标3@2x.png */; };
+		E4E3A2A31F67B32B00019065 /* 会议室图标3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A23A1F67B32B00019065 /* 会议室图标3@3x.png */; };
+		E4E3A2A41F67B32B00019065 /* 会议室背景色块.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A23B1F67B32B00019065 /* 会议室背景色块.png */; };
+		E4E3A2A51F67B32B00019065 /* 会议室背景色块@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A23C1F67B32B00019065 /* 会议室背景色块@2x.png */; };
+		E4E3A2A61F67B32B00019065 /* 会议室背景色块@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A23D1F67B32B00019065 /* 会议室背景色块@3x.png */; };
+		E4E3A2A71F67B32B00019065 /* 会议纪要设置.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A23E1F67B32B00019065 /* 会议纪要设置.png */; };
+		E4E3A2A81F67B32B00019065 /* 会议纪要设置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A23F1F67B32B00019065 /* 会议纪要设置@2x.png */; };
+		E4E3A2A91F67B32B00019065 /* 会议纪要设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2401F67B32B00019065 /* 会议纪要设置@3x.png */; };
+		E4E3A2AA1F67B32B00019065 /* 侧滑栏内容区域背景.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2411F67B32B00019065 /* 侧滑栏内容区域背景.png */; };
+		E4E3A2AB1F67B32B00019065 /* 侧滑栏内容区域背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2421F67B32B00019065 /* 侧滑栏内容区域背景@2x.png */; };
+		E4E3A2AC1F67B32B00019065 /* 侧滑栏内容区域背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2431F67B32B00019065 /* 侧滑栏内容区域背景@3x.png */; };
+		E4E3A2AD1F67B32B00019065 /* 创建会议室按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2441F67B32B00019065 /* 创建会议室按钮.png */; };
+		E4E3A2AE1F67B32B00019065 /* 创建会议室按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2451F67B32B00019065 /* 创建会议室按钮@2x.png */; };
+		E4E3A2AF1F67B32B00019065 /* 创建会议室按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2461F67B32B00019065 /* 创建会议室按钮@3x.png */; };
+		E4E3A2B01F67B32B00019065 /* 删除内容按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2471F67B32B00019065 /* 删除内容按钮.png */; };
+		E4E3A2B11F67B32B00019065 /* 删除内容按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2481F67B32B00019065 /* 删除内容按钮@2x.png */; };
+		E4E3A2B21F67B32B00019065 /* 删除内容按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2491F67B32B00019065 /* 删除内容按钮@3x.png */; };
+		E4E3A2B31F67B32B00019065 /* 删除内容按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A24A1F67B32B00019065 /* 删除内容按钮背景.png */; };
+		E4E3A2B41F67B32B00019065 /* 删除内容按钮背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A24B1F67B32B00019065 /* 删除内容按钮背景@2x.png */; };
+		E4E3A2B51F67B32B00019065 /* 删除内容按钮背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A24C1F67B32B00019065 /* 删除内容按钮背景@3x.png */; };
+		E4E3A2B61F67B32B00019065 /* 删除图片按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A24D1F67B32B00019065 /* 删除图片按钮.png */; };
+		E4E3A2B71F67B32B00019065 /* 删除图片按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A24E1F67B32B00019065 /* 删除图片按钮@2x.png */; };
+		E4E3A2B81F67B32B00019065 /* 删除图片按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A24F1F67B32B00019065 /* 删除图片按钮@3x.png */; };
+		E4E3A2B91F67B32B00019065 /* 发现设备按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2501F67B32B00019065 /* 发现设备按钮.png */; };
+		E4E3A2BA1F67B32B00019065 /* 发现设备按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2511F67B32B00019065 /* 发现设备按钮@2x.png */; };
+		E4E3A2BB1F67B32B00019065 /* 发现设备按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2521F67B32B00019065 /* 发现设备按钮@3x.png */; };
+		E4E3A2BC1F67B32B00019065 /* 名牌风格设置.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2531F67B32B00019065 /* 名牌风格设置.png */; };
+		E4E3A2BD1F67B32B00019065 /* 名牌风格设置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2541F67B32B00019065 /* 名牌风格设置@2x.png */; };
+		E4E3A2BE1F67B32B00019065 /* 名牌风格设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2551F67B32B00019065 /* 名牌风格设置@3x.png */; };
+		E4E3A2BF1F67B32B00019065 /* 字号+按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2561F67B32B00019065 /* 字号+按钮.png */; };
+		E4E3A2C01F67B32B00019065 /* 字号+按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2571F67B32B00019065 /* 字号+按钮@2x.png */; };
+		E4E3A2C11F67B32B00019065 /* 字号+按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2581F67B32B00019065 /* 字号+按钮@3x.png */; };
+		E4E3A2C21F67B32B00019065 /* 字号-按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2591F67B32B00019065 /* 字号-按钮.png */; };
+		E4E3A2C31F67B32B00019065 /* 字号-按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A25A1F67B32B00019065 /* 字号-按钮@2x.png */; };
+		E4E3A2C41F67B32B00019065 /* 字号-按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A25B1F67B32B00019065 /* 字号-按钮@3x.png */; };
+		E4E3A2C51F67B32B00019065 /* 密码不可见.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A25C1F67B32B00019065 /* 密码不可见.png */; };
+		E4E3A2C61F67B32B00019065 /* 密码不可见@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A25D1F67B32B00019065 /* 密码不可见@2x.png */; };
+		E4E3A2C71F67B32B00019065 /* 密码不可见@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A25E1F67B32B00019065 /* 密码不可见@3x.png */; };
+		E4E3A2C81F67B32B00019065 /* 密码可见.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A25F1F67B32B00019065 /* 密码可见.png */; };
+		E4E3A2C91F67B32B00019065 /* 密码可见@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2601F67B32B00019065 /* 密码可见@2x.png */; };
+		E4E3A2CA1F67B32B00019065 /* 密码可见@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2611F67B32B00019065 /* 密码可见@3x.png */; };
+		E4E3A2CB1F67B32B00019065 /* 密码图标.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2621F67B32B00019065 /* 密码图标.png */; };
+		E4E3A2CC1F67B32B00019065 /* 密码图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2631F67B32B00019065 /* 密码图标@2x.png */; };
+		E4E3A2CD1F67B32B00019065 /* 密码图标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2641F67B32B00019065 /* 密码图标@3x.png */; };
+		E4E3A2CE1F67B32B00019065 /* 已关闭头像.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2651F67B32B00019065 /* 已关闭头像.png */; };
+		E4E3A2CF1F67B32B00019065 /* 已关闭头像@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2661F67B32B00019065 /* 已关闭头像@2x.png */; };
+		E4E3A2D01F67B32B00019065 /* 已关闭头像@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2671F67B32B00019065 /* 已关闭头像@3x.png */; };
+		E4E3A2D11F67B32B00019065 /* 已关闭状态.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2681F67B32B00019065 /* 已关闭状态.png */; };
+		E4E3A2D21F67B32B00019065 /* 已关闭状态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2691F67B32B00019065 /* 已关闭状态@2x.png */; };
+		E4E3A2D31F67B32B00019065 /* 已关闭状态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A26A1F67B32B00019065 /* 已关闭状态@3x.png */; };
+		E4E3A2D41F67B32B00019065 /* 已点亮状态.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A26B1F67B32B00019065 /* 已点亮状态.png */; };
+		E4E3A2D51F67B32B00019065 /* 已点亮状态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A26C1F67B32B00019065 /* 已点亮状态@2x.png */; };
+		E4E3A2D61F67B32B00019065 /* 已点亮状态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A26D1F67B32B00019065 /* 已点亮状态@3x.png */; };
+		E4E3A2D71F67B32B00019065 /* 未发现设备图标.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A26E1F67B32B00019065 /* 未发现设备图标.png */; };
+		E4E3A2D81F67B32B00019065 /* 未发现设备图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A26F1F67B32B00019065 /* 未发现设备图标@2x.png */; };
+		E4E3A2D91F67B32B00019065 /* 未发现设备图标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2701F67B32B00019065 /* 未发现设备图标@3x.png */; };
+		E4E3A2DA1F67B32B00019065 /* 添加图标按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2711F67B32B00019065 /* 添加图标按钮.png */; };
+		E4E3A2DB1F67B32B00019065 /* 添加图标按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2721F67B32B00019065 /* 添加图标按钮@2x.png */; };
+		E4E3A2DC1F67B32B00019065 /* 添加图标按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2731F67B32B00019065 /* 添加图标按钮@3x.png */; };
+		E4E3A2DD1F67B32B00019065 /* 点亮状态头像.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2741F67B32B00019065 /* 点亮状态头像.png */; };
+		E4E3A2DE1F67B32B00019065 /* 点亮状态头像@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2751F67B32B00019065 /* 点亮状态头像@2x.png */; };
+		E4E3A2DF1F67B32B00019065 /* 点亮状态头像@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2761F67B32B00019065 /* 点亮状态头像@3x.png */; };
+		E4E3A2E01F67B32B00019065 /* 用户名图标.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2771F67B32B00019065 /* 用户名图标.png */; };
+		E4E3A2E11F67B32B00019065 /* 用户名图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2781F67B32B00019065 /* 用户名图标@2x.png */; };
+		E4E3A2E21F67B32B00019065 /* 用户名图标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2791F67B32B00019065 /* 用户名图标@3x.png */; };
+		E4E3A2E31F67B32B00019065 /* 登录按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A27A1F67B32B00019065 /* 登录按钮背景.png */; };
+		E4E3A2E41F67B32B00019065 /* 登录按钮背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A27B1F67B32B00019065 /* 登录按钮背景@2x.png */; };
+		E4E3A2E51F67B32B00019065 /* 登录按钮背景@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A27C1F67B32B00019065 /* 登录按钮背景@3x.png */; };
+		E4E3A2E61F67B32B00019065 /* 登录界面logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A27D1F67B32B00019065 /* 登录界面logo.png */; };
+		E4E3A2E71F67B32B00019065 /* 登录界面logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A27E1F67B32B00019065 /* 登录界面logo@2x.png */; };
+		E4E3A2E81F67B32B00019065 /* 登录界面logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A27F1F67B32B00019065 /* 登录界面logo@3x.png */; };
+		E4E3A2E91F67B32B00019065 /* 登录界面竖版背景图.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2801F67B32B00019065 /* 登录界面竖版背景图.png */; };
+		E4E3A2EA1F67B32B00019065 /* 登录界面竖版背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2811F67B32B00019065 /* 登录界面竖版背景图@2x.png */; };
+		E4E3A2EB1F67B32B00019065 /* 登录界面竖版背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2821F67B32B00019065 /* 登录界面竖版背景图@3x.png */; };
+		E4E3A2EC1F67B32B00019065 /* 登录页面背景图-横版.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2831F67B32B00019065 /* 登录页面背景图-横版.png */; };
+		E4E3A2ED1F67B32B00019065 /* 登录页面背景图-横版@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2841F67B32B00019065 /* 登录页面背景图-横版@2x.png */; };
+		E4E3A2EE1F67B32B00019065 /* 登录页面背景图-横版@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2851F67B32B00019065 /* 登录页面背景图-横版@3x.png */; };
+		E4E3A2EF1F67B32B00019065 /* 空状态图标.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2861F67B32B00019065 /* 空状态图标.png */; };
+		E4E3A2F01F67B32B00019065 /* 空状态图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2871F67B32B00019065 /* 空状态图标@2x.png */; };
+		E4E3A2F11F67B32B00019065 /* 空状态图标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2881F67B32B00019065 /* 空状态图标@3x.png */; };
+		E4E3A2F21F67B32B00019065 /* 网络不给力.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2891F67B32B00019065 /* 网络不给力.png */; };
+		E4E3A2F31F67B32B00019065 /* 网络不给力@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A28A1F67B32B00019065 /* 网络不给力@2x.png */; };
+		E4E3A2F41F67B32B00019065 /* 网络不给力@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A28B1F67B32B00019065 /* 网络不给力@3x.png */; };
+		E4E3A2F51F67B32B00019065 /* 输入清楚按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A28C1F67B32B00019065 /* 输入清楚按钮.png */; };
+		E4E3A2F61F67B32B00019065 /* 输入清楚按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A28D1F67B32B00019065 /* 输入清楚按钮@2x.png */; };
+		E4E3A2F71F67B32B00019065 /* 输入清楚按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A28E1F67B32B00019065 /* 输入清楚按钮@3x.png */; };
+		E4E3A2F81F67B32B00019065 /* 返回按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A28F1F67B32B00019065 /* 返回按钮.png */; };
+		E4E3A2F91F67B32B00019065 /* 返回按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2901F67B32B00019065 /* 返回按钮@2x.png */; };
+		E4E3A2FA1F67B32B00019065 /* 返回按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2911F67B32B00019065 /* 返回按钮@3x.png */; };
+		E4E3A2FB1F67B32B00019065 /* 选择字体右上角角标.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2921F67B32B00019065 /* 选择字体右上角角标.png */; };
+		E4E3A2FC1F67B32B00019065 /* 选择字体右上角角标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2931F67B32B00019065 /* 选择字体右上角角标@2x.png */; };
+		E4E3A2FD1F67B32B00019065 /* 选择字体右上角角标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2941F67B32B00019065 /* 选择字体右上角角标@3x.png */; };
+		E4E3A2FE1F67B32B00019065 /* 配置按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2951F67B32B00019065 /* 配置按钮.png */; };
+		E4E3A2FF1F67B32B00019065 /* 配置按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */; };
+		E4E3A3001F67B32B00019065 /* 配置按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */; };
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +317,111 @@
 		E4E3A21A1F67B1D500019065 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		E4E3A21B1F67B1D500019065 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		E4E3A21C1F67B1D500019065 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		E4E3A22F1F67B32B00019065 /* 下载按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载按钮.png"; sourceTree = "<group>"; };
+		E4E3A2301F67B32B00019065 /* 下载按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2311F67B32B00019065 /* 下载按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A2321F67B32B00019065 /* 会议室图标1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标1.png"; sourceTree = "<group>"; };
+		E4E3A2331F67B32B00019065 /* 会议室图标1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标1@2x.png"; sourceTree = "<group>"; };
+		E4E3A2341F67B32B00019065 /* 会议室图标1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标1@3x.png"; sourceTree = "<group>"; };
+		E4E3A2351F67B32B00019065 /* 会议室图标2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标2.png"; sourceTree = "<group>"; };
+		E4E3A2361F67B32B00019065 /* 会议室图标2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标2@2x.png"; sourceTree = "<group>"; };
+		E4E3A2371F67B32B00019065 /* 会议室图标2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标2@3x.png"; sourceTree = "<group>"; };
+		E4E3A2381F67B32B00019065 /* 会议室图标3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标3.png"; sourceTree = "<group>"; };
+		E4E3A2391F67B32B00019065 /* 会议室图标3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标3@2x.png"; sourceTree = "<group>"; };
+		E4E3A23A1F67B32B00019065 /* 会议室图标3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室图标3@3x.png"; sourceTree = "<group>"; };
+		E4E3A23B1F67B32B00019065 /* 会议室背景色块.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室背景色块.png"; sourceTree = "<group>"; };
+		E4E3A23C1F67B32B00019065 /* 会议室背景色块@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室背景色块@2x.png"; sourceTree = "<group>"; };
+		E4E3A23D1F67B32B00019065 /* 会议室背景色块@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议室背景色块@3x.png"; sourceTree = "<group>"; };
+		E4E3A23E1F67B32B00019065 /* 会议纪要设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议纪要设置.png"; sourceTree = "<group>"; };
+		E4E3A23F1F67B32B00019065 /* 会议纪要设置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议纪要设置@2x.png"; sourceTree = "<group>"; };
+		E4E3A2401F67B32B00019065 /* 会议纪要设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会议纪要设置@3x.png"; sourceTree = "<group>"; };
+		E4E3A2411F67B32B00019065 /* 侧滑栏内容区域背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "侧滑栏内容区域背景.png"; sourceTree = "<group>"; };
+		E4E3A2421F67B32B00019065 /* 侧滑栏内容区域背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "侧滑栏内容区域背景@2x.png"; sourceTree = "<group>"; };
+		E4E3A2431F67B32B00019065 /* 侧滑栏内容区域背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "侧滑栏内容区域背景@3x.png"; sourceTree = "<group>"; };
+		E4E3A2441F67B32B00019065 /* 创建会议室按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "创建会议室按钮.png"; sourceTree = "<group>"; };
+		E4E3A2451F67B32B00019065 /* 创建会议室按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "创建会议室按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2461F67B32B00019065 /* 创建会议室按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "创建会议室按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A2471F67B32B00019065 /* 删除内容按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除内容按钮.png"; sourceTree = "<group>"; };
+		E4E3A2481F67B32B00019065 /* 删除内容按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除内容按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2491F67B32B00019065 /* 删除内容按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除内容按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A24A1F67B32B00019065 /* 删除内容按钮背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除内容按钮背景.png"; sourceTree = "<group>"; };
+		E4E3A24B1F67B32B00019065 /* 删除内容按钮背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除内容按钮背景@2x.png"; sourceTree = "<group>"; };
+		E4E3A24C1F67B32B00019065 /* 删除内容按钮背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除内容按钮背景@3x.png"; sourceTree = "<group>"; };
+		E4E3A24D1F67B32B00019065 /* 删除图片按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除图片按钮.png"; sourceTree = "<group>"; };
+		E4E3A24E1F67B32B00019065 /* 删除图片按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除图片按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A24F1F67B32B00019065 /* 删除图片按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除图片按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A2501F67B32B00019065 /* 发现设备按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发现设备按钮.png"; sourceTree = "<group>"; };
+		E4E3A2511F67B32B00019065 /* 发现设备按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发现设备按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2521F67B32B00019065 /* 发现设备按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发现设备按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A2531F67B32B00019065 /* 名牌风格设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "名牌风格设置.png"; sourceTree = "<group>"; };
+		E4E3A2541F67B32B00019065 /* 名牌风格设置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "名牌风格设置@2x.png"; sourceTree = "<group>"; };
+		E4E3A2551F67B32B00019065 /* 名牌风格设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "名牌风格设置@3x.png"; sourceTree = "<group>"; };
+		E4E3A2561F67B32B00019065 /* 字号+按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "字号+按钮.png"; sourceTree = "<group>"; };
+		E4E3A2571F67B32B00019065 /* 字号+按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "字号+按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2581F67B32B00019065 /* 字号+按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "字号+按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A2591F67B32B00019065 /* 字号-按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "字号-按钮.png"; sourceTree = "<group>"; };
+		E4E3A25A1F67B32B00019065 /* 字号-按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "字号-按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A25B1F67B32B00019065 /* 字号-按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "字号-按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A25C1F67B32B00019065 /* 密码不可见.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码不可见.png"; sourceTree = "<group>"; };
+		E4E3A25D1F67B32B00019065 /* 密码不可见@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码不可见@2x.png"; sourceTree = "<group>"; };
+		E4E3A25E1F67B32B00019065 /* 密码不可见@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码不可见@3x.png"; sourceTree = "<group>"; };
+		E4E3A25F1F67B32B00019065 /* 密码可见.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码可见.png"; sourceTree = "<group>"; };
+		E4E3A2601F67B32B00019065 /* 密码可见@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码可见@2x.png"; sourceTree = "<group>"; };
+		E4E3A2611F67B32B00019065 /* 密码可见@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码可见@3x.png"; sourceTree = "<group>"; };
+		E4E3A2621F67B32B00019065 /* 密码图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码图标.png"; sourceTree = "<group>"; };
+		E4E3A2631F67B32B00019065 /* 密码图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码图标@2x.png"; sourceTree = "<group>"; };
+		E4E3A2641F67B32B00019065 /* 密码图标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码图标@3x.png"; sourceTree = "<group>"; };
+		E4E3A2651F67B32B00019065 /* 已关闭头像.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已关闭头像.png"; sourceTree = "<group>"; };
+		E4E3A2661F67B32B00019065 /* 已关闭头像@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已关闭头像@2x.png"; sourceTree = "<group>"; };
+		E4E3A2671F67B32B00019065 /* 已关闭头像@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已关闭头像@3x.png"; sourceTree = "<group>"; };
+		E4E3A2681F67B32B00019065 /* 已关闭状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已关闭状态.png"; sourceTree = "<group>"; };
+		E4E3A2691F67B32B00019065 /* 已关闭状态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已关闭状态@2x.png"; sourceTree = "<group>"; };
+		E4E3A26A1F67B32B00019065 /* 已关闭状态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已关闭状态@3x.png"; sourceTree = "<group>"; };
+		E4E3A26B1F67B32B00019065 /* 已点亮状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已点亮状态.png"; sourceTree = "<group>"; };
+		E4E3A26C1F67B32B00019065 /* 已点亮状态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已点亮状态@2x.png"; sourceTree = "<group>"; };
+		E4E3A26D1F67B32B00019065 /* 已点亮状态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已点亮状态@3x.png"; sourceTree = "<group>"; };
+		E4E3A26E1F67B32B00019065 /* 未发现设备图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未发现设备图标.png"; sourceTree = "<group>"; };
+		E4E3A26F1F67B32B00019065 /* 未发现设备图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未发现设备图标@2x.png"; sourceTree = "<group>"; };
+		E4E3A2701F67B32B00019065 /* 未发现设备图标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未发现设备图标@3x.png"; sourceTree = "<group>"; };
+		E4E3A2711F67B32B00019065 /* 添加图标按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加图标按钮.png"; sourceTree = "<group>"; };
+		E4E3A2721F67B32B00019065 /* 添加图标按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加图标按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2731F67B32B00019065 /* 添加图标按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加图标按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A2741F67B32B00019065 /* 点亮状态头像.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点亮状态头像.png"; sourceTree = "<group>"; };
+		E4E3A2751F67B32B00019065 /* 点亮状态头像@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点亮状态头像@2x.png"; sourceTree = "<group>"; };
+		E4E3A2761F67B32B00019065 /* 点亮状态头像@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点亮状态头像@3x.png"; sourceTree = "<group>"; };
+		E4E3A2771F67B32B00019065 /* 用户名图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户名图标.png"; sourceTree = "<group>"; };
+		E4E3A2781F67B32B00019065 /* 用户名图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户名图标@2x.png"; sourceTree = "<group>"; };
+		E4E3A2791F67B32B00019065 /* 用户名图标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户名图标@3x.png"; sourceTree = "<group>"; };
+		E4E3A27A1F67B32B00019065 /* 登录按钮背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录按钮背景.png"; sourceTree = "<group>"; };
+		E4E3A27B1F67B32B00019065 /* 登录按钮背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录按钮背景@2x.png"; sourceTree = "<group>"; };
+		E4E3A27C1F67B32B00019065 /* 登录按钮背景@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录按钮背景@3x.png"; sourceTree = "<group>"; };
+		E4E3A27D1F67B32B00019065 /* 登录界面logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录界面logo.png"; sourceTree = "<group>"; };
+		E4E3A27E1F67B32B00019065 /* 登录界面logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录界面logo@2x.png"; sourceTree = "<group>"; };
+		E4E3A27F1F67B32B00019065 /* 登录界面logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录界面logo@3x.png"; sourceTree = "<group>"; };
+		E4E3A2801F67B32B00019065 /* 登录界面竖版背景图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录界面竖版背景图.png"; sourceTree = "<group>"; };
+		E4E3A2811F67B32B00019065 /* 登录界面竖版背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录界面竖版背景图@2x.png"; sourceTree = "<group>"; };
+		E4E3A2821F67B32B00019065 /* 登录界面竖版背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录界面竖版背景图@3x.png"; sourceTree = "<group>"; };
+		E4E3A2831F67B32B00019065 /* 登录页面背景图-横版.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录页面背景图-横版.png"; sourceTree = "<group>"; };
+		E4E3A2841F67B32B00019065 /* 登录页面背景图-横版@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录页面背景图-横版@2x.png"; sourceTree = "<group>"; };
+		E4E3A2851F67B32B00019065 /* 登录页面背景图-横版@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录页面背景图-横版@3x.png"; sourceTree = "<group>"; };
+		E4E3A2861F67B32B00019065 /* 空状态图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空状态图标.png"; sourceTree = "<group>"; };
+		E4E3A2871F67B32B00019065 /* 空状态图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空状态图标@2x.png"; sourceTree = "<group>"; };
+		E4E3A2881F67B32B00019065 /* 空状态图标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空状态图标@3x.png"; sourceTree = "<group>"; };
+		E4E3A2891F67B32B00019065 /* 网络不给力.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "网络不给力.png"; sourceTree = "<group>"; };
+		E4E3A28A1F67B32B00019065 /* 网络不给力@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "网络不给力@2x.png"; sourceTree = "<group>"; };
+		E4E3A28B1F67B32B00019065 /* 网络不给力@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "网络不给力@3x.png"; sourceTree = "<group>"; };
+		E4E3A28C1F67B32B00019065 /* 输入清楚按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入清楚按钮.png"; sourceTree = "<group>"; };
+		E4E3A28D1F67B32B00019065 /* 输入清楚按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入清楚按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A28E1F67B32B00019065 /* 输入清楚按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入清楚按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A28F1F67B32B00019065 /* 返回按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回按钮.png"; sourceTree = "<group>"; };
+		E4E3A2901F67B32B00019065 /* 返回按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2911F67B32B00019065 /* 返回按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A2921F67B32B00019065 /* 选择字体右上角角标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选择字体右上角角标.png"; sourceTree = "<group>"; };
+		E4E3A2931F67B32B00019065 /* 选择字体右上角角标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选择字体右上角角标@2x.png"; sourceTree = "<group>"; };
+		E4E3A2941F67B32B00019065 /* 选择字体右上角角标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选择字体右上角角标@3x.png"; sourceTree = "<group>"; };
+		E4E3A2951F67B32B00019065 /* 配置按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮.png"; sourceTree = "<group>"; };
+		E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@2x.png"; sourceTree = "<group>"; };
+		E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@3x.png"; sourceTree = "<group>"; };
 		E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E4ECD3B01F678941005AE1B1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +476,7 @@
 		E45A783C1F58F801006BD787 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4E3A22C1F67B32B00019065 /* Resource */,
 				E45A783D1F58F801006BD787 /* main.m */,
 				E4E3A1471F67B09000019065 /* MeetingAssistantPrefix.pch */,
 			);
@@ -538,6 +749,134 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		E4E3A22C1F67B32B00019065 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E4E3A22D1F67B32B00019065 /* Pics */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E4E3A22D1F67B32B00019065 /* Pics */ = {
+			isa = PBXGroup;
+			children = (
+				E4E3A22E1F67B32B00019065 /* General */,
+			);
+			path = Pics;
+			sourceTree = "<group>";
+		};
+		E4E3A22E1F67B32B00019065 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				E4E3A22F1F67B32B00019065 /* 下载按钮.png */,
+				E4E3A2301F67B32B00019065 /* 下载按钮@2x.png */,
+				E4E3A2311F67B32B00019065 /* 下载按钮@3x.png */,
+				E4E3A2321F67B32B00019065 /* 会议室图标1.png */,
+				E4E3A2331F67B32B00019065 /* 会议室图标1@2x.png */,
+				E4E3A2341F67B32B00019065 /* 会议室图标1@3x.png */,
+				E4E3A2351F67B32B00019065 /* 会议室图标2.png */,
+				E4E3A2361F67B32B00019065 /* 会议室图标2@2x.png */,
+				E4E3A2371F67B32B00019065 /* 会议室图标2@3x.png */,
+				E4E3A2381F67B32B00019065 /* 会议室图标3.png */,
+				E4E3A2391F67B32B00019065 /* 会议室图标3@2x.png */,
+				E4E3A23A1F67B32B00019065 /* 会议室图标3@3x.png */,
+				E4E3A23B1F67B32B00019065 /* 会议室背景色块.png */,
+				E4E3A23C1F67B32B00019065 /* 会议室背景色块@2x.png */,
+				E4E3A23D1F67B32B00019065 /* 会议室背景色块@3x.png */,
+				E4E3A23E1F67B32B00019065 /* 会议纪要设置.png */,
+				E4E3A23F1F67B32B00019065 /* 会议纪要设置@2x.png */,
+				E4E3A2401F67B32B00019065 /* 会议纪要设置@3x.png */,
+				E4E3A2411F67B32B00019065 /* 侧滑栏内容区域背景.png */,
+				E4E3A2421F67B32B00019065 /* 侧滑栏内容区域背景@2x.png */,
+				E4E3A2431F67B32B00019065 /* 侧滑栏内容区域背景@3x.png */,
+				E4E3A2441F67B32B00019065 /* 创建会议室按钮.png */,
+				E4E3A2451F67B32B00019065 /* 创建会议室按钮@2x.png */,
+				E4E3A2461F67B32B00019065 /* 创建会议室按钮@3x.png */,
+				E4E3A2471F67B32B00019065 /* 删除内容按钮.png */,
+				E4E3A2481F67B32B00019065 /* 删除内容按钮@2x.png */,
+				E4E3A2491F67B32B00019065 /* 删除内容按钮@3x.png */,
+				E4E3A24A1F67B32B00019065 /* 删除内容按钮背景.png */,
+				E4E3A24B1F67B32B00019065 /* 删除内容按钮背景@2x.png */,
+				E4E3A24C1F67B32B00019065 /* 删除内容按钮背景@3x.png */,
+				E4E3A24D1F67B32B00019065 /* 删除图片按钮.png */,
+				E4E3A24E1F67B32B00019065 /* 删除图片按钮@2x.png */,
+				E4E3A24F1F67B32B00019065 /* 删除图片按钮@3x.png */,
+				E4E3A2501F67B32B00019065 /* 发现设备按钮.png */,
+				E4E3A2511F67B32B00019065 /* 发现设备按钮@2x.png */,
+				E4E3A2521F67B32B00019065 /* 发现设备按钮@3x.png */,
+				E4E3A2531F67B32B00019065 /* 名牌风格设置.png */,
+				E4E3A2541F67B32B00019065 /* 名牌风格设置@2x.png */,
+				E4E3A2551F67B32B00019065 /* 名牌风格设置@3x.png */,
+				E4E3A2561F67B32B00019065 /* 字号+按钮.png */,
+				E4E3A2571F67B32B00019065 /* 字号+按钮@2x.png */,
+				E4E3A2581F67B32B00019065 /* 字号+按钮@3x.png */,
+				E4E3A2591F67B32B00019065 /* 字号-按钮.png */,
+				E4E3A25A1F67B32B00019065 /* 字号-按钮@2x.png */,
+				E4E3A25B1F67B32B00019065 /* 字号-按钮@3x.png */,
+				E4E3A25C1F67B32B00019065 /* 密码不可见.png */,
+				E4E3A25D1F67B32B00019065 /* 密码不可见@2x.png */,
+				E4E3A25E1F67B32B00019065 /* 密码不可见@3x.png */,
+				E4E3A25F1F67B32B00019065 /* 密码可见.png */,
+				E4E3A2601F67B32B00019065 /* 密码可见@2x.png */,
+				E4E3A2611F67B32B00019065 /* 密码可见@3x.png */,
+				E4E3A2621F67B32B00019065 /* 密码图标.png */,
+				E4E3A2631F67B32B00019065 /* 密码图标@2x.png */,
+				E4E3A2641F67B32B00019065 /* 密码图标@3x.png */,
+				E4E3A2651F67B32B00019065 /* 已关闭头像.png */,
+				E4E3A2661F67B32B00019065 /* 已关闭头像@2x.png */,
+				E4E3A2671F67B32B00019065 /* 已关闭头像@3x.png */,
+				E4E3A2681F67B32B00019065 /* 已关闭状态.png */,
+				E4E3A2691F67B32B00019065 /* 已关闭状态@2x.png */,
+				E4E3A26A1F67B32B00019065 /* 已关闭状态@3x.png */,
+				E4E3A26B1F67B32B00019065 /* 已点亮状态.png */,
+				E4E3A26C1F67B32B00019065 /* 已点亮状态@2x.png */,
+				E4E3A26D1F67B32B00019065 /* 已点亮状态@3x.png */,
+				E4E3A26E1F67B32B00019065 /* 未发现设备图标.png */,
+				E4E3A26F1F67B32B00019065 /* 未发现设备图标@2x.png */,
+				E4E3A2701F67B32B00019065 /* 未发现设备图标@3x.png */,
+				E4E3A2711F67B32B00019065 /* 添加图标按钮.png */,
+				E4E3A2721F67B32B00019065 /* 添加图标按钮@2x.png */,
+				E4E3A2731F67B32B00019065 /* 添加图标按钮@3x.png */,
+				E4E3A2741F67B32B00019065 /* 点亮状态头像.png */,
+				E4E3A2751F67B32B00019065 /* 点亮状态头像@2x.png */,
+				E4E3A2761F67B32B00019065 /* 点亮状态头像@3x.png */,
+				E4E3A2771F67B32B00019065 /* 用户名图标.png */,
+				E4E3A2781F67B32B00019065 /* 用户名图标@2x.png */,
+				E4E3A2791F67B32B00019065 /* 用户名图标@3x.png */,
+				E4E3A27A1F67B32B00019065 /* 登录按钮背景.png */,
+				E4E3A27B1F67B32B00019065 /* 登录按钮背景@2x.png */,
+				E4E3A27C1F67B32B00019065 /* 登录按钮背景@3x.png */,
+				E4E3A27D1F67B32B00019065 /* 登录界面logo.png */,
+				E4E3A27E1F67B32B00019065 /* 登录界面logo@2x.png */,
+				E4E3A27F1F67B32B00019065 /* 登录界面logo@3x.png */,
+				E4E3A2801F67B32B00019065 /* 登录界面竖版背景图.png */,
+				E4E3A2811F67B32B00019065 /* 登录界面竖版背景图@2x.png */,
+				E4E3A2821F67B32B00019065 /* 登录界面竖版背景图@3x.png */,
+				E4E3A2831F67B32B00019065 /* 登录页面背景图-横版.png */,
+				E4E3A2841F67B32B00019065 /* 登录页面背景图-横版@2x.png */,
+				E4E3A2851F67B32B00019065 /* 登录页面背景图-横版@3x.png */,
+				E4E3A2861F67B32B00019065 /* 空状态图标.png */,
+				E4E3A2871F67B32B00019065 /* 空状态图标@2x.png */,
+				E4E3A2881F67B32B00019065 /* 空状态图标@3x.png */,
+				E4E3A2891F67B32B00019065 /* 网络不给力.png */,
+				E4E3A28A1F67B32B00019065 /* 网络不给力@2x.png */,
+				E4E3A28B1F67B32B00019065 /* 网络不给力@3x.png */,
+				E4E3A28C1F67B32B00019065 /* 输入清楚按钮.png */,
+				E4E3A28D1F67B32B00019065 /* 输入清楚按钮@2x.png */,
+				E4E3A28E1F67B32B00019065 /* 输入清楚按钮@3x.png */,
+				E4E3A28F1F67B32B00019065 /* 返回按钮.png */,
+				E4E3A2901F67B32B00019065 /* 返回按钮@2x.png */,
+				E4E3A2911F67B32B00019065 /* 返回按钮@3x.png */,
+				E4E3A2921F67B32B00019065 /* 选择字体右上角角标.png */,
+				E4E3A2931F67B32B00019065 /* 选择字体右上角角标@2x.png */,
+				E4E3A2941F67B32B00019065 /* 选择字体右上角角标@3x.png */,
+				E4E3A2951F67B32B00019065 /* 配置按钮.png */,
+				E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */,
+				E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -597,11 +936,116 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E3A2C51F67B32B00019065 /* 密码不可见.png in Resources */,
+				E4E3A2E31F67B32B00019065 /* 登录按钮背景.png in Resources */,
+				E4E3A2D31F67B32B00019065 /* 已关闭状态@3x.png in Resources */,
+				E4E3A2ED1F67B32B00019065 /* 登录页面背景图-横版@2x.png in Resources */,
+				E4E3A29E1F67B32B00019065 /* 会议室图标2.png in Resources */,
+				E4E3A2CD1F67B32B00019065 /* 密码图标@3x.png in Resources */,
+				E4E3A2AA1F67B32B00019065 /* 侧滑栏内容区域背景.png in Resources */,
+				E4E3A2BC1F67B32B00019065 /* 名牌风格设置.png in Resources */,
+				E4E3A2C11F67B32B00019065 /* 字号+按钮@3x.png in Resources */,
+				E4E3A29C1F67B32B00019065 /* 会议室图标1@2x.png in Resources */,
+				E4E3A2F21F67B32B00019065 /* 网络不给力.png in Resources */,
+				E4E3A2EE1F67B32B00019065 /* 登录页面背景图-横版@3x.png in Resources */,
+				E4E3A29F1F67B32B00019065 /* 会议室图标2@2x.png in Resources */,
+				E4E3A2B21F67B32B00019065 /* 删除内容按钮@3x.png in Resources */,
+				E4E3A2C81F67B32B00019065 /* 密码可见.png in Resources */,
+				E4E3A2DE1F67B32B00019065 /* 点亮状态头像@2x.png in Resources */,
+				E4E3A2AF1F67B32B00019065 /* 创建会议室按钮@3x.png in Resources */,
+				E4E3A2EB1F67B32B00019065 /* 登录界面竖版背景图@3x.png in Resources */,
+				E4E3A29A1F67B32B00019065 /* 下载按钮@3x.png in Resources */,
+				E4E3A2E71F67B32B00019065 /* 登录界面logo@2x.png in Resources */,
+				E4E3A2A61F67B32B00019065 /* 会议室背景色块@3x.png in Resources */,
+				E4E3A2AD1F67B32B00019065 /* 创建会议室按钮.png in Resources */,
+				E4E3A2E11F67B32B00019065 /* 用户名图标@2x.png in Resources */,
+				E4E3A2C91F67B32B00019065 /* 密码可见@2x.png in Resources */,
 				E45A784C1F58F801006BD787 /* LaunchScreen.storyboard in Resources */,
+				E4E3A2C61F67B32B00019065 /* 密码不可见@2x.png in Resources */,
+				E4E3A2AC1F67B32B00019065 /* 侧滑栏内容区域背景@3x.png in Resources */,
+				E4E3A2E41F67B32B00019065 /* 登录按钮背景@2x.png in Resources */,
 				E45A78491F58F801006BD787 /* Assets.xcassets in Resources */,
+				E4E3A2FE1F67B32B00019065 /* 配置按钮.png in Resources */,
+				E4E3A2D11F67B32B00019065 /* 已关闭状态.png in Resources */,
+				E4E3A2C41F67B32B00019065 /* 字号-按钮@3x.png in Resources */,
+				E4E3A2DC1F67B32B00019065 /* 添加图标按钮@3x.png in Resources */,
+				E4E3A2E81F67B32B00019065 /* 登录界面logo@3x.png in Resources */,
+				E4E3A2B41F67B32B00019065 /* 删除内容按钮背景@2x.png in Resources */,
+				E4E3A2F81F67B32B00019065 /* 返回按钮.png in Resources */,
+				E4E3A2F11F67B32B00019065 /* 空状态图标@3x.png in Resources */,
+				E4E3A2F01F67B32B00019065 /* 空状态图标@2x.png in Resources */,
+				E4E3A2B61F67B32B00019065 /* 删除图片按钮.png in Resources */,
+				E4E3A2D71F67B32B00019065 /* 未发现设备图标.png in Resources */,
 				E4E3A1EA1F67B1A100019065 /* IQKeyboardManager.bundle in Resources */,
+				E4E3A29D1F67B32B00019065 /* 会议室图标1@3x.png in Resources */,
+				E4E3A2A81F67B32B00019065 /* 会议纪要设置@2x.png in Resources */,
+				E4E3A2CE1F67B32B00019065 /* 已关闭头像.png in Resources */,
+				E4E3A2E91F67B32B00019065 /* 登录界面竖版背景图.png in Resources */,
+				E4E3A2D41F67B32B00019065 /* 已点亮状态.png in Resources */,
+				E4E3A2CA1F67B32B00019065 /* 密码可见@3x.png in Resources */,
+				E4E3A2BE1F67B32B00019065 /* 名牌风格设置@3x.png in Resources */,
+				E4E3A2B11F67B32B00019065 /* 删除内容按钮@2x.png in Resources */,
+				E4E3A2F91F67B32B00019065 /* 返回按钮@2x.png in Resources */,
+				E4E3A2B91F67B32B00019065 /* 发现设备按钮.png in Resources */,
+				E4E3A2BB1F67B32B00019065 /* 发现设备按钮@3x.png in Resources */,
+				E4E3A2DD1F67B32B00019065 /* 点亮状态头像.png in Resources */,
+				E4E3A2B01F67B32B00019065 /* 删除内容按钮.png in Resources */,
+				E4E3A2A71F67B32B00019065 /* 会议纪要设置.png in Resources */,
+				E4E3A29B1F67B32B00019065 /* 会议室图标1.png in Resources */,
+				E4E3A2D81F67B32B00019065 /* 未发现设备图标@2x.png in Resources */,
+				E4E3A2991F67B32B00019065 /* 下载按钮@2x.png in Resources */,
+				E4E3A2E01F67B32B00019065 /* 用户名图标.png in Resources */,
 				E4E3A1EE1F67B1A100019065 /* Info.plist in Resources */,
+				E4E3A2BF1F67B32B00019065 /* 字号+按钮.png in Resources */,
+				E4E3A2A51F67B32B00019065 /* 会议室背景色块@2x.png in Resources */,
+				E4E3A2F31F67B32B00019065 /* 网络不给力@2x.png in Resources */,
+				E4E3A2C21F67B32B00019065 /* 字号-按钮.png in Resources */,
+				E4E3A2EF1F67B32B00019065 /* 空状态图标.png in Resources */,
+				E4E3A2F51F67B32B00019065 /* 输入清楚按钮.png in Resources */,
+				E4E3A2D61F67B32B00019065 /* 已点亮状态@3x.png in Resources */,
+				E4E3A2A91F67B32B00019065 /* 会议纪要设置@3x.png in Resources */,
+				E4E3A2AE1F67B32B00019065 /* 创建会议室按钮@2x.png in Resources */,
+				E4E3A2FB1F67B32B00019065 /* 选择字体右上角角标.png in Resources */,
+				E4E3A2A11F67B32B00019065 /* 会议室图标3.png in Resources */,
+				E4E3A2EA1F67B32B00019065 /* 登录界面竖版背景图@2x.png in Resources */,
+				E4E3A2AB1F67B32B00019065 /* 侧滑栏内容区域背景@2x.png in Resources */,
+				E4E3A2E51F67B32B00019065 /* 登录按钮背景@3x.png in Resources */,
+				E4E3A2FF1F67B32B00019065 /* 配置按钮@2x.png in Resources */,
+				E4E3A2BD1F67B32B00019065 /* 名牌风格设置@2x.png in Resources */,
+				E4E3A2E61F67B32B00019065 /* 登录界面logo.png in Resources */,
+				E4E3A2D51F67B32B00019065 /* 已点亮状态@2x.png in Resources */,
+				E4E3A2CF1F67B32B00019065 /* 已关闭头像@2x.png in Resources */,
+				E4E3A2DF1F67B32B00019065 /* 点亮状态头像@3x.png in Resources */,
+				E4E3A2DA1F67B32B00019065 /* 添加图标按钮.png in Resources */,
+				E4E3A2EC1F67B32B00019065 /* 登录页面背景图-横版.png in Resources */,
+				E4E3A2D01F67B32B00019065 /* 已关闭头像@3x.png in Resources */,
+				E4E3A2981F67B32B00019065 /* 下载按钮.png in Resources */,
+				E4E3A2DB1F67B32B00019065 /* 添加图标按钮@2x.png in Resources */,
+				E4E3A2FA1F67B32B00019065 /* 返回按钮@3x.png in Resources */,
+				E4E3A2B71F67B32B00019065 /* 删除图片按钮@2x.png in Resources */,
+				E4E3A2C31F67B32B00019065 /* 字号-按钮@2x.png in Resources */,
+				E4E3A2D21F67B32B00019065 /* 已关闭状态@2x.png in Resources */,
+				E4E3A2FC1F67B32B00019065 /* 选择字体右上角角标@2x.png in Resources */,
+				E4E3A2A01F67B32B00019065 /* 会议室图标2@3x.png in Resources */,
+				E4E3A3001F67B32B00019065 /* 配置按钮@3x.png in Resources */,
+				E4E3A2F61F67B32B00019065 /* 输入清楚按钮@2x.png in Resources */,
+				E4E3A2CC1F67B32B00019065 /* 密码图标@2x.png in Resources */,
+				E4E3A2B81F67B32B00019065 /* 删除图片按钮@3x.png in Resources */,
+				E4E3A2A41F67B32B00019065 /* 会议室背景色块.png in Resources */,
+				E4E3A2FD1F67B32B00019065 /* 选择字体右上角角标@3x.png in Resources */,
+				E4E3A2F41F67B32B00019065 /* 网络不给力@3x.png in Resources */,
+				E4E3A2F71F67B32B00019065 /* 输入清楚按钮@3x.png in Resources */,
+				E4E3A2B31F67B32B00019065 /* 删除内容按钮背景.png in Resources */,
+				E4E3A2A21F67B32B00019065 /* 会议室图标3@2x.png in Resources */,
+				E4E3A2B51F67B32B00019065 /* 删除内容按钮背景@3x.png in Resources */,
+				E4E3A2A31F67B32B00019065 /* 会议室图标3@3x.png in Resources */,
+				E4E3A2D91F67B32B00019065 /* 未发现设备图标@3x.png in Resources */,
+				E4E3A2C71F67B32B00019065 /* 密码不可见@3x.png in Resources */,
+				E4E3A2E21F67B32B00019065 /* 用户名图标@3x.png in Resources */,
+				E4E3A2C01F67B32B00019065 /* 字号+按钮@2x.png in Resources */,
 				E45A78471F58F801006BD787 /* Main.storyboard in Resources */,
+				E4E3A2BA1F67B32B00019065 /* 发现设备按钮@2x.png in Resources */,
+				E4E3A2CB1F67B32B00019065 /* 密码图标.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
