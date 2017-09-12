@@ -19,13 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"登录页面背景图-横版"].CGImage);
+    BOOL isLandscape = UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation);
+    [self updateBackgroundImageIsLandscape:isLandscape];
+    CGFloat topY = isLandscape ? 136 * screen_height / 768 : 136 * screen_width / 768;
     
     UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"登录界面logo"]];
-    if (logoView.width > 0.25 * screen_width) {
-        logoView.frame = CGRectMake(0, 0, 0.25 * screen_width, 0.25 * screen_width);
-    }
-    logoView.center = CGPointMake(0.5 * screen_width, 136 + 0.5 * logoView.height);
+    logoView.center = CGPointMake(0.5 * screen_width, topY + 0.5 * logoView.height);
     [self.view addSubview:logoView];
     
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, logoView.bottom + 40, screen_width, 24)];
@@ -36,7 +35,7 @@
     [self.view addSubview:nameLabel];
     
     float inputHeight = 50;
-    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 58, screen_width * 390 / 1024, inputHeight * 2 + 20)];
+    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 58, 390 * screen_width / 1024, inputHeight * 2 + 20)];
     inputView.centerX = 0.5 * screen_width;
     inputView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:inputView];
@@ -130,14 +129,11 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        // 横屏
-        self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"登录页面背景图-横版"].CGImage);
-    }
-    else {
-        //竖屏
-        self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"登录界面竖版背景图"].CGImage);
-    }
+    [self updateBackgroundImageIsLandscape:UIInterfaceOrientationIsLandscape(toInterfaceOrientation)];
+}
+
+- (void)updateBackgroundImageIsLandscape:(BOOL)isLandscape {
+    self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:isLandscape ? @"登录页面背景图-横版" : @"登录界面竖版背景图"].CGImage);
 }
 
 #pragma textfield

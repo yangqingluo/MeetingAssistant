@@ -274,7 +274,7 @@ NSString *stringFromDate(NSDate *date, NSString *format) {
 
 //设置视图autoresizingMask
 + (void)autoresizeMaskFlexibleLeftAndRightMargin:(UIView *)view {
-    view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    view.autoresizingMask |= (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
 }
 
 //顶部状态栏颜色
