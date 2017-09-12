@@ -17,6 +17,10 @@
 
 @implementation LoginViewController
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self updateBackgroundImageIsLandscape:UIInterfaceOrientationIsLandscape(toInterfaceOrientation)];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     BOOL isLandscape = UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation);
@@ -43,28 +47,16 @@
     self.usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, inputView.width, inputHeight)];
     self.usernameTextField.centerY = 0.5 * inputHeight;
     self.usernameTextField.placeholder = @"请输入用户名";
-    self.usernameTextField.font = [UIFont systemFontOfSize:16.0];
-    self.usernameTextField.textColor = [UIColor whiteColor];
-    [self.usernameTextField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-    self.usernameTextField.backgroundColor = RGBA(0xff, 0xff, 0xff, 0.2);
     self.usernameTextField.keyboardType = UIKeyboardTypeASCIICapable;
-    self.usernameTextField.clearButtonMode = UITextFieldViewModeAlways;
     [inputView addSubview:self.usernameTextField];
     [self addTextField:self.usernameTextField imageName:@"用户名图标"];
-    [AppPublic roundCornerRadius:self.usernameTextField];
     
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, inputView.width, inputHeight)];
     self.passwordTextField.bottom = inputView.height;
     self.passwordTextField.placeholder = @"请输入密码";
-    self.passwordTextField.font = [UIFont systemFontOfSize:14.0];
-    self.passwordTextField.textColor = [UIColor whiteColor];
-    [self.passwordTextField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-    self.passwordTextField.backgroundColor = RGBA(0xff, 0xff, 0xff, 0.2);
     self.passwordTextField.secureTextEntry = YES;
-    self.passwordTextField.clearButtonMode = UITextFieldViewModeAlways;
     [inputView addSubview:self.passwordTextField];
     [self addTextField:self.passwordTextField imageName:@"密码图标"];
-    [AppPublic roundCornerRadius:self.passwordTextField];
     
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     loginButton.frame = CGRectMake(inputView.left, inputView.bottom + 50, inputView.width, 50);
@@ -75,6 +67,7 @@
     loginButton.titleLabel.font = [UIFont systemFontOfSize:20];
     [loginButton addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
+    [AppPublic roundCornerRadius:loginButton];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.usernameTextField.text = [ud objectForKey:kUserName];
@@ -86,7 +79,14 @@
 }
 
 - (void)addTextField:(UITextField *)textField imageName:(NSString *)imageName{
+    [textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     textField.delegate = self;
+    textField.font = [UIFont systemFontOfSize:16.0];
+    textField.textColor = [UIColor whiteColor];
+    [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    textField.backgroundColor = RGBA(0xff, 0xff, 0xff, 0.2);
+    [AppPublic roundCornerRadius:textField];
+    
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, textField.height)];
     leftView.backgroundColor = [UIColor clearColor];
     
@@ -96,6 +96,31 @@
     
     textField.leftView = leftView;
     textField.leftViewMode = UITextFieldViewModeAlways;
+    
+    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, textField.height)];
+    rightView.backgroundColor = [UIColor clearColor];
+    
+    if ([textField isEqual:self.usernameTextField]) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"输入清楚按钮"] forState:UIControlStateNormal];
+        btn.frame = CGRectMake(0, 0, 40, 40);
+        btn.center = CGPointMake(0.4 * rightView.width, 0.5 * rightView.height);
+        [rightView addSubview:btn];
+        btn.tag = 10;
+        [btn addTarget:self action:@selector(textFiledBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    else if ([textField isEqual:self.passwordTextField]) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"密码不可见"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"密码可见"] forState:UIControlStateSelected];
+        btn.frame = CGRectMake(0, 0, 40, 40);
+        btn.center = CGPointMake(0.4 * rightView.width, 0.5 * rightView.height);
+        [rightView addSubview:btn];
+        btn.tag = 11;
+        [btn addTarget:self action:@selector(textFiledBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    textField.rightView = rightView;
 }
 
 - (void)loginAction{
@@ -128,8 +153,24 @@
     }
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [self updateBackgroundImageIsLandscape:UIInterfaceOrientationIsLandscape(toInterfaceOrientation)];
+- (void)textFiledBtnAction:(UIButton *)button {
+    switch (button.tag) {
+        case 10: {
+            self.usernameTextField.text = nil;
+            [self textFieldDidChange:self.usernameTextField];
+            [self.usernameTextField becomeFirstResponder];
+        }
+            break;
+            
+        case 11: {
+            button.selected = !button.selected;
+            self.passwordTextField.secureTextEntry = !button.selected;
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)updateBackgroundImageIsLandscape:(BOOL)isLandscape {
@@ -137,6 +178,10 @@
 }
 
 #pragma textfield
+- (void)textFieldDidChange :(UITextField *)textField{
+    textField.rightViewMode = textField.text.length ? UITextFieldViewModeAlways : UITextFieldViewModeNever;
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     NSUInteger length = 32;
     return range.location < length;
