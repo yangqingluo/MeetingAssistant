@@ -17,6 +17,10 @@
 
 @implementation LoginViewController
 
+- (void)dealloc{
+    [self.usernameTextField removeObserver:self forKeyPath:@"text"];
+}
+
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self updateBackgroundImageIsLandscape:UIInterfaceOrientationIsLandscape(toInterfaceOrientation)];
 }
@@ -68,6 +72,7 @@
     [self.view addSubview:loginButton];
     [AppPublic roundCornerRadius:loginButton];
     
+    [self.usernameTextField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.usernameTextField.text = [ud objectForKey:kUserName];
     
@@ -157,7 +162,6 @@
     switch (button.tag) {
         case 10: {
             self.usernameTextField.text = nil;
-            [self textFieldDidChange:self.usernameTextField];
             [self.usernameTextField becomeFirstResponder];
         }
             break;
@@ -177,7 +181,7 @@
     self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:isLandscape ? @"登录页面背景图-横版" : @"登录界面竖版背景图"].CGImage);
 }
 
-#pragma textfield
+#pragma mark - textfield
 - (void)textFieldDidChange :(UITextField *)textField{
     textField.rightViewMode = textField.text.length ? UITextFieldViewModeAlways : UITextFieldViewModeNever;
 }
@@ -185,6 +189,15 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     NSUInteger length = 32;
     return range.location < length;
+}
+
+#pragma mark - kvo
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if([keyPath isEqualToString:@"text"]){
+        if ([object isEqual:self.usernameTextField]) {
+            [self textFieldDidChange:object];
+        }
+    }
 }
 
 @end

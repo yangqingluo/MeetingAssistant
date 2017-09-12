@@ -180,6 +180,11 @@
 		E4E3A3001F67B32B00019065 /* 配置按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */; };
 		E4E3A3031F67C3B500019065 /*  JLinXin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A3021F67C3B500019065 /*  JLinXin.ttf */; };
 		E4E3A3061F67EC7600019065 /* PublicNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A3051F67EC7600019065 /* PublicNavViewController.m */; };
+		E4E86BE21F68264E008D6C53 /* AppBasicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BE11F68264E008D6C53 /* AppBasicCollectionViewController.m */; };
+		E4E86BE51F68269E008D6C53 /* LongPressFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BE41F68269E008D6C53 /* LongPressFlowLayout.m */; };
+		E4E86BE81F682713008D6C53 /* MeetingRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BE71F682713008D6C53 /* MeetingRoomsViewController.m */; };
+		E4E86BEB1F6827A9008D6C53 /* MeetingRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */; };
+		E4E86BEF1F682FD9008D6C53 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BEE1F682FD9008D6C53 /* JXTAlertController.m */; };
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -427,6 +432,16 @@
 		E4E3A3021F67C3B500019065 /*  JLinXin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = " JLinXin.ttf"; sourceTree = "<group>"; };
 		E4E3A3041F67EC7600019065 /* PublicNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicNavViewController.h; sourceTree = "<group>"; };
 		E4E3A3051F67EC7600019065 /* PublicNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicNavViewController.m; sourceTree = "<group>"; };
+		E4E86BE01F68264E008D6C53 /* AppBasicCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicCollectionViewController.h; sourceTree = "<group>"; };
+		E4E86BE11F68264E008D6C53 /* AppBasicCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicCollectionViewController.m; sourceTree = "<group>"; };
+		E4E86BE31F68269E008D6C53 /* LongPressFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongPressFlowLayout.h; sourceTree = "<group>"; };
+		E4E86BE41F68269E008D6C53 /* LongPressFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongPressFlowLayout.m; sourceTree = "<group>"; };
+		E4E86BE61F682713008D6C53 /* MeetingRoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingRoomsViewController.h; sourceTree = "<group>"; };
+		E4E86BE71F682713008D6C53 /* MeetingRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingRoomsViewController.m; sourceTree = "<group>"; };
+		E4E86BE91F6827A9008D6C53 /* MeetingRoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingRoomCell.h; sourceTree = "<group>"; };
+		E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingRoomCell.m; sourceTree = "<group>"; };
+		E4E86BED1F682FD9008D6C53 /* JXTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertController.h; sourceTree = "<group>"; };
+		E4E86BEE1F682FD9008D6C53 /* JXTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertController.m; sourceTree = "<group>"; };
 		E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E4ECD3B01F678941005AE1B1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -467,6 +482,8 @@
 				E45A78431F58F801006BD787 /* ViewController.m */,
 				E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */,
 				E4ECD3B01F678941005AE1B1 /* LoginViewController.m */,
+				E4E86BE61F682713008D6C53 /* MeetingRoomsViewController.h */,
+				E4E86BE71F682713008D6C53 /* MeetingRoomsViewController.m */,
 				E4E3A1481F67B0EB00019065 /* CustomParty */,
 				E4E3A16F1F67B0EB00019065 /* ThirdParty */,
 				E45A78451F58F801006BD787 /* Main.storyboard */,
@@ -536,10 +553,14 @@
 		E4E3A15F1F67B0EB00019065 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E4E86BE31F68269E008D6C53 /* LongPressFlowLayout.h */,
+				E4E86BE41F68269E008D6C53 /* LongPressFlowLayout.m */,
 				E4E3A1641F67B0EB00019065 /* UIButton+ImageAndText.h */,
 				E4E3A1651F67B0EB00019065 /* UIButton+ImageAndText.m */,
 				E4E3A1661F67B0EB00019065 /* UIView+KGViewExtend.h */,
 				E4E3A1671F67B0EB00019065 /* UIView+KGViewExtend.m */,
+				E4E86BE91F6827A9008D6C53 /* MeetingRoomCell.h */,
+				E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,6 +568,8 @@
 		E4E3A1681F67B0EB00019065 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E4E86BE01F68264E008D6C53 /* AppBasicCollectionViewController.h */,
+				E4E86BE11F68264E008D6C53 /* AppBasicCollectionViewController.m */,
 				E4E3A1691F67B0EB00019065 /* AppBasicTableViewController.h */,
 				E4E3A16A1F67B0EB00019065 /* AppBasicTableViewController.m */,
 				E4E3A16B1F67B0EB00019065 /* AppBasicViewController.h */,
@@ -560,6 +583,7 @@
 		E4E3A16F1F67B0EB00019065 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E4E86BEC1F682FD9008D6C53 /* AlertController */,
 				E4E3A1F91F67B1D500019065 /* AFNetworking */,
 				E4E3A1921F67B1A000019065 /* GCD */,
 				E4E3A1971F67B1A100019065 /* IQKeyboardManager */,
@@ -893,6 +917,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		E4E86BEC1F682FD9008D6C53 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				E4E86BED1F682FD9008D6C53 /* JXTAlertController.h */,
+				E4E86BEE1F682FD9008D6C53 /* JXTAlertController.m */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1084,13 +1117,16 @@
 				E4E3A17F1F67B0EB00019065 /* QKNetworkSingleton.m in Sources */,
 				E4E3A21F1F67B1D500019065 /* AFSecurityPolicy.m in Sources */,
 				E4E3A1EB1F67B1A100019065 /* MBProgressHUD+TVAssistant.m in Sources */,
+				E4E86BE81F682713008D6C53 /* MeetingRoomsViewController.m in Sources */,
 				E4E3A3061F67EC7600019065 /* PublicNavViewController.m in Sources */,
+				E4E86BEF1F682FD9008D6C53 /* JXTAlertController.m in Sources */,
 				E4E3A1F41F67B1A100019065 /* NSObject+MJClass.m in Sources */,
 				E4E3A1DF1F67B1A100019065 /* IQUIView+Hierarchy.m in Sources */,
 				E4E3A1F81F67B1A100019065 /* NSString+MJExtension.m in Sources */,
 				E4E3A2251F67B1D500019065 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E4E3A1DC1F67B1A100019065 /* IQNSArray+Sort.m in Sources */,
 				E4E3A2201F67B1D500019065 /* AFURLRequestSerialization.m in Sources */,
+				E4E86BE51F68269E008D6C53 /* LongPressFlowLayout.m in Sources */,
 				E45A78441F58F801006BD787 /* ViewController.m in Sources */,
 				E4E3A1891F67B0EB00019065 /* UIView+KGViewExtend.m in Sources */,
 				E4E3A1EF1F67B1A100019065 /* MJExtensionConst.m in Sources */,
@@ -1127,7 +1163,9 @@
 				E4E3A1F31F67B1A100019065 /* MJPropertyType.m in Sources */,
 				E4E3A1ED1F67B1A100019065 /* UIViewController+HUD.m in Sources */,
 				E4E3A21D1F67B1D500019065 /* AFHTTPSessionManager.m in Sources */,
+				E4E86BEB1F6827A9008D6C53 /* MeetingRoomCell.m in Sources */,
 				E4E3A1F01F67B1A100019065 /* MJFoundation.m in Sources */,
+				E4E86BE21F68264E008D6C53 /* AppBasicCollectionViewController.m in Sources */,
 				E4E3A1EC1F67B1A100019065 /* MBProgressHUD.m in Sources */,
 				E45A783E1F58F801006BD787 /* main.m in Sources */,
 				E4E3A1F71F67B1A100019065 /* NSObject+MJProperty.m in Sources */,

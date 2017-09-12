@@ -203,13 +203,10 @@ NSString *httpRespString(NSError *error, NSObject *object){
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(QKNetworkBlock)completion {
-    NSDictionary *m_dic = @{@"login_code" : username, @"login_pass" : password, @"login_type" : @3};//登录方式：1安卓手机、2安卓平板、3苹果手机、4苹果平板、5电脑
-    [self Get:m_dic HeadParm:nil URLFooter:@"/login/login.do" completion:^(id responseBody, NSError *error){
-        if (!error) {
-            [[AppPublic getInstance] loginDoneWithUserData:responseBody username:username password:password];
-        }
-        completion(responseBody, error);
-    }];
+    NSError *error = nil;
+    id responseBody = @{@"user_id" : @"testID", @"user_name" : @"yangqingluo"};
+    [[AppPublic getInstance] loginDoneWithUserData:responseBody username:username password:password];
+    completion(responseBody, error);
 }
 
 #pragma mark - private

@@ -10,6 +10,7 @@
 #import "UIImage+Color.h"
 
 #import "LoginViewController.h"
+#import "MeetingRoomsViewController.h"
 
 @interface AppPublic()
 
@@ -169,13 +170,13 @@ NSData *dataOfImageCompression(UIImage *image, BOOL isHead) {
 
 UIButton *NewBackButton(UIColor *color) {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *i = [UIImage imageNamed:@"nav_back"];
+    UIImage *i = [UIImage imageNamed:@"返回按钮"];
     if (color) {
         i = [i imageWithColor:color];
     }
     [btn setImage:i forState:UIControlStateNormal];
     [btn setFrame:CGRectMake(0, 0, 64, 44)];
-    btn.imageEdgeInsets = UIEdgeInsetsMake(10, kEdge, 10, 64 - kEdge - 14);
+//    btn.imageEdgeInsets = UIEdgeInsetsMake(10, kEdge, 10, 64 - kEdge - 14);
     return btn;
 }
 
@@ -316,8 +317,8 @@ NSString *stringFromDate(NSDate *date, NSString *format) {
 }
 
 - (void)goToMainVC {
-//    [UserPublic getInstance].mainTabNav = [[MainTabNavController alloc] initWithRootViewController:[MainTabBarController new]];
-//    [[UIApplication sharedApplication].delegate window].rootViewController = [UserPublic getInstance].mainTabNav;
+    [UserPublic getInstance].mainNavVC = [[PublicNavViewController alloc] initWithRootViewController:[MeetingRoomsViewController new]];
+    [[UIApplication sharedApplication].delegate window].rootViewController = [UserPublic getInstance].mainNavVC;
 }
 
 - (void)goToLoginCompletion:(void (^)(void))completion {

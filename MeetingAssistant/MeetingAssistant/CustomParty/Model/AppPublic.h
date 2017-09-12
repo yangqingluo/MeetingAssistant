@@ -20,7 +20,7 @@
 
 #define RGBA(R, G, B, A) [UIColor colorWithRed:R / 255.f green:G / 255.f blue:B / 255.f alpha:A]
 
-#define MainColor                    RGBA(0x00, 0xbc, 0xd4, 1.0)
+#define MainColor                    RGBA(0x2C, 0x2E, 0x37, 1.0)
 #define AuxiliaryColor               RGBA(0x00, 0x97, 0xa7, 1.0)
 #define baseSeparatorColor           RGBA(0xdb, 0xdb, 0xdb, 1.0)
 #define baseSeparatorAlphaColor      RGBA(0xdb, 0xdb, 0xdb, 0.6)
