@@ -178,6 +178,7 @@
 		E4E3A2FE1F67B32B00019065 /* 配置按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2951F67B32B00019065 /* 配置按钮.png */; };
 		E4E3A2FF1F67B32B00019065 /* 配置按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */; };
 		E4E3A3001F67B32B00019065 /* 配置按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */; };
+		E4E3A3031F67C3B500019065 /*  JLinXin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A3021F67C3B500019065 /*  JLinXin.ttf */; };
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -422,6 +423,7 @@
 		E4E3A2951F67B32B00019065 /* 配置按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮.png"; sourceTree = "<group>"; };
 		E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@2x.png"; sourceTree = "<group>"; };
 		E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@3x.png"; sourceTree = "<group>"; };
+		E4E3A3021F67C3B500019065 /*  JLinXin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = " JLinXin.ttf"; sourceTree = "<group>"; };
 		E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E4ECD3B01F678941005AE1B1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -752,6 +754,7 @@
 		E4E3A22C1F67B32B00019065 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E4E3A3011F67C3B500019065 /* Fonts */,
 				E4E3A22D1F67B32B00019065 /* Pics */,
 			);
 			path = Resource;
@@ -875,6 +878,14 @@
 				E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		E4E3A3011F67C3B500019065 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E4E3A3021F67C3B500019065 /*  JLinXin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1034,6 +1045,7 @@
 				E4E3A2A41F67B32B00019065 /* 会议室背景色块.png in Resources */,
 				E4E3A2FD1F67B32B00019065 /* 选择字体右上角角标@3x.png in Resources */,
 				E4E3A2F41F67B32B00019065 /* 网络不给力@3x.png in Resources */,
+				E4E3A3031F67C3B500019065 /*  JLinXin.ttf in Resources */,
 				E4E3A2F71F67B32B00019065 /* 输入清楚按钮@3x.png in Resources */,
 				E4E3A2B31F67B32B00019065 /* 删除内容按钮背景.png in Resources */,
 				E4E3A2A21F67B32B00019065 /* 会议室图标3@2x.png in Resources */,

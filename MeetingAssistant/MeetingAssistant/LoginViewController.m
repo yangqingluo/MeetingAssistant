@@ -19,58 +19,61 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"背景"]];
+    self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"登录页面背景图-横版"].CGImage);
     
-    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"登录界面logo"]];
     if (logoView.width > 0.25 * screen_width) {
         logoView.frame = CGRectMake(0, 0, 0.25 * screen_width, 0.25 * screen_width);
     }
-    logoView.center = CGPointMake(0.5 * screen_width, 40 + 0.5 * logoView.height);
+    logoView.center = CGPointMake(0.5 * screen_width, 136 + 0.5 * logoView.height);
     [self.view addSubview:logoView];
     
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, logoView.bottom + 10, screen_width, 20)];
-    nameLabel.textColor = [UIColor blackColor];
-    nameLabel.font = [UIFont systemFontOfSize:14.0];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, logoView.bottom + 40, screen_width, 24)];
+    nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.font = [UIFont fontWithName:@"JLinXin" size:24];
     nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.text = @"文轩零售事业部CRM系统";
+    nameLabel.text = @"会议小助手";
     [self.view addSubview:nameLabel];
     
     float inputHeight = 50;
-    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 30, screen_width, inputHeight * 2)];
-    inputView.backgroundColor = [UIColor whiteColor];
+    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 58, screen_width * 390 / 1024, inputHeight * 2 + 20)];
+    inputView.centerX = 0.5 * screen_width;
+    inputView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:inputView];
     
-    self.usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(kEdge, 0, inputView.width - 2 * kEdge, 44)];
+    self.usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, inputView.width, inputHeight)];
     self.usernameTextField.centerY = 0.5 * inputHeight;
     self.usernameTextField.placeholder = @"请输入用户名";
-    self.usernameTextField.font = [UIFont systemFontOfSize:14.0];
+    self.usernameTextField.font = [UIFont systemFontOfSize:16.0];
+    self.usernameTextField.textColor = [UIColor whiteColor];
+    [self.usernameTextField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    self.usernameTextField.backgroundColor = RGBA(0xff, 0xff, 0xff, 0.2);
     self.usernameTextField.keyboardType = UIKeyboardTypeASCIICapable;
     self.usernameTextField.clearButtonMode = UITextFieldViewModeAlways;
     [inputView addSubview:self.usernameTextField];
-    [self addTextField:self.usernameTextField imageName:@"用户名"];
+    [self addTextField:self.usernameTextField imageName:@"用户名图标"];
+    [AppPublic roundCornerRadius:self.usernameTextField];
     
-    self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(kEdge, 0, inputView.width - 2 * kEdge, 44)];
-    self.passwordTextField.centerY = 1.5 * inputHeight;
+    self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, inputView.width, inputHeight)];
+    self.passwordTextField.bottom = inputView.height;
     self.passwordTextField.placeholder = @"请输入密码";
     self.passwordTextField.font = [UIFont systemFontOfSize:14.0];
+    self.passwordTextField.textColor = [UIColor whiteColor];
+    [self.passwordTextField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    self.passwordTextField.backgroundColor = RGBA(0xff, 0xff, 0xff, 0.2);
     self.passwordTextField.secureTextEntry = YES;
     self.passwordTextField.clearButtonMode = UITextFieldViewModeAlways;
     [inputView addSubview:self.passwordTextField];
-    [self addTextField:self.passwordTextField imageName:@"密码"];
-    
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, inputView.width, 1)];
-    lineView.backgroundColor = baseSeparatorColor;
-    lineView.center = CGPointMake(0.5 * inputView.width, 0.5 * inputView.height);
-    [inputView addSubview:lineView];
+    [self addTextField:self.passwordTextField imageName:@"密码图标"];
+    [AppPublic roundCornerRadius:self.passwordTextField];
     
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginButton.frame = CGRectMake(kEdgeBig, inputView.bottom + 30, screen_width - 2 * kEdgeBig, 40);
-    loginButton.backgroundColor = baseRedColor;
+    loginButton.frame = CGRectMake(inputView.left, inputView.bottom + 50, inputView.width, 50);
+    [loginButton setBackgroundImage:[UIImage imageNamed:@"登录按钮背景"] forState:UIControlStateNormal];
     [loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [loginButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    loginButton.layer.cornerRadius = kButtonCornerRadius;
-    loginButton.layer.masksToBounds = YES;
+    loginButton.titleLabel.font = [UIFont systemFontOfSize:20];
     [loginButton addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
     
@@ -84,12 +87,11 @@
 
 - (void)addTextField:(UITextField *)textField imageName:(NSString *)imageName{
     textField.delegate = self;
-    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, textField.height)];
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, textField.height)];
     leftView.backgroundColor = [UIColor clearColor];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    imageView.centerY = 0.5 * leftView.height;
-    imageView.image = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    imageView.center = CGPointMake(0.6 * leftView.width, 0.5 * leftView.height);
     [leftView addSubview:imageView];
     
     textField.leftView = leftView;
