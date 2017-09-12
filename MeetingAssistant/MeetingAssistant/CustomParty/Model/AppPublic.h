@@ -90,11 +90,6 @@ typedef enum : NSUInteger {
 
 typedef void(^DoneBlock)(NSObject *object);
 
-static void uncaughtExceptionHandler(NSException *exception) {
-    NSLog(@"CRASH: %@", exception);
-    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
-}
-
 @interface AppPublic : NSObject
 
 //应用名称

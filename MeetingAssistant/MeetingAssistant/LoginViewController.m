@@ -47,7 +47,6 @@
     self.usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, inputView.width, inputHeight)];
     self.usernameTextField.centerY = 0.5 * inputHeight;
     self.usernameTextField.placeholder = @"请输入用户名";
-    self.usernameTextField.keyboardType = UIKeyboardTypeASCIICapable;
     [inputView addSubview:self.usernameTextField];
     [self addTextField:self.usernameTextField imageName:@"用户名图标"];
     
@@ -81,6 +80,7 @@
 - (void)addTextField:(UITextField *)textField imageName:(NSString *)imageName{
     [textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     textField.delegate = self;
+    textField.keyboardType = UIKeyboardTypeASCIICapable;
     textField.font = [UIFont systemFontOfSize:16.0];
     textField.textColor = [UIColor whiteColor];
     [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
