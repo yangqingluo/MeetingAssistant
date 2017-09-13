@@ -1,6 +1,5 @@
 //
 //  UserPublic.h
-//  YunConsignEnterprise
 //
 //  Created by 7kers on 2017/9/7.
 //  Copyright © 2017年 yangqingluo. All rights reserved.
@@ -14,6 +13,9 @@
 + (UserPublic *)getInstance;
 
 @property (strong, nonatomic) PublicNavViewController *mainNavVC;
+
+//默认用户组
+@property (strong, nonatomic) NSDictionary *adminUsers;
 
 //用户登陆数据
 @property (strong, nonatomic) AppUserInfo *userData;

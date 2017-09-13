@@ -15,6 +15,12 @@
 		E45A78491F58F801006BD787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E45A78481F58F801006BD787 /* Assets.xcassets */; };
 		E45A784C1F58F801006BD787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45A784A1F58F801006BD787 /* LaunchScreen.storyboard */; };
 		E45B93D81F690EE600C67AA9 /* UICollectionView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */; };
+		E4B3A8BD1F692A9600055D12 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B31F692A9600055D12 /* FMDatabase.m */; };
+		E4B3A8BE1F692A9600055D12 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B51F692A9600055D12 /* FMDatabaseAdditions.m */; };
+		E4B3A8BF1F692A9600055D12 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B71F692A9600055D12 /* FMDatabasePool.m */; };
+		E4B3A8C01F692A9600055D12 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B91F692A9600055D12 /* FMDatabaseQueue.m */; };
+		E4B3A8C11F692A9600055D12 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8BC1F692A9600055D12 /* FMResultSet.m */; };
+		E4B3A8C41F692AB000055D12 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B3A8C31F692AB000055D12 /* libsqlite3.0.tbd */; };
 		E4E3A17C1F67B0EB00019065 /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A14B1F67B0EB00019065 /* AppPublic.m */; };
 		E4E3A17D1F67B0EB00019065 /* AppType.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A14D1F67B0EB00019065 /* AppType.m */; };
 		E4E3A17E1F67B0EB00019065 /* NSData+HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A14F1F67B0EB00019065 /* NSData+HTTPRequest.m */; };
@@ -205,6 +211,18 @@
 		E45A784D1F58F801006BD787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Empty.h"; sourceTree = "<group>"; };
 		E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Empty.m"; sourceTree = "<group>"; };
+		E4B3A8B21F692A9600055D12 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		E4B3A8B31F692A9600055D12 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		E4B3A8B41F692A9600055D12 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		E4B3A8B51F692A9600055D12 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		E4B3A8B61F692A9600055D12 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		E4B3A8B71F692A9600055D12 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		E4B3A8B81F692A9600055D12 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		E4B3A8B91F692A9600055D12 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		E4B3A8BA1F692A9600055D12 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		E4B3A8BB1F692A9600055D12 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		E4B3A8BC1F692A9600055D12 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		E4B3A8C31F692AB000055D12 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E4E3A1471F67B09000019065 /* MeetingAssistantPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingAssistantPrefix.pch; sourceTree = "<group>"; };
 		E4E3A14A1F67B0EB00019065 /* AppPublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPublic.h; sourceTree = "<group>"; };
 		E4E3A14B1F67B0EB00019065 /* AppPublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPublic.m; sourceTree = "<group>"; };
@@ -457,6 +475,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B3A8C41F692AB000055D12 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +496,7 @@
 			children = (
 				E45A783B1F58F801006BD787 /* MeetingAssistant */,
 				E45A783A1F58F801006BD787 /* Products */,
+				E4B3A8C21F692AB000055D12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -518,6 +538,32 @@
 				E4E3A1471F67B09000019065 /* MeetingAssistantPrefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4B3A8B11F692A9600055D12 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				E4B3A8B21F692A9600055D12 /* FMDatabase.h */,
+				E4B3A8B31F692A9600055D12 /* FMDatabase.m */,
+				E4B3A8B41F692A9600055D12 /* FMDatabaseAdditions.h */,
+				E4B3A8B51F692A9600055D12 /* FMDatabaseAdditions.m */,
+				E4B3A8B61F692A9600055D12 /* FMDatabasePool.h */,
+				E4B3A8B71F692A9600055D12 /* FMDatabasePool.m */,
+				E4B3A8B81F692A9600055D12 /* FMDatabaseQueue.h */,
+				E4B3A8B91F692A9600055D12 /* FMDatabaseQueue.m */,
+				E4B3A8BA1F692A9600055D12 /* FMDB.h */,
+				E4B3A8BB1F692A9600055D12 /* FMResultSet.h */,
+				E4B3A8BC1F692A9600055D12 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		E4B3A8C21F692AB000055D12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4B3A8C31F692AB000055D12 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E4E3A1481F67B0EB00019065 /* CustomParty */ = {
@@ -600,6 +646,7 @@
 		E4E3A16F1F67B0EB00019065 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E4B3A8B11F692A9600055D12 /* FMDB */,
 				E41EC1751F690202007D8BCA /* BlockAlertView */,
 				E4E86BEC1F682FD9008D6C53 /* AlertController */,
 				E4E3A1F91F67B1D500019065 /* AFNetworking */,
@@ -1129,6 +1176,7 @@
 				E4E3A1E31F67B1A100019065 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				E4E3A1DD1F67B1A100019065 /* IQUIScrollView+Additions.m in Sources */,
 				E4E3A22A1F67B1D500019065 /* UIRefreshControl+AFNetworking.m in Sources */,
+				E4B3A8BF1F692A9600055D12 /* FMDatabasePool.m in Sources */,
 				E4E3A2291F67B1D500019065 /* UIProgressView+AFNetworking.m in Sources */,
 				E4E3A1F11F67B1A100019065 /* MJProperty.m in Sources */,
 				E4E3A1851F67B0EB00019065 /* UserPublic.m in Sources */,
@@ -1147,6 +1195,7 @@
 				E4E86BE51F68269E008D6C53 /* LongPressFlowLayout.m in Sources */,
 				E45A78441F58F801006BD787 /* ViewController.m in Sources */,
 				E4E3A1891F67B0EB00019065 /* UIView+KGViewExtend.m in Sources */,
+				E4B3A8BE1F692A9600055D12 /* FMDatabaseAdditions.m in Sources */,
 				E4E3A1EF1F67B1A100019065 /* MJExtensionConst.m in Sources */,
 				E4E3A1F61F67B1A100019065 /* NSObject+MJKeyValue.m in Sources */,
 				E4E3A17E1F67B0EB00019065 /* NSData+HTTPRequest.m in Sources */,
@@ -1171,10 +1220,12 @@
 				E4E3A1F51F67B1A100019065 /* NSObject+MJCoding.m in Sources */,
 				E4E3A21E1F67B1D500019065 /* AFNetworkReachabilityManager.m in Sources */,
 				E4E3A2281F67B1D500019065 /* UIImageView+AFNetworking.m in Sources */,
+				E4B3A8C01F692A9600055D12 /* FMDatabaseQueue.m in Sources */,
 				E4E3A1E41F67B1A100019065 /* IQTextView.m in Sources */,
 				E4E3A2271F67B1D500019065 /* UIButton+AFNetworking.m in Sources */,
 				E4E3A18A1F67B0EB00019065 /* AppBasicTableViewController.m in Sources */,
 				E4E3A18B1F67B0EB00019065 /* AppBasicViewController.m in Sources */,
+				E4B3A8BD1F692A9600055D12 /* FMDatabase.m in Sources */,
 				E4E3A1DB1F67B1A100019065 /* GCDAsyncUdpSocket.m in Sources */,
 				E4E3A1E01F67B1A100019065 /* IQUIViewController+Additions.m in Sources */,
 				E4E3A1E51F67B1A100019065 /* IQBarButtonItem.m in Sources */,
@@ -1189,6 +1240,7 @@
 				E4E3A1EC1F67B1A100019065 /* MBProgressHUD.m in Sources */,
 				E45A783E1F58F801006BD787 /* main.m in Sources */,
 				E4E3A1F71F67B1A100019065 /* NSObject+MJProperty.m in Sources */,
+				E4B3A8C11F692A9600055D12 /* FMResultSet.m in Sources */,
 				E4E3A1F21F67B1A100019065 /* MJPropertyKey.m in Sources */,
 				E4E3A1E91F67B1A100019065 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				E4E3A2231F67B1D500019065 /* AFAutoPurgingImageCache.m in Sources */,

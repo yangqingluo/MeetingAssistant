@@ -49,13 +49,12 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
 - (void)goBack{
     [self jxt_showAlertWithTitle:@"确定要退出账号？" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
-        alertMaker.
-        addActionCancelTitle(@"取消").
-        addActionDestructiveTitle(@"确定");
-        [alertMaker alertAnimateDisabled];
+        alertMaker
+        .addActionCancelTitle(@"取消")
+        .addActionDefaultTitle(@"确定");
     } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
         if (buttonIndex == 1) {
-            [self logoutAction];
+            [[AppPublic getInstance] logout];
         }
     }];
     
@@ -68,12 +67,28 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 }
 
 - (void)creatButtonAction {
-    
+    [self jxt_showAlertWithTitle:@"创建会议室" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+        alertMaker
+        .addActionCancelTitle(@"取消")
+        .addActionDefaultTitle(@"确定");
+        [alertMaker addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"请输入会议室名称";
+        }];
+    } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+        if (buttonIndex == 1) {
+            UITextField *textField = alertSelf.textFields.firstObject;
+            [self doCreatMeetingRoomAction:textField.text];
+        }
+    }];
 }
 
-- (void)logoutAction {
-    [self showHudInView:self.view hint:nil];
-    [[AppPublic getInstance] logout];
+- (void)doCreatMeetingRoomAction:(NSString *)nameString {
+    if (!nameString.length) {
+        [self showHint:@"会议室名称不能为空"];
+        return;
+    }
+    
+    
 }
 
 #pragma mark - collection view

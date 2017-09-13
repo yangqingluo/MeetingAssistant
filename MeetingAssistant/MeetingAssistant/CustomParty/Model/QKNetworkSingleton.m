@@ -203,10 +203,31 @@ NSString *httpRespString(NSError *error, NSObject *object){
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(QKNetworkBlock)completion {
-    NSError *error = nil;
-    id responseBody = @{@"user_id" : @"testID", @"user_name" : @"yangqingluo"};
-    [[AppPublic getInstance] loginDoneWithUserData:responseBody username:username password:password];
-    completion(responseBody, error);
+    NSString *message = @"出错";
+    NSInteger code = 0;
+    id responseBody = nil;
+    NSDictionary *m_dic = [UserPublic getInstance].adminUsers[username];
+    if (m_dic) {
+        if ([password isEqualToString:m_dic[@"password"]]) {
+            NSString *key_id = @"user_id";
+            NSString *key_name = @"user_name";
+            responseBody = @{key_id : m_dic[key_id], key_name : username};
+        }
+        else {
+            message = @"密码错误";
+        }
+    }
+    else {
+        message = @"用户不存在";
+    }
+    
+    if (responseBody) {
+        [[AppPublic getInstance] loginDoneWithUserData:responseBody username:username password:password];
+        completion(responseBody, nil);
+    }
+    else {
+        completion(nil, [NSError errorWithDomain:@"com.MeetingAssitant.2017" code:code userInfo:@{@"message" : message}]);
+    }
 }
 
 #pragma mark - private
