@@ -29,7 +29,9 @@
     [super viewDidLoad];
     BOOL isLandscape = UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation);
     [self updateBackgroundImageIsLandscape:isLandscape];
-    CGFloat topY = isLandscape ? 136 * screen_height / 768 : 136 * screen_width / 768;
+    CGFloat orientationWidth = isLandscape ? 1024 : 768;
+    CGFloat orientationHeight = isLandscape ? 768 : 1024;
+    CGFloat topY = 136 * screen_height / orientationHeight;
     
     UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"登录界面logo"]];
     logoView.center = CGPointMake(0.5 * screen_width, topY + 0.5 * logoView.height);
@@ -43,7 +45,7 @@
     [self.view addSubview:nameLabel];
     
     float inputHeight = 50;
-    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 58, 390 * screen_width / 1024, inputHeight * 2 + 20)];
+    UIView *inputView = [[UIView alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 58, 390 * screen_width / orientationWidth, inputHeight * 2 + 20)];
     inputView.centerX = 0.5 * screen_width;
     inputView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:inputView];

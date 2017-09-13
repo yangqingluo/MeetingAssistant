@@ -10,6 +10,7 @@
 #import "JXTAlertController.h"
 
 #import "MeetingRoomCell.h"
+#import "BlockAlertView.h"
 
 static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
@@ -46,7 +47,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 }
 
 - (void)goBack{
-    [self jxt_showAlertWithTitle:@"确定要退出登录？" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+    [self jxt_showAlertWithTitle:@"确定要退出账号？" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
         alertMaker.
         addActionCancelTitle(@"取消").
         addActionDestructiveTitle(@"确定");
@@ -56,6 +57,13 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
             [self logoutAction];
         }
     }];
+    
+//    BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:@"确定要退出账号？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+//        if (buttonIndex == 1) {
+//            [self logoutAction];
+//        }
+//    }otherButtonTitles:@"确定", nil];
+//    [alert show];
 }
 
 - (void)creatButtonAction {
