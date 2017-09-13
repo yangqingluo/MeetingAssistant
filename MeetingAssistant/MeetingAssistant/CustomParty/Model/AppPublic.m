@@ -275,23 +275,23 @@ NSString *stringFromDate(NSDate *date, NSString *format) {
 
 //设置视图autoresizingMask
 + (void)autoresizeMaskFlexibleLeftAndRightMargin:(UIView *)view {
-//    view.autoresizingMask |= (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
-    // 禁止将 AutoresizingMask 转换为 Constraints
-    view.translatesAutoresizingMaskIntoConstraints = NO;
-    // 添加 width 约束
-    NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:view.width];
-    [view addConstraint:widthConstraint];
-    // 添加 height 约束
-    NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:view.height];
-    [view addConstraint:heightConstraint];
-    
-    // 添加 top 约束
-    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:view.top];
-    [view.superview addConstraint:topConstraint];
-    
-    // 添加 centerX 约束
-    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
-    [view.superview addConstraint:centerXConstraint];
+    view.autoresizingMask |= (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
+//    // 禁止将 AutoresizingMask 转换为 Constraints
+//    view.translatesAutoresizingMaskIntoConstraints = NO;
+//    // 添加 width 约束
+//    NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:view.width];
+//    [view addConstraint:widthConstraint];
+//    // 添加 height 约束
+//    NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:view.height];
+//    [view addConstraint:heightConstraint];
+//    
+//    // 添加 top 约束
+//    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:view.top];
+//    [view.superview addConstraint:topConstraint];
+//    
+//    // 添加 centerX 约束
+//    NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+//    [view.superview addConstraint:centerXConstraint];
 }
 
 //顶部状态栏颜色

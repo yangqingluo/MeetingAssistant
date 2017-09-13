@@ -14,6 +14,7 @@
 		E45A78471F58F801006BD787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45A78451F58F801006BD787 /* Main.storyboard */; };
 		E45A78491F58F801006BD787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E45A78481F58F801006BD787 /* Assets.xcassets */; };
 		E45A784C1F58F801006BD787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45A784A1F58F801006BD787 /* LaunchScreen.storyboard */; };
+		E45B93D81F690EE600C67AA9 /* UICollectionView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */; };
 		E4E3A17C1F67B0EB00019065 /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A14B1F67B0EB00019065 /* AppPublic.m */; };
 		E4E3A17D1F67B0EB00019065 /* AppType.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A14D1F67B0EB00019065 /* AppType.m */; };
 		E4E3A17E1F67B0EB00019065 /* NSData+HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A14F1F67B0EB00019065 /* NSData+HTTPRequest.m */; };
@@ -202,6 +203,8 @@
 		E45A78481F58F801006BD787 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E45A784B1F58F801006BD787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E45A784D1F58F801006BD787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Empty.h"; sourceTree = "<group>"; };
+		E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Empty.m"; sourceTree = "<group>"; };
 		E4E3A1471F67B09000019065 /* MeetingAssistantPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingAssistantPrefix.pch; sourceTree = "<group>"; };
 		E4E3A14A1F67B0EB00019065 /* AppPublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPublic.h; sourceTree = "<group>"; };
 		E4E3A14B1F67B0EB00019065 /* AppPublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPublic.m; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 				E4E3A1671F67B0EB00019065 /* UIView+KGViewExtend.m */,
 				E4E86BE91F6827A9008D6C53 /* MeetingRoomCell.h */,
 				E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */,
+				E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */,
+				E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1173,6 +1178,7 @@
 				E4E3A1DB1F67B1A100019065 /* GCDAsyncUdpSocket.m in Sources */,
 				E4E3A1E01F67B1A100019065 /* IQUIViewController+Additions.m in Sources */,
 				E4E3A1E51F67B1A100019065 /* IQBarButtonItem.m in Sources */,
+				E45B93D81F690EE600C67AA9 /* UICollectionView+Empty.m in Sources */,
 				E4E3A1F31F67B1A100019065 /* MJPropertyType.m in Sources */,
 				E4E3A1ED1F67B1A100019065 /* UIViewController+HUD.m in Sources */,
 				E4E3A21D1F67B1D500019065 /* AFHTTPSessionManager.m in Sources */,

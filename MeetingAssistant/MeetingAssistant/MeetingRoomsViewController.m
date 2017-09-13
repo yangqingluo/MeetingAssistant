@@ -9,6 +9,7 @@
 #import "MeetingRoomsViewController.h"
 #import "JXTAlertController.h"
 
+#import "UICollectionView+Empty.h"
 #import "MeetingRoomCell.h"
 #import "BlockAlertView.h"
 
@@ -77,7 +78,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
 #pragma mark - collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 0;
+    return [collectionView showContentWithMessage:@"未添加会议室\n请点击右上角\"添加\"按钮" image:[UIImage imageNamed:@"空状态图标"] forNumberOfItemsInSection:0];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
