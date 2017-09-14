@@ -8,6 +8,7 @@
 
 #import "MeetingRoomsViewController.h"
 #import "JXTAlertController.h"
+#import "RoomDetailViewController.h"
 
 #import "UICollectionView+Empty.h"
 #import "MeetingRoomCell.h"
@@ -28,10 +29,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     [self setupNav];
     
     [self.collectionView registerClass:[MeetingRoomCell class] forCellWithReuseIdentifier:identify_MeetingRoomCell];
-    QKWEAKSELF;
-    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakself refreshData];
-    }];
+    self.collectionView.alwaysBounceVertical = YES;
 }
 
 - (void)setupNav {
@@ -185,7 +183,9 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    RoomDetailViewController *vc = [RoomDetailViewController new];
+    vc.roomInfo = [UserPublic getInstance].roomsArray[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath {

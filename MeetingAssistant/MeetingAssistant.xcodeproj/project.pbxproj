@@ -213,6 +213,8 @@
 		E4EA4EBD1F6A529D0057179F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4EA81F6A529D0057179F /* UIScrollView+MJExtension.m */; };
 		E4EA4EBE1F6A529D0057179F /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4EAA1F6A529D0057179F /* UIScrollView+MJRefresh.m */; };
 		E4EA4EBF1F6A529D0057179F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4EAC1F6A529D0057179F /* UIView+MJExtension.m */; };
+		E4EA4EC21F6A83D00057179F /* RoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4EC11F6A83D00057179F /* RoomDetailViewController.m */; };
+		E4EA4EC51F6A84170057179F /* DeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4EC41F6A84170057179F /* DeviceCell.m */; };
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -526,6 +528,10 @@
 		E4EA4EAA1F6A529D0057179F /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		E4EA4EAB1F6A529D0057179F /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		E4EA4EAC1F6A529D0057179F /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		E4EA4EC01F6A83D00057179F /* RoomDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomDetailViewController.h; sourceTree = "<group>"; };
+		E4EA4EC11F6A83D00057179F /* RoomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDetailViewController.m; sourceTree = "<group>"; };
+		E4EA4EC31F6A84170057179F /* DeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceCell.h; sourceTree = "<group>"; };
+		E4EA4EC41F6A84170057179F /* DeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceCell.m; sourceTree = "<group>"; };
 		E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E4ECD3B01F678941005AE1B1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -579,6 +585,8 @@
 				E4ECD3B01F678941005AE1B1 /* LoginViewController.m */,
 				E4E86BE61F682713008D6C53 /* MeetingRoomsViewController.h */,
 				E4E86BE71F682713008D6C53 /* MeetingRoomsViewController.m */,
+				E4EA4EC01F6A83D00057179F /* RoomDetailViewController.h */,
+				E4EA4EC11F6A83D00057179F /* RoomDetailViewController.m */,
 				E4E3A1481F67B0EB00019065 /* CustomParty */,
 				E4E3A16F1F67B0EB00019065 /* ThirdParty */,
 				E45A78451F58F801006BD787 /* Main.storyboard */,
@@ -684,6 +692,8 @@
 				E4EA4E7E1F6A34500057179F /* QKBaseCollectionViewCell.m */,
 				E4E86BE91F6827A9008D6C53 /* MeetingRoomCell.h */,
 				E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */,
+				E4EA4EC31F6A84170057179F /* DeviceCell.h */,
+				E4EA4EC41F6A84170057179F /* DeviceCell.m */,
 				E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */,
 				E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */,
 			);
@@ -1375,6 +1385,7 @@
 				E4EA4EB11F6A529D0057179F /* MJRefreshHeader.m in Sources */,
 				E4E3A1E61F67B1A100019065 /* IQPreviousNextView.m in Sources */,
 				E4EA4EB41F6A529D0057179F /* MJRefreshAutoStateFooter.m in Sources */,
+				E4EA4EC21F6A83D00057179F /* RoomDetailViewController.m in Sources */,
 				E4E3A1801F67B0EB00019065 /* UIImage+Color.m in Sources */,
 				E4E3A1E11F67B1A100019065 /* IQUIWindow+Hierarchy.m in Sources */,
 				E4EA4EAD1F6A529D0057179F /* MJRefreshAutoFooter.m in Sources */,
@@ -1414,6 +1425,7 @@
 				E41EC1781F690202007D8BCA /* BlockAlertView.m in Sources */,
 				E4E3A1EC1F67B1A100019065 /* MBProgressHUD.m in Sources */,
 				E45A783E1F58F801006BD787 /* main.m in Sources */,
+				E4EA4EC51F6A84170057179F /* DeviceCell.m in Sources */,
 				E4E3A1F71F67B1A100019065 /* NSObject+MJProperty.m in Sources */,
 				E4B3A8C11F692A9600055D12 /* FMResultSet.m in Sources */,
 				E4E3A1F21F67B1A100019065 /* MJPropertyKey.m in Sources */,
