@@ -14,4 +14,6 @@
 @property (strong, nonatomic) UIView *baseView;
 @property (strong, nonatomic) UILabel *nameLabel;
 
+@property (copy, nonatomic) AppMeetingRoomInfo *roomInfo;
+
 @end

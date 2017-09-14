@@ -94,6 +94,24 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     }];
 }
 
+- (void)removeButtonAction:(UIButton *)button {
+    if (isEditing) {
+        [self updateEditState];
+    }
+    
+    [self jxt_showAlertWithTitle:@"删除会议室" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+        alertMaker
+        .addActionCancelTitle(@"取消")
+        .addActionDefaultTitle(@"确定");
+    } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+        if (buttonIndex == 1) {
+            [self doRemoveMeetingRoomAction:button.tag];
+        }
+    }];
+    
+    
+}
+
 - (void)doCreatMeetingRoomAction:(NSString *)nameString {
     if (!nameString.length) {
         [self showHint:@"会议室名称不能为空"];
@@ -101,11 +119,26 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     }
     
     [self showHudInView:self.view hint:nil];
-    BOOL result = [[UserPublic getInstance] creatMeetingRoomAction:nameString];
+    BOOL result = [[UserPublic getInstance] creatMeetingRoom:nameString];
     [self hideHud];
-    [self showHint:result ? @"创建成功" : @"创建失败"];
-    
-    [self.collectionView reloadData];
+    if (result) {
+        [self.collectionView reloadData];
+    }
+    else {
+        [self showHint:@"创建失败"];
+    }
+}
+
+- (void)doRemoveMeetingRoomAction:(NSUInteger)index {
+    [self showHudInView:self.view hint:nil];
+    BOOL result = [[UserPublic getInstance] removeMeetingRoom:index];
+    [self hideHud];
+    if (result) {
+        [self.collectionView reloadData];
+    }
+    else {
+        [self showHint:@"删除失败"];
+    }
 }
 
 - (void)refreshData{
@@ -135,7 +168,12 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MeetingRoomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify_MeetingRoomCell forIndexPath:indexPath];
+    if (!cell.removeButton.allTargets.count) {
+        [cell.removeButton addTarget:self action:@selector(removeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    cell.roomInfo = [UserPublic getInstance].roomsArray[indexPath.row];
     cell.removeButton.hidden = !isEditing;
+    cell.removeButton.tag = indexPath.row;
     if (isEditing) {
         [cell startAnimation];
     }

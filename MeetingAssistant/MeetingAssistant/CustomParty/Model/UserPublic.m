@@ -57,14 +57,26 @@ __strong static UserPublic *_singleManger = nil;
     _singleManger = nil;
 }
 
-- (BOOL)creatMeetingRoomAction:(NSString *)nameString {
-    if (!nameString.length) {
+- (BOOL)creatMeetingRoom:(NSString *)name {
+    if (!name.length) {
         return NO;
     }
     
-    BOOL result = [self.fmdb executeUpdate:@"INSERT INTO meeting_room (user_id, room_name, room_image) VALUES (?, ?, ?);", self.userData.user_id, nameString, [NSString stringWithFormat:@"会议室图标%@", @(RandomInAggregate(1, 3))]];
+    BOOL result = [self.fmdb executeUpdate:@"INSERT INTO meeting_room (user_id, room_name, room_image) VALUES (?, ?, ?)", self.userData.user_id, name, [NSString stringWithFormat:@"会议室图标%@", @(RandomInAggregate(1, 3))]];
     if (result) {
         _roomsArray = nil;
+    }
+    return result;
+}
+
+- (BOOL)removeMeetingRoom:(NSUInteger)index {
+    if (index >= self.roomsArray.count) {
+        return NO;
+    }
+    AppMeetingRoomInfo *room = self.roomsArray[index];
+    BOOL result = [self.fmdb executeUpdate:@"DELETE FROM meeting_room WHERE room_id = ?", room.room_id];
+    if (result) {
+        [self.roomsArray removeObjectAtIndex:index];
     }
     return result;
 }
@@ -108,9 +120,7 @@ __strong static UserPublic *_singleManger = nil;
 - (NSMutableArray *)roomsArray {
     if (!_roomsArray) {
         _roomsArray = [NSMutableArray new];
-        FMResultSet *resultSet = [self.fmdb executeQuery:@"SELECT * FROM meeting_room"];
-        
-        //遍历结果
+        FMResultSet *resultSet = [self.fmdb executeQuery:@"SELECT * FROM meeting_room WHERE user_id = ?", self.userData.user_id];
         while ([resultSet next]) {
             NSDictionary *dic = resultSet.resultDictionary;
             [_roomsArray addObject:[AppMeetingRoomInfo mj_objectWithKeyValues:dic]];

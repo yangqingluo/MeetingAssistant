@@ -27,6 +27,8 @@
 //清除用户数据
 - (void)clear;
 //创建会议室
-- (BOOL)creatMeetingRoomAction:(NSString *)nameString;
+- (BOOL)creatMeetingRoom:(NSString *)name;
+//删除会议室
+- (BOOL)removeMeetingRoom:(NSUInteger)index;
 
 @end

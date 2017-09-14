@@ -39,16 +39,15 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         NSUInteger countH = 3;
-        double width = (screen_width - (countH + 1) * kEdgeMiddle) / countH;
-        
         LongPressFlowLayout *flowLayout = [[LongPressFlowLayout alloc] init];
-        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
         flowLayout.headerReferenceSize = CGSizeMake(0, 20);
-        flowLayout.footerReferenceSize = CGSizeMake(0, 5);
-        flowLayout.itemSize = CGSizeMake(width, width + 60);
-//        flowLayout.minimumInteritemSpacing = 1;
-        flowLayout.minimumLineSpacing = kEdgeSmall;
-        flowLayout.sectionInset = UIEdgeInsetsMake(kEdgeSmall, kEdgeMiddle, 0, kEdgeMiddle);
+        flowLayout.footerReferenceSize = CGSizeMake(0, 10);
+        flowLayout.minimumInteritemSpacing = 19;
+        flowLayout.minimumLineSpacing = 25;
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 16, 0, 16);
+        double width = (screen_width - 2 * 16 - (countH - 1) * flowLayout.minimumInteritemSpacing) / countH;
+        flowLayout.itemSize = CGSizeMake(width, 112);
         
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, screen_width, self.view.height - STATUS_BAR_HEIGHT) collectionViewLayout:flowLayout];
         

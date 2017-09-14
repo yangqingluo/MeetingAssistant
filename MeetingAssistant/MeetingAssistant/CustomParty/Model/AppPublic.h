@@ -56,11 +56,11 @@
 #define appSeparaterLineSize         1.0//分割线尺寸
 #define appPageSize                  20//获取分页数据时分页size
 
-#define kEdgeSmall                   4.0
-#define kEdge                        8.0
-#define kEdgeMiddle                  12.0
-#define kEdgeBig                     16.0
-#define kEdgeHuge                    28.0
+#define kEdgeSmall                   5.0
+#define kEdge                        10.0
+#define kEdgeMiddle                  15.0
+#define kEdgeBig                     20.0
+#define kEdgeHuge                    30.0
 
 
 #define cellDetailLeft               (kEdgeMiddle + 80 + kEdge)
