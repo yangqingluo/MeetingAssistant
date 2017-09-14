@@ -10,8 +10,11 @@
 #import "UIImage+Color.h"
 #import "UIViewController+HUD.h"
 #import "AppType.h"
-#import "MJExtension.h"
 #import "QKNetworkSingleton.h"
+//json解析
+#import "MJExtension.h"
+//下拉刷新
+#import "MJRefresh.h"
 
 #define screen_width [UIScreen mainScreen].bounds.size.width
 #define screen_height [UIScreen mainScreen].bounds.size.height

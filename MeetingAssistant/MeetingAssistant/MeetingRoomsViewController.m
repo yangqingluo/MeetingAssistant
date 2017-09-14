@@ -15,7 +15,9 @@
 
 static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
-@interface MeetingRoomsViewController ()
+@interface MeetingRoomsViewController () {
+    BOOL isEditing;
+}
 
 @end
 
@@ -26,6 +28,10 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     [self setupNav];
     
     [self.collectionView registerClass:[MeetingRoomCell class] forCellWithReuseIdentifier:identify_MeetingRoomCell];
+    QKWEAKSELF;
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself refreshData];
+    }];
 }
 
 - (void)setupNav {
@@ -48,6 +54,9 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 }
 
 - (void)goBack{
+    if (isEditing) {
+        [self updateEditState];
+    }
     [self jxt_showAlertWithTitle:@"确定要退出账号？" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
         alertMaker
         .addActionCancelTitle(@"取消")
@@ -67,6 +76,9 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 }
 
 - (void)creatButtonAction {
+    if (isEditing) {
+        [self updateEditState];
+    }
     [self jxt_showAlertWithTitle:@"创建会议室" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
         alertMaker
         .addActionCancelTitle(@"取消")
@@ -96,6 +108,26 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     [self.collectionView reloadData];
 }
 
+- (void)refreshData{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+            [self endRefreshing];
+        });
+    });
+}
+
+- (void)endRefreshing{
+    [self.collectionView.mj_header endRefreshing];
+    [self.collectionView.mj_footer endRefreshing];
+}
+
+- (void)updateEditState {
+    isEditing = !isEditing;
+    [self refreshData];
+}
+
 #pragma mark - collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [collectionView showContentWithMessage:@"未添加会议室\n请点击右上角\"添加\"按钮" image:[UIImage imageNamed:@"空状态图标"] forNumberOfItemsInSection:[UserPublic getInstance].roomsArray.count];
@@ -103,6 +135,13 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MeetingRoomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify_MeetingRoomCell forIndexPath:indexPath];
+    cell.removeButton.hidden = !isEditing;
+    if (isEditing) {
+        [cell startAnimation];
+    }
+    else {
+        [cell stopAnimation];
+    }
     
     return cell;
 }
@@ -111,18 +150,22 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     
 }
 
-#pragma mark - UICollectionViewDelegateFlowLayout
-//定义每个UICollectionView 的大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(collectionView.width / 2.0, collectionView.width / 2.0 + 44);
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self updateEditState];
 }
-//定义每个UICollectionView 的间距
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
-//定义每个UICollectionView 纵向的间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
-}
+
+//#pragma mark - UICollectionViewDelegateFlowLayout
+////定义每个UICollectionView 的大小
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    return CGSizeMake(collectionView.width / 2.0, collectionView.width / 2.0 + 44);
+//}
+////定义每个UICollectionView 的间距
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+//    return UIEdgeInsetsMake(0, 0, 0, 0);
+//}
+////定义每个UICollectionView 纵向的间距
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 0;
+//}
 
 @end

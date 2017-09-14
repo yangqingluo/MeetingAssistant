@@ -19,8 +19,7 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
 @implementation LongPressFlowLayout
 
 - (void)setupCollectionView {
-    _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                                                action:@selector(handleLongPressGesture:)];
+    _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     _longPressGestureRecognizer.delegate = self;
     
     // Links the default long press gesture recognizer to the custom long press gesture recognizer we are creating now
@@ -30,7 +29,6 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
             [gestureRecognizer requireGestureRecognizerToFail:_longPressGestureRecognizer];
         }
     }
-    
     [self.collectionView addGestureRecognizer:_longPressGestureRecognizer];
 }
 
@@ -44,7 +42,6 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
         _longPressGestureRecognizer.delegate = nil;
         _longPressGestureRecognizer = nil;
     }
-    
 }
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
@@ -89,13 +86,13 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
     [self tearDownCollectionView];
     [self removeObserver:self forKeyPath:kLXCollectionViewKeyPath];
 }
+
 #pragma getter
 - (id<LongPressCollectionViewDelegateFlowLayout>)delegate {
     return (id<LongPressCollectionViewDelegateFlowLayout>)self.collectionView.delegate;
 }
 
 #pragma mark - UIGestureRecognizerDelegate methods
-
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     return YES;
 }
@@ -105,7 +102,6 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
 //}
 
 #pragma mark kvo
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:kLXCollectionViewKeyPath]) {
         if (self.collectionView != nil) {

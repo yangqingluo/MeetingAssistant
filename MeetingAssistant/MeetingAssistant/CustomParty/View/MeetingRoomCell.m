@@ -17,6 +17,7 @@
         self.baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
         self.baseView.backgroundColor = lightWhiteColor;
         [self.contentView addSubview:self.baseView];
+        [self.contentView bringSubviewToFront:self.removeButton];
         
         self.imgView.frame = CGRectMake(0, 0, self.baseView.width, self.baseView.width);
 //        self.imgView.contentMode = UIViewContentModeScaleToFill;

@@ -15,6 +15,15 @@
 
 @implementation AppBasicCollectionViewController
 
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -29,15 +38,15 @@
 #pragma mark - getter
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        NSUInteger countH = 2;
+        NSUInteger countH = 3;
         double width = (screen_width - (countH + 1) * kEdgeMiddle) / countH;
         
         LongPressFlowLayout *flowLayout = [[LongPressFlowLayout alloc] init];
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        flowLayout.headerReferenceSize = CGSizeMake(0, 0);
-        flowLayout.footerReferenceSize = CGSizeMake(0, 0);
+        flowLayout.headerReferenceSize = CGSizeMake(0, 20);
+        flowLayout.footerReferenceSize = CGSizeMake(0, 5);
         flowLayout.itemSize = CGSizeMake(width, width + 60);
-        //        flowLayout.minimumInteritemSpacing = 1;
+//        flowLayout.minimumInteritemSpacing = 1;
         flowLayout.minimumLineSpacing = kEdgeSmall;
         flowLayout.sectionInset = UIEdgeInsetsMake(kEdgeSmall, kEdgeMiddle, 0, kEdgeMiddle);
         

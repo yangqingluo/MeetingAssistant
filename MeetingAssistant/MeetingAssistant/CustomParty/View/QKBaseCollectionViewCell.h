@@ -12,4 +12,7 @@
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UIButton *removeButton;
 
+- (void)startAnimation;
+- (void)stopAnimation;
+
 @end
