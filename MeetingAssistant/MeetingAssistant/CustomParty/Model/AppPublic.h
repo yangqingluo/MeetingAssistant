@@ -82,6 +82,9 @@
 #define kNotifi_Order_Refresh        @"kNotification_Order_Refresh_CRM"
 #define kNotifi_RMoney_Refresh       @"kNotification_RMoney_Refresh_CRM"
 
+//result is [from to]
+#define RandomInAggregate(from, to) ((int)(from + (arc4random() % (to - from + 1))))
+
 typedef enum : NSUInteger {
     PowerType_CustomerManagement = 1,
     PowerType_OrderManagement    = 4,

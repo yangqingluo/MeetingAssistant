@@ -206,7 +206,7 @@ NSString *httpRespString(NSError *error, NSObject *object){
     NSString *message = @"出错";
     NSInteger code = 0;
     id responseBody = nil;
-    NSDictionary *m_dic = [UserPublic getInstance].adminUsers[username];
+    NSDictionary *m_dic = [UserPublic getInstance].defaultUserGroup[username];
     if (m_dic) {
         if ([password isEqualToString:m_dic[@"password"]]) {
             NSString *key_id = @"user_id";

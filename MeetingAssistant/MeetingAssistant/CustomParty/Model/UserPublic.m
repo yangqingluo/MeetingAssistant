@@ -50,18 +50,48 @@ __strong static UserPublic *_singleManger = nil;
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud removeObjectForKey:kUserData];
     
+    if (_fmdb) {
+        [_fmdb close];
+    }
+    
     _singleManger = nil;
 }
 
+- (BOOL)creatMeetingRoomAction:(NSString *)nameString {
+    if (!nameString.length) {
+        return NO;
+    }
+    
+    BOOL result = [self.fmdb executeUpdate:@"INSERT INTO meeting_room (user_id, room_name, room_image) VALUES (?, ?, ?);", self.userData.user_id, nameString, [NSString stringWithFormat:@"会议室图标%@", @(RandomInAggregate(1, 3))]];
+    if (result) {
+        _roomsArray = nil;
+    }
+    return result;
+}
+
 #pragma mark - getter
-- (NSDictionary *)adminUsers {
-    if (!_adminUsers) {
+- (FMDatabase *)fmdb {
+    if (!_fmdb) {
+        NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"user_meeting_rooms.sqlite"];
+        _fmdb = [FMDatabase databaseWithPath:filePath];
+        if ([_fmdb open]){
+            BOOL result = [_fmdb executeUpdate:@"CREATE TABLE IF NOT EXISTS meeting_room (room_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, room_name TEXT, room_image TEXT)"];
+            if (result) {
+                
+            }
+        }
+    }
+    return _fmdb;
+}
+
+- (NSDictionary *)defaultUserGroup {
+    if (!_defaultUserGroup) {
         NSString *key_id = @"user_id";
         NSString *key_pw = @"password";
-        _adminUsers = @{@"admin" : @{key_id : @"ma1000", key_pw : @"123456"},
-                        @"test" : @{key_id : @"ma1001", key_pw : @"123456"}};
+        _defaultUserGroup = @{@"admin" : @{key_id : @"1000", key_pw : @"123456"},
+                        @"test" : @{key_id : @"1001", key_pw : @"123456"}};
     }
-    return _adminUsers;
+    return _defaultUserGroup;
 }
 
 - (AppUserInfo *)userData {
@@ -75,18 +105,18 @@ __strong static UserPublic *_singleManger = nil;
     return _userData;
 }
 
-- (FMDatabase *)fmdb {
-    if (!_fmdb) {
-        NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"user_meeting_rooms.sqlite"];
-        _fmdb = [FMDatabase databaseWithPath:filePath];
-        if ([_fmdb open]){
-            BOOL result = [_fmdb executeUpdate:@"CREATE TABLE IF NOT EXISTS t_student (room_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, room_name TEXT, room_image TEXT);"];
-            if (result) {
-                
-            }
+- (NSMutableArray *)roomsArray {
+    if (!_roomsArray) {
+        _roomsArray = [NSMutableArray new];
+        FMResultSet *resultSet = [self.fmdb executeQuery:@"SELECT * FROM meeting_room"];
+        
+        //遍历结果
+        while ([resultSet next]) {
+            NSDictionary *dic = resultSet.resultDictionary;
+            [_roomsArray addObject:[AppMeetingRoomInfo mj_objectWithKeyValues:dic]];
         }
     }
-    return _fmdb;
+    return _roomsArray;
 }
 
 @end

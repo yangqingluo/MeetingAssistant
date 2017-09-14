@@ -193,6 +193,7 @@
 		E4E86BE81F682713008D6C53 /* MeetingRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BE71F682713008D6C53 /* MeetingRoomsViewController.m */; };
 		E4E86BEB1F6827A9008D6C53 /* MeetingRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */; };
 		E4E86BEF1F682FD9008D6C53 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BEE1F682FD9008D6C53 /* JXTAlertController.m */; };
+		E4EA4E7F1F6A34500057179F /* QKBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4E7E1F6A34500057179F /* QKBaseCollectionViewCell.m */; };
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -466,6 +467,8 @@
 		E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingRoomCell.m; sourceTree = "<group>"; };
 		E4E86BED1F682FD9008D6C53 /* JXTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertController.h; sourceTree = "<group>"; };
 		E4E86BEE1F682FD9008D6C53 /* JXTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertController.m; sourceTree = "<group>"; };
+		E4EA4E7D1F6A34500057179F /* QKBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		E4EA4E7E1F6A34500057179F /* QKBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBaseCollectionViewCell.m; sourceTree = "<group>"; };
 		E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E4ECD3B01F678941005AE1B1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -585,10 +588,10 @@
 				E4E3A15E1F67B0EB00019065 /* UserPublic.m */,
 				E4E3A14C1F67B0EB00019065 /* AppType.h */,
 				E4E3A14D1F67B0EB00019065 /* AppType.m */,
-				E4E3A14E1F67B0EB00019065 /* NSData+HTTPRequest.h */,
-				E4E3A14F1F67B0EB00019065 /* NSData+HTTPRequest.m */,
 				E4E3A1501F67B0EB00019065 /* QKNetworkSingleton.h */,
 				E4E3A1511F67B0EB00019065 /* QKNetworkSingleton.m */,
+				E4E3A14E1F67B0EB00019065 /* NSData+HTTPRequest.h */,
+				E4E3A14F1F67B0EB00019065 /* NSData+HTTPRequest.m */,
 				E4E3A1521F67B0EB00019065 /* UIImage+Categories */,
 				E4E3A15B1F67B0EB00019065 /* UIResponder+Router.h */,
 				E4E3A15C1F67B0EB00019065 /* UIResponder+Router.m */,
@@ -620,6 +623,8 @@
 				E4E3A1651F67B0EB00019065 /* UIButton+ImageAndText.m */,
 				E4E3A1661F67B0EB00019065 /* UIView+KGViewExtend.h */,
 				E4E3A1671F67B0EB00019065 /* UIView+KGViewExtend.m */,
+				E4EA4E7D1F6A34500057179F /* QKBaseCollectionViewCell.h */,
+				E4EA4E7E1F6A34500057179F /* QKBaseCollectionViewCell.m */,
 				E4E86BE91F6827A9008D6C53 /* MeetingRoomCell.h */,
 				E4E86BEA1F6827A9008D6C53 /* MeetingRoomCell.m */,
 				E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */,
@@ -1182,6 +1187,7 @@
 				E4E3A1851F67B0EB00019065 /* UserPublic.m in Sources */,
 				E4E3A17F1F67B0EB00019065 /* QKNetworkSingleton.m in Sources */,
 				E4E3A21F1F67B1D500019065 /* AFSecurityPolicy.m in Sources */,
+				E4EA4E7F1F6A34500057179F /* QKBaseCollectionViewCell.m in Sources */,
 				E4E3A1EB1F67B1A100019065 /* MBProgressHUD+TVAssistant.m in Sources */,
 				E4E86BE81F682713008D6C53 /* MeetingRoomsViewController.m in Sources */,
 				E4E3A3061F67EC7600019065 /* PublicNavViewController.m in Sources */,

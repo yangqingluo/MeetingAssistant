@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QKBaseCollectionViewCell.h"
 
-@interface MeetingRoomCell : UICollectionViewCell
+@interface MeetingRoomCell : QKBaseCollectionViewCell
+
+@property (strong, nonatomic) UIView *baseView;
+@property (strong, nonatomic) UILabel *nameLabel;
 
 @end

@@ -88,12 +88,17 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
         return;
     }
     
+    [self showHudInView:self.view hint:nil];
+    BOOL result = [[UserPublic getInstance] creatMeetingRoomAction:nameString];
+    [self hideHud];
+    [self showHint:result ? @"创建成功" : @"创建失败"];
     
+    [self.collectionView reloadData];
 }
 
 #pragma mark - collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [collectionView showContentWithMessage:@"未添加会议室\n请点击右上角\"添加\"按钮" image:[UIImage imageNamed:@"空状态图标"] forNumberOfItemsInSection:0];
+    return [collectionView showContentWithMessage:@"未添加会议室\n请点击右上角\"添加\"按钮" image:[UIImage imageNamed:@"空状态图标"] forNumberOfItemsInSection:[UserPublic getInstance].roomsArray.count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
