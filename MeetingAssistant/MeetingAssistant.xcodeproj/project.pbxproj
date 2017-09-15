@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4111BEC1F6BC105008103F8 /* AddFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4111BEA1F6BC105008103F8 /* AddFriendView.m */; };
+		E4111BED1F6BC105008103F8 /* AddFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4111BEB1F6BC105008103F8 /* AddFriendView.xib */; };
+		E4111BEF1F6BC186008103F8 /* bg_gengduo.png in Resources */ = {isa = PBXBuildFile; fileRef = E4111BEE1F6BC186008103F8 /* bg_gengduo.png */; };
 		E41EC1781F690202007D8BCA /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E41EC1771F690202007D8BCA /* BlockAlertView.m */; };
 		E45A783E1F58F801006BD787 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E45A783D1F58F801006BD787 /* main.m */; };
 		E45A78411F58F801006BD787 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E45A78401F58F801006BD787 /* AppDelegate.m */; };
@@ -219,6 +222,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E4111BE91F6BC105008103F8 /* AddFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendView.h; sourceTree = "<group>"; };
+		E4111BEA1F6BC105008103F8 /* AddFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendView.m; sourceTree = "<group>"; };
+		E4111BEB1F6BC105008103F8 /* AddFriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendView.xib; sourceTree = "<group>"; };
+		E4111BEE1F6BC186008103F8 /* bg_gengduo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_gengduo.png; sourceTree = "<group>"; };
 		E41EC1761F690202007D8BCA /* BlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockAlertView.h; sourceTree = "<group>"; };
 		E41EC1771F690202007D8BCA /* BlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockAlertView.m; sourceTree = "<group>"; };
 		E45A78391F58F801006BD787 /* MeetingAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -696,6 +703,9 @@
 				E4EA4EC41F6A84170057179F /* DeviceCell.m */,
 				E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */,
 				E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */,
+				E4111BE91F6BC105008103F8 /* AddFriendView.h */,
+				E4111BEA1F6BC105008103F8 /* AddFriendView.m */,
+				E4111BEB1F6BC105008103F8 /* AddFriendView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -938,6 +948,7 @@
 		E4E3A22E1F67B32B00019065 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				E4111BEE1F6BC186008103F8 /* bg_gengduo.png */,
 				E4E3A22F1F67B32B00019065 /* 下载按钮.png */,
 				E4E3A2301F67B32B00019065 /* 下载按钮@2x.png */,
 				E4E3A2311F67B32B00019065 /* 下载按钮@3x.png */,
@@ -1234,6 +1245,7 @@
 				E4E3A2DE1F67B32B00019065 /* 点亮状态头像@2x.png in Resources */,
 				E4E3A2AF1F67B32B00019065 /* 创建会议室按钮@3x.png in Resources */,
 				E4E3A2EB1F67B32B00019065 /* 登录界面竖版背景图@3x.png in Resources */,
+				E4111BED1F6BC105008103F8 /* AddFriendView.xib in Resources */,
 				E4E3A29A1F67B32B00019065 /* 下载按钮@3x.png in Resources */,
 				E4E3A2E71F67B32B00019065 /* 登录界面logo@2x.png in Resources */,
 				E4E3A2A61F67B32B00019065 /* 会议室背景色块@3x.png in Resources */,
@@ -1297,6 +1309,7 @@
 				E4E3A2D51F67B32B00019065 /* 已点亮状态@2x.png in Resources */,
 				E4E3A2CF1F67B32B00019065 /* 已关闭头像@2x.png in Resources */,
 				E4E3A2DF1F67B32B00019065 /* 点亮状态头像@3x.png in Resources */,
+				E4111BEF1F6BC186008103F8 /* bg_gengduo.png in Resources */,
 				E4E3A2DA1F67B32B00019065 /* 添加图标按钮.png in Resources */,
 				E4E3A2EC1F67B32B00019065 /* 登录页面背景图-横版.png in Resources */,
 				E4E3A2D01F67B32B00019065 /* 已关闭头像@3x.png in Resources */,
@@ -1417,6 +1430,7 @@
 				E4E3A1ED1F67B1A100019065 /* UIViewController+HUD.m in Sources */,
 				E4E3A21D1F67B1D500019065 /* AFHTTPSessionManager.m in Sources */,
 				E4E86BEB1F6827A9008D6C53 /* MeetingRoomCell.m in Sources */,
+				E4111BEC1F6BC105008103F8 /* AddFriendView.m in Sources */,
 				E4EA4EBD1F6A529D0057179F /* UIScrollView+MJExtension.m in Sources */,
 				E4E3A1F01F67B1A100019065 /* MJFoundation.m in Sources */,
 				E4EA4EAE1F6A529D0057179F /* MJRefreshBackFooter.m in Sources */,
