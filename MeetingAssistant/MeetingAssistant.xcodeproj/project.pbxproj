@@ -15,6 +15,9 @@
 		E45A78491F58F801006BD787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E45A78481F58F801006BD787 /* Assets.xcassets */; };
 		E45A784C1F58F801006BD787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45A784A1F58F801006BD787 /* LaunchScreen.storyboard */; };
 		E45B93D81F690EE600C67AA9 /* UICollectionView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */; };
+		E46CF4AB1F6EBB6500EDF2B5 /* SideBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4AA1F6EBB6500EDF2B5 /* SideBarView.m */; };
+		E46CF4AE1F6EC01100EDF2B5 /* SummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4AD1F6EC01100EDF2B5 /* SummaryView.m */; };
+		E46CF4B11F6EC05100EDF2B5 /* DeviceStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4B01F6EC05100EDF2B5 /* DeviceStyleView.m */; };
 		E4B3A8BD1F692A9600055D12 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B31F692A9600055D12 /* FMDatabase.m */; };
 		E4B3A8BE1F692A9600055D12 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B51F692A9600055D12 /* FMDatabaseAdditions.m */; };
 		E4B3A8BF1F692A9600055D12 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B71F692A9600055D12 /* FMDatabasePool.m */; };
@@ -235,6 +238,12 @@
 		E45A784D1F58F801006BD787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Empty.h"; sourceTree = "<group>"; };
 		E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Empty.m"; sourceTree = "<group>"; };
+		E46CF4A91F6EBB6500EDF2B5 /* SideBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarView.h; sourceTree = "<group>"; };
+		E46CF4AA1F6EBB6500EDF2B5 /* SideBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarView.m; sourceTree = "<group>"; };
+		E46CF4AC1F6EC01100EDF2B5 /* SummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryView.h; sourceTree = "<group>"; };
+		E46CF4AD1F6EC01100EDF2B5 /* SummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryView.m; sourceTree = "<group>"; };
+		E46CF4AF1F6EC05100EDF2B5 /* DeviceStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceStyleView.h; sourceTree = "<group>"; };
+		E46CF4B01F6EC05100EDF2B5 /* DeviceStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceStyleView.m; sourceTree = "<group>"; };
 		E4B3A8B21F692A9600055D12 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		E4B3A8B31F692A9600055D12 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		E4B3A8B41F692A9600055D12 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -706,6 +715,12 @@
 				E4F3FA081F6E2B1700B17AD8 /* NamePlateConfigItemsView.m */,
 				E4F3FA0A1F6E2C0F00B17AD8 /* CustomPopOverView.h */,
 				E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */,
+				E46CF4A91F6EBB6500EDF2B5 /* SideBarView.h */,
+				E46CF4AA1F6EBB6500EDF2B5 /* SideBarView.m */,
+				E46CF4AC1F6EC01100EDF2B5 /* SummaryView.h */,
+				E46CF4AD1F6EC01100EDF2B5 /* SummaryView.m */,
+				E46CF4AF1F6EC05100EDF2B5 /* DeviceStyleView.h */,
+				E46CF4B01F6EC05100EDF2B5 /* DeviceStyleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1379,6 +1394,7 @@
 				E4E3A1891F67B0EB00019065 /* UIView+KGViewExtend.m in Sources */,
 				E4B3A8BE1F692A9600055D12 /* FMDatabaseAdditions.m in Sources */,
 				E4E3A1EF1F67B1A100019065 /* MJExtensionConst.m in Sources */,
+				E46CF4AB1F6EBB6500EDF2B5 /* SideBarView.m in Sources */,
 				E4E3A1F61F67B1A100019065 /* NSObject+MJKeyValue.m in Sources */,
 				E4E3A17E1F67B0EB00019065 /* NSData+HTTPRequest.m in Sources */,
 				E4E3A2211F67B1D500019065 /* AFURLResponseSerialization.m in Sources */,
@@ -1392,6 +1408,7 @@
 				E4F3FA0C1F6E2C0F00B17AD8 /* CustomPopOverView.m in Sources */,
 				E4E3A2261F67B1D500019065 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				E4E3A17D1F67B0EB00019065 /* AppType.m in Sources */,
+				E46CF4AE1F6EC01100EDF2B5 /* SummaryView.m in Sources */,
 				E4E3A1841F67B0EB00019065 /* UIResponder+Router.m in Sources */,
 				E4EA4EB11F6A529D0057179F /* MJRefreshHeader.m in Sources */,
 				E4E3A1E61F67B1A100019065 /* IQPreviousNextView.m in Sources */,
@@ -1410,6 +1427,7 @@
 				E4EA4EB01F6A529D0057179F /* MJRefreshFooter.m in Sources */,
 				E4E3A21E1F67B1D500019065 /* AFNetworkReachabilityManager.m in Sources */,
 				E4E3A2281F67B1D500019065 /* UIImageView+AFNetworking.m in Sources */,
+				E46CF4B11F6EC05100EDF2B5 /* DeviceStyleView.m in Sources */,
 				E4B3A8C01F692A9600055D12 /* FMDatabaseQueue.m in Sources */,
 				E4E3A1E41F67B1A100019065 /* IQTextView.m in Sources */,
 				E4E3A2271F67B1D500019065 /* UIButton+AFNetworking.m in Sources */,

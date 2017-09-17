@@ -184,7 +184,7 @@ UIButton *NewTextButton(NSString *title, UIColor *textColor) {
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:textColor forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    btn.titleLabel.font = [UIFont systemFontOfSize:17.0];
     return btn;
 }
 

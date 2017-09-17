@@ -13,6 +13,8 @@
 #import "DeviceCell.h"
 #import "CustomPopOverView.h"
 #import "UIButton+ImageAndText.h"
+#import "SummaryView.h"
+#import "DeviceStyleView.h"
 
 static NSString *identify_DeviceCell = @"DeviceCell";
 
@@ -20,6 +22,8 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 @property (strong, nonatomic) CustomPopOverView *popItemsView;
 @property (strong, nonatomic) NSMutableArray *deviceArray;
+@property (strong, nonatomic) SummaryView *summaryView;
+@property (strong, nonatomic) DeviceStyleView *styleView;
 
 @end
 
@@ -91,8 +95,12 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             break;
             
         case 1: {
+            [self.summaryView showInView:self.view];
+        }
+            break;
             
-            
+        case 2: {
+            [self.styleView showInView:self.view];
         }
             break;
             
@@ -149,6 +157,20 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         _deviceArray = [NSMutableArray new];
     }
     return _deviceArray;
+}
+
+- (SummaryView *)summaryView {
+    if (!_summaryView) {
+        _summaryView = [[SummaryView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
+    }
+    return _summaryView;
+}
+
+- (DeviceStyleView *)styleView {
+    if (!_styleView) {
+        _styleView = [[DeviceStyleView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
+    }
+    return _styleView;
 }
 
 #pragma mark - collection view
