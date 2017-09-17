@@ -19,11 +19,11 @@
         self.imgView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         self.imgView.contentMode = UIViewContentModeScaleAspectFill;
         self.imgView.clipsToBounds = YES;
-        [self.contentView addSubview:self.imgView];
+//        [self.contentView addSubview:self.imgView];
         
         self.removeButton = [[UIButton alloc]initWithFrame:CGRectMake(aveWH - 2 * radius, 0, 2 * radius, 2 * radius)];
         [self.removeButton setImage:[UIImage imageNamed:@"删除图片按钮"] forState:UIControlStateNormal];
-        [self.contentView addSubview:self.removeButton];
+//        [self.contentView addSubview:self.removeButton];
     }
     return self;
 }

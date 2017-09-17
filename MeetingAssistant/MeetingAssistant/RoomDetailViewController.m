@@ -17,6 +17,7 @@
 #import "SummaryView.h"
 #import "DeviceStyleView.h"
 #import "BlockActionSheet.h"
+#import "EaseMessageReadManager.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -139,10 +140,28 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 - (void)chooseHeadImage:(NSUInteger)buttonIndex{
     UIImagePickerControllerSourceType type = (buttonIndex == 1) ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary;
     if ([UIImagePickerController isSourceTypeAvailable:type]){
-        self.imagePicker.sourceType = type;
-        [self presentViewController:self.imagePicker animated:YES completion:^{
+        if (buttonIndex == 1) {
+            self.imagePicker.sourceType = type;
+            QKWEAKSELF;
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [weakself presentViewController:weakself.imagePicker animated:YES completion:^{
+                    
+                }];
+                
+            }];
+        }
+        else {
+            _imageFromSystemPicker = nil;
+            self.imageFromSystemPicker.maximumNumberOfSelection = 9 - [UserPublic getInstance].summaryArray.count;
             
-        }];
+            QKWEAKSELF;
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [weakself presentViewController:weakself.imageFromSystemPicker animated:YES completion:^{
+                    
+                }];
+
+            }];
+        }
     }
     else{
         NSString *name = (buttonIndex == 1) ? @"相机" : @"照片";
@@ -313,10 +332,15 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             [sheet showInView:self.view];
         }
         else {
-            
+            [[EaseMessageReadManager defaultManager] showBrowserWithImages:[UserPublic getInstance].summaryArray currentPhotoIndex:index - 1];
         }
     }
     else if ([eventName isEqualToString:Event_SummaryRemoveBtnClicked]) {
+        NSInteger index = [(NSNumber *)userInfo integerValue] - 1;
+        if (index >= 0 && index < [UserPublic getInstance].summaryArray.count) {
+            [[UserPublic getInstance].summaryArray removeObjectAtIndex:index];
+            [self.summaryView.collectionView reloadData];
+        }
         
     }
 }

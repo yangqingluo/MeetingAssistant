@@ -8,7 +8,7 @@
 
 #import "SummaryView.h"
 #import "LongPressFlowLayout.h"
-#import "QKBaseCollectionViewCell.h"
+#import "SummaryCell.h"
 #import "BlockAlertView.h"
 #import "UIResponder+Router.h"
 
@@ -72,7 +72,7 @@ static NSString *identify = @"imageCell_Summary";
         _collectionView.delegate = self;
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.alwaysBounceVertical = YES;
-        [_collectionView registerClass:[QKBaseCollectionViewCell class] forCellWithReuseIdentifier:identify];
+        [_collectionView registerClass:[SummaryCell class] forCellWithReuseIdentifier:identify];
     }
     
     return _collectionView;
@@ -88,14 +88,14 @@ static NSString *identify = @"imageCell_Summary";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    QKBaseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+    SummaryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     cell.imgView.backgroundColor = [UIColor clearColor];
     cell.removeButton.tag = indexPath.row;
     [cell.removeButton addTarget:self action:@selector(imageRemoveButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     if (indexPath.row > 0) {
-        cell.imgView.image = [UserPublic getInstance].summaryArray[indexPath.row];
+        cell.imgView.image = [UserPublic getInstance].summaryArray[indexPath.row - 1];
         cell.removeButton.hidden = NO;
     }
     else{
