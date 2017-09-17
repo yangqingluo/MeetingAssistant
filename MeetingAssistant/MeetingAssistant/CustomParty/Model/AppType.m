@@ -27,3 +27,9 @@
 
 
 @end
+
+@implementation APPDeviceInfo
+
+
+
+@end

@@ -47,7 +47,7 @@
         flowLayout.minimumLineSpacing = 25;
         flowLayout.sectionInset = UIEdgeInsetsMake(0, 16, 0, 16);
         double width = (screen_width - 2 * 16 - (countH - 1) * flowLayout.minimumInteritemSpacing) / countH;
-        flowLayout.itemSize = CGSizeMake(width, 112);
+        flowLayout.itemSize = CGSizeMake(width, 148);
         
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, screen_width, self.view.height - STATUS_BAR_HEIGHT) collectionViewLayout:flowLayout];
         

@@ -21,6 +21,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 @property (strong, nonatomic) AddFriendView *addFriedView;
 @property (strong, nonatomic) CustomPopOverView *popItemsView;
+@property (strong, nonatomic) NSMutableArray *deviceArray;
 
 @end
 
@@ -86,6 +87,22 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 - (void)itemsButtonAction:(UIButton *)button {
     [self.popItemsView dismiss];
+    switch (button.tag) {
+        case 0:{
+            NSArray *m_array = @[@{@"ip_address" : @"192.168.0.01", @"device_name" : @"张书记", @"summary" : @[@"image1", @"image2"], @"lighted" : @YES, @"state" : @0},
+                                 @{@"ip_address" : @"192.168.0.05", @"device_name" : @"刘德全", @"lighted" : @NO, @"state" : @1},
+                                 @{@"ip_address" : @"192.168.0.07", @"device_name" : @"李逵", @"lighted" : @NO, @"state" : @1},
+                                 @{@"ip_address" : @"192.168.0.11", @"device_name" : @"刘爱丽", @"summary" : @[@"image1", @"image2"], @"lighted" : @YES, @"state" : @2},
+                                 @{@"ip_address" : @"192.168.0.25", @"device_name" : @"王哲东", @"lighted" : @YES, @"state" : @2}];
+            [self.deviceArray removeAllObjects];
+            [self.deviceArray addObjectsFromArray:[APPDeviceInfo mj_objectArrayWithKeyValuesArray:m_array]];
+            [self.collectionView reloadData];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - getter
@@ -131,13 +148,21 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     return _popItemsView;
 }
 
+- (NSMutableArray *)deviceArray {
+    if (!_deviceArray) {
+        _deviceArray = [NSMutableArray new];
+    }
+    return _deviceArray;
+}
+
 #pragma mark - collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [collectionView showContentWithMessage:@"未发现设备!\n请点击右上角\"设置\"按钮\"发现设备\"" image:[UIImage imageNamed:@"未发现设备图标"] forNumberOfItemsInSection:0];
+    return [collectionView showContentWithMessage:@"未发现设备!\n请点击右上角\"设置\"按钮\"发现设备\"" image:[UIImage imageNamed:@"未发现设备图标"] forNumberOfItemsInSection:self.deviceArray.count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DeviceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify_DeviceCell forIndexPath:indexPath];
+    cell.data = self.deviceArray[indexPath.row];
     
     return cell;
 }

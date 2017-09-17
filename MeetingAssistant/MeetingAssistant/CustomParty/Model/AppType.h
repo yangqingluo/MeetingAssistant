@@ -28,3 +28,13 @@
 @property (strong, nonatomic) NSString *room_image;
 
 @end
+
+@interface APPDeviceInfo : AppType
+
+@property (strong, nonatomic) NSString *ip_address;
+@property (strong, nonatomic) NSString *device_name;
+@property (strong, nonatomic) NSArray *summary;
+@property (assign, nonatomic) BOOL lighted;
+@property (assign, nonatomic) int state;
+
+@end
