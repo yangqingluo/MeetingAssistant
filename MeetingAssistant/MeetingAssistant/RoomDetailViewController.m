@@ -11,7 +11,6 @@
 
 #import "UICollectionView+Empty.h"
 #import "DeviceCell.h"
-#import "AddFriendView.h"
 #import "CustomPopOverView.h"
 #import "UIButton+ImageAndText.h"
 
@@ -19,7 +18,6 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 @interface RoomDetailViewController ()
 
-@property (strong, nonatomic) AddFriendView *addFriedView;
 @property (strong, nonatomic) CustomPopOverView *popItemsView;
 @property (strong, nonatomic) NSMutableArray *deviceArray;
 
@@ -59,14 +57,6 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 }
 
 - (void)editButtonAction:(UIButton *)button {
-//    if (!_addFriedView) {
-//        NSArray * nib = [[NSBundle mainBundle] loadNibNamed:@"AddFriendView" owner:self options:nil] ;
-//        _addFriedView = (AddFriendView *)[nib objectAtIndex:0];
-//        _addFriedView.frame=CGRectMake(self.view.bounds.size.width-125, 0, 121, 138);
-//        _addFriedView.hidden=YES;
-//        [self.view addSubview:_addFriedView];
-//    }
-//    _addFriedView.hidden = !_addFriedView.hidden;
     [self.popItemsView showFrom:button alignStyle:CPAlignStyleRight];
 }
 
@@ -97,6 +87,12 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             [self.deviceArray removeAllObjects];
             [self.deviceArray addObjectsFromArray:[APPDeviceInfo mj_objectArrayWithKeyValuesArray:m_array]];
             [self.collectionView reloadData];
+        }
+            break;
+            
+        case 1: {
+            
+            
         }
             break;
             
@@ -169,6 +165,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    
 }
 
 @end
