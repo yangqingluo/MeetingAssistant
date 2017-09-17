@@ -33,3 +33,9 @@
 
 
 @end
+
+@implementation AppFontStyleInfo
+
+
+
+@end

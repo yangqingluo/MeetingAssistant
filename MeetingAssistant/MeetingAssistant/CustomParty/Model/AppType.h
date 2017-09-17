@@ -38,3 +38,10 @@
 @property (assign, nonatomic) int state;
 
 @end
+
+@interface AppFontStyleInfo : AppType
+
+@property (assign, nonatomic) NSUInteger index;
+@property (assign, nonatomic) NSInteger fontSize;
+
+@end

@@ -8,6 +8,8 @@
 
 #import "SideBarView.h"
 
-@interface DeviceStyleView : SideBarView
+@interface DeviceStyleView : SideBarView<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end

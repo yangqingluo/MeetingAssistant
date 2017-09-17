@@ -328,7 +328,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
                 else if (buttonIndex == 2) {
                     [weakself chooseHeadImage:buttonIndex];
                 }
-            } otherButtonTitles:@"拍照", @"从手机相册选取", nil];
+            } otherButtonTitles:@"拍照", @"从相册选取", nil];
             [sheet showInView:self.view];
         }
         else {

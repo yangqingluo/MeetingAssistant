@@ -7,6 +7,8 @@
 //
 
 #import "DeviceStyleView.h"
+#import "DeviceFontStyleCell.h"
+#import "DeviceFontSizeCell.h"
 
 @implementation DeviceStyleView
 
@@ -32,12 +34,123 @@
             
             return nil;
         }];
+        [self.baseView addSubview:self.tableView];
     }
     return self;
 }
 
 - (void)saveButtonAction {
     [self dismiss];
+}
+
+#pragma getter
+- (UITableView *)tableView{
+    if (_tableView == nil){
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, self.baseView.width, self.baseView.height - STATUS_BAR_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView.separatorColor = baseSeparatorColor;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight |  UIViewAutoresizingFlexibleBottomMargin;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor clearColor];
+    }
+    
+    return _tableView;
+}
+
+#pragma mark - tableView datasource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return [UserPublic getInstance].fontNameArray.count;
+    }
+    else if (section == 1) {
+        return 1;
+    }
+    return 0;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 57;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 64;
+    }
+    else if (indexPath.section == 1) {
+        
+    }
+    return kCellHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 57)];
+    bgView.backgroundColor = [UIColor clearColor];
+    
+    UILabel *titleLable1 = [[UILabel alloc] initWithFrame:CGRectMake(kEdge, 21, bgView.width - 2 * kEdge, 21)];
+    titleLable1.numberOfLines = 0;
+    titleLable1.font = [UIFont systemFontOfSize:16];
+    titleLable1.textColor = [UIColor whiteColor];
+    [bgView addSubview:titleLable1];
+    if (section == 0) {
+        titleLable1.text = @"字体样式";
+    }
+    else if (section == 1) {
+        titleLable1.text = @"字体大小";
+    }
+    
+    return bgView;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        static NSString *CellIdentifier = @"style_cell";
+        DeviceFontStyleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [[DeviceFontStyleCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        cell.title = [UserPublic getInstance].fontNameArray[indexPath.row];
+        cell.like = [UserPublic getInstance].styleInfo.index % [UserPublic getInstance].fontNameArray.count == indexPath.row;
+        return cell;
+    }
+    else if (indexPath.section == 1) {
+        static NSString *CellIdentifier = @"size_cell";
+        DeviceFontSizeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [[DeviceFontSizeCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        return cell;
+    }
+    
+    UITableViewCell *cell = [UITableViewCell new];
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.section == 0) {
+        [UserPublic getInstance].styleInfo.index = indexPath.row;
+        [tableView reloadData];
+    }
+    else if (indexPath.section == 1) {
+        
+    }
 }
 
 @end

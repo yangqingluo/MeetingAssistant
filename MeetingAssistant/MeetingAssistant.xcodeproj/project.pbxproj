@@ -63,6 +63,8 @@
 		E46CF53E1F6EDB0E00EDF2B5 /* PSTGridLayoutSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF5171F6EDB0D00EDF2B5 /* PSTGridLayoutSection.m */; };
 		E46CF53F1F6EDB0E00EDF2B5 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E46CF5181F6EDB0D00EDF2B5 /* MWPhotoBrowser.bundle */; };
 		E46CF5421F6EDBA300EDF2B5 /* EaseMessageReadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF5411F6EDBA300EDF2B5 /* EaseMessageReadManager.m */; };
+		E46CF5451F6EE1DA00EDF2B5 /* DeviceFontStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF5441F6EE1DA00EDF2B5 /* DeviceFontStyleCell.m */; };
+		E46CF5481F6EE80800EDF2B5 /* DeviceFontSizeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF5471F6EE80800EDF2B5 /* DeviceFontSizeCell.m */; };
 		E4B3A8BD1F692A9600055D12 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B31F692A9600055D12 /* FMDatabase.m */; };
 		E4B3A8BE1F692A9600055D12 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B51F692A9600055D12 /* FMDatabaseAdditions.m */; };
 		E4B3A8BF1F692A9600055D12 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B71F692A9600055D12 /* FMDatabasePool.m */; };
@@ -382,6 +384,10 @@
 		E46CF5181F6EDB0D00EDF2B5 /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		E46CF5401F6EDBA300EDF2B5 /* EaseMessageReadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseMessageReadManager.h; sourceTree = "<group>"; };
 		E46CF5411F6EDBA300EDF2B5 /* EaseMessageReadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseMessageReadManager.m; sourceTree = "<group>"; };
+		E46CF5431F6EE1DA00EDF2B5 /* DeviceFontStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceFontStyleCell.h; sourceTree = "<group>"; };
+		E46CF5441F6EE1DA00EDF2B5 /* DeviceFontStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceFontStyleCell.m; sourceTree = "<group>"; };
+		E46CF5461F6EE80800EDF2B5 /* DeviceFontSizeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceFontSizeCell.h; sourceTree = "<group>"; };
+		E46CF5471F6EE80800EDF2B5 /* DeviceFontSizeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceFontSizeCell.m; sourceTree = "<group>"; };
 		E4B3A8B21F692A9600055D12 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		E4B3A8B31F692A9600055D12 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		E4B3A8B41F692A9600055D12 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -1007,6 +1013,10 @@
 				E46CF4B01F6EC05100EDF2B5 /* DeviceStyleView.m */,
 				E46CF4BD1F6ED35F00EDF2B5 /* SummaryCell.h */,
 				E46CF4BE1F6ED35F00EDF2B5 /* SummaryCell.m */,
+				E46CF5431F6EE1DA00EDF2B5 /* DeviceFontStyleCell.h */,
+				E46CF5441F6EE1DA00EDF2B5 /* DeviceFontStyleCell.m */,
+				E46CF5461F6EE80800EDF2B5 /* DeviceFontSizeCell.h */,
+				E46CF5471F6EE80800EDF2B5 /* DeviceFontSizeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1744,6 +1754,7 @@
 				E46CF5391F6EDB0D00EDF2B5 /* PSTCollectionViewLayout.m in Sources */,
 				E4B3A8C01F692A9600055D12 /* FMDatabaseQueue.m in Sources */,
 				E46CF51C1F6EDB0D00EDF2B5 /* MWPhoto.m in Sources */,
+				E46CF5481F6EE80800EDF2B5 /* DeviceFontSizeCell.m in Sources */,
 				E4E3A1E41F67B1A100019065 /* IQTextView.m in Sources */,
 				E4E3A2271F67B1D500019065 /* UIButton+AFNetworking.m in Sources */,
 				E46CF5251F6EDB0D00EDF2B5 /* EMSDWebImageDownloader.m in Sources */,
@@ -1789,6 +1800,7 @@
 				E4E3A1F21F67B1A100019065 /* MJPropertyKey.m in Sources */,
 				E4EA4EBA1F6A529D0057179F /* MJRefreshStateHeader.m in Sources */,
 				E4E3A1E91F67B1A100019065 /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				E46CF5451F6EE1DA00EDF2B5 /* DeviceFontStyleCell.m in Sources */,
 				E4E3A2231F67B1D500019065 /* AFAutoPurgingImageCache.m in Sources */,
 				E4E3A1DA1F67B1A100019065 /* GCDAsyncSocket.m in Sources */,
 				E46CF5281F6EDB0D00EDF2B5 /* EMSDWebImagePrefetcher.m in Sources */,
