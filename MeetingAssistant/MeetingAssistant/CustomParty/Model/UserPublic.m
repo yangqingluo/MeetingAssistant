@@ -129,4 +129,11 @@ __strong static UserPublic *_singleManger = nil;
     return _roomsArray;
 }
 
+- (NSMutableArray *)summaryArray {
+    if (!_summaryArray) {
+        _summaryArray = [NSMutableArray new];
+    }
+    return _summaryArray;
+}
+
 @end

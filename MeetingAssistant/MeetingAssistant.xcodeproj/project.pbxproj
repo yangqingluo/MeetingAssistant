@@ -18,6 +18,10 @@
 		E46CF4AB1F6EBB6500EDF2B5 /* SideBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4AA1F6EBB6500EDF2B5 /* SideBarView.m */; };
 		E46CF4AE1F6EC01100EDF2B5 /* SummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4AD1F6EC01100EDF2B5 /* SummaryView.m */; };
 		E46CF4B11F6EC05100EDF2B5 /* DeviceStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4B01F6EC05100EDF2B5 /* DeviceStyleView.m */; };
+		E46CF4B41F6EC80C00EDF2B5 /* BlockActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4B31F6EC80C00EDF2B5 /* BlockActionSheet.m */; };
+		E46CF4B91F6EC87A00EDF2B5 /* ZYQAssetPicker.Bundle in Resources */ = {isa = PBXBuildFile; fileRef = E46CF4B61F6EC87A00EDF2B5 /* ZYQAssetPicker.Bundle */; };
+		E46CF4BA1F6EC87A00EDF2B5 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E46CF4B81F6EC87A00EDF2B5 /* ZYQAssetPickerController.m */; };
+		E46CF4BC1F6EC8FF00EDF2B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46CF4BB1F6EC8FF00EDF2B5 /* AVFoundation.framework */; };
 		E4B3A8BD1F692A9600055D12 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B31F692A9600055D12 /* FMDatabase.m */; };
 		E4B3A8BE1F692A9600055D12 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B51F692A9600055D12 /* FMDatabaseAdditions.m */; };
 		E4B3A8BF1F692A9600055D12 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3A8B71F692A9600055D12 /* FMDatabasePool.m */; };
@@ -244,6 +248,12 @@
 		E46CF4AD1F6EC01100EDF2B5 /* SummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryView.m; sourceTree = "<group>"; };
 		E46CF4AF1F6EC05100EDF2B5 /* DeviceStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceStyleView.h; sourceTree = "<group>"; };
 		E46CF4B01F6EC05100EDF2B5 /* DeviceStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceStyleView.m; sourceTree = "<group>"; };
+		E46CF4B21F6EC80C00EDF2B5 /* BlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockActionSheet.h; sourceTree = "<group>"; };
+		E46CF4B31F6EC80C00EDF2B5 /* BlockActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockActionSheet.m; sourceTree = "<group>"; };
+		E46CF4B61F6EC87A00EDF2B5 /* ZYQAssetPicker.Bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZYQAssetPicker.Bundle; sourceTree = "<group>"; };
+		E46CF4B71F6EC87A00EDF2B5 /* ZYQAssetPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYQAssetPickerController.h; sourceTree = "<group>"; };
+		E46CF4B81F6EC87A00EDF2B5 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
+		E46CF4BB1F6EC8FF00EDF2B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E4B3A8B21F692A9600055D12 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		E4B3A8B31F692A9600055D12 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		E4B3A8B41F692A9600055D12 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -556,6 +566,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46CF4BC1F6EC8FF00EDF2B5 /* AVFoundation.framework in Frameworks */,
 				E4B3A8C41F692AB000055D12 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +579,8 @@
 			children = (
 				E41EC1761F690202007D8BCA /* BlockAlertView.h */,
 				E41EC1771F690202007D8BCA /* BlockAlertView.m */,
+				E46CF4B21F6EC80C00EDF2B5 /* BlockActionSheet.h */,
+				E46CF4B31F6EC80C00EDF2B5 /* BlockActionSheet.m */,
 			);
 			path = BlockAlertView;
 			sourceTree = "<group>";
@@ -623,6 +636,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E46CF4B51F6EC87A00EDF2B5 /* ZYQAssetPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				E46CF4B61F6EC87A00EDF2B5 /* ZYQAssetPicker.Bundle */,
+				E46CF4B71F6EC87A00EDF2B5 /* ZYQAssetPickerController.h */,
+				E46CF4B81F6EC87A00EDF2B5 /* ZYQAssetPickerController.m */,
+			);
+			path = ZYQAssetPickerController;
+			sourceTree = "<group>";
+		};
 		E4B3A8B11F692A9600055D12 /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +667,7 @@
 		E4B3A8C21F692AB000055D12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E46CF4BB1F6EC8FF00EDF2B5 /* AVFoundation.framework */,
 				E4B3A8C31F692AB000055D12 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
@@ -743,6 +767,7 @@
 		E4E3A16F1F67B0EB00019065 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E46CF4B51F6EC87A00EDF2B5 /* ZYQAssetPickerController */,
 				E4EA4E801F6A529D0057179F /* MJRefresh */,
 				E4B3A8B11F692A9600055D12 /* FMDB */,
 				E41EC1751F690202007D8BCA /* BlockAlertView */,
@@ -1246,6 +1271,7 @@
 				E4E3A2D31F67B32B00019065 /* 已关闭状态@3x.png in Resources */,
 				E4E3A2ED1F67B32B00019065 /* 登录页面背景图-横版@2x.png in Resources */,
 				E4E3A29E1F67B32B00019065 /* 会议室图标2.png in Resources */,
+				E46CF4B91F6EC87A00EDF2B5 /* ZYQAssetPicker.Bundle in Resources */,
 				E4E3A2CD1F67B32B00019065 /* 密码图标@3x.png in Resources */,
 				E4E3A2AA1F67B32B00019065 /* 侧滑栏内容区域背景.png in Resources */,
 				E4E3A2BC1F67B32B00019065 /* 名牌风格设置.png in Resources */,
@@ -1418,6 +1444,7 @@
 				E4E3A1E11F67B1A100019065 /* IQUIWindow+Hierarchy.m in Sources */,
 				E4EA4EAD1F6A529D0057179F /* MJRefreshAutoFooter.m in Sources */,
 				E45A78411F58F801006BD787 /* AppDelegate.m in Sources */,
+				E46CF4B41F6EC80C00EDF2B5 /* BlockActionSheet.m in Sources */,
 				E4E3A2241F67B1D500019065 /* AFImageDownloader.m in Sources */,
 				E4EA4EBC1F6A529D0057179F /* MJRefreshConst.m in Sources */,
 				E4E3A1DE1F67B1A100019065 /* IQUITextFieldView+Additions.m in Sources */,
@@ -1437,6 +1464,7 @@
 				E4EA4EBE1F6A529D0057179F /* UIScrollView+MJRefresh.m in Sources */,
 				E4E3A18B1F67B0EB00019065 /* AppBasicViewController.m in Sources */,
 				E4B3A8BD1F692A9600055D12 /* FMDatabase.m in Sources */,
+				E46CF4BA1F6EC87A00EDF2B5 /* ZYQAssetPickerController.m in Sources */,
 				E4E3A1DB1F67B1A100019065 /* GCDAsyncUdpSocket.m in Sources */,
 				E4E3A1E01F67B1A100019065 /* IQUIViewController+Additions.m in Sources */,
 				E4E3A1E51F67B1A100019065 /* IQBarButtonItem.m in Sources */,

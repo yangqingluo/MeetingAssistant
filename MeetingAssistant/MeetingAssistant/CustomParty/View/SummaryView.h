@@ -8,6 +8,10 @@
 
 #import "SideBarView.h"
 
-@interface SummaryView : SideBarView
+#define Event_SummaryCellClicked @"SummaryCellClicked"
+#define Event_SummaryRemoveBtnClicked @"Event_SummaryRemoveBtnClicked"
+@interface SummaryView : SideBarView<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (strong, nonatomic) UICollectionView *collectionView;
 
 @end

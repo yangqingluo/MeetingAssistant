@@ -8,6 +8,7 @@
 
 #import "RoomDetailViewController.h"
 #import "JXTAlertController.h"
+#import "ZYQAssetPickerController.h"
 
 #import "UICollectionView+Empty.h"
 #import "DeviceCell.h"
@@ -15,15 +16,21 @@
 #import "UIButton+ImageAndText.h"
 #import "SummaryView.h"
 #import "DeviceStyleView.h"
+#import "BlockActionSheet.h"
+
+#import <AVFoundation/AVFoundation.h>
 
 static NSString *identify_DeviceCell = @"DeviceCell";
 
-@interface RoomDetailViewController ()
+@interface RoomDetailViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, ZYQAssetPickerControllerDelegate>
 
 @property (strong, nonatomic) CustomPopOverView *popItemsView;
 @property (strong, nonatomic) NSMutableArray *deviceArray;
 @property (strong, nonatomic) SummaryView *summaryView;
 @property (strong, nonatomic) DeviceStyleView *styleView;
+
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
+@property (strong, nonatomic) ZYQAssetPickerController *imageFromSystemPicker;
 
 @end
 
@@ -109,6 +116,41 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     }
 }
 
+- (void)requestAccessForMedia:(NSUInteger)buttonIndex{
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (granted) {
+                [self chooseHeadImage:buttonIndex];
+            }
+            else{
+                AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+                if (authStatus != AVAuthorizationStatusAuthorized){
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"请在iPhone的\"设置-隐私-相机\"选项中，允许%@访问您的相机",[AppPublic getInstance].appName] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                    
+                    return;
+                }
+            }
+            
+        });
+    }];
+}
+
+- (void)chooseHeadImage:(NSUInteger)buttonIndex{
+    UIImagePickerControllerSourceType type = (buttonIndex == 1) ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary;
+    if ([UIImagePickerController isSourceTypeAvailable:type]){
+        self.imagePicker.sourceType = type;
+        [self presentViewController:self.imagePicker animated:YES completion:^{
+            
+        }];
+    }
+    else{
+        NSString *name = (buttonIndex == 1) ? @"相机" : @"照片";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@不可用", name] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 #pragma mark - getter
 - (CustomPopOverView *)popItemsView {
     if (!_popItemsView) {
@@ -173,6 +215,36 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     return _styleView;
 }
 
+- (UIImagePickerController *)imagePicker{
+    if (!_imagePicker) {
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
+        _imagePicker.allowsEditing = YES;
+        _imagePicker.delegate = self;
+    }
+    
+    return _imagePicker;
+}
+
+- (ZYQAssetPickerController *)imageFromSystemPicker{
+    if (!_imageFromSystemPicker) {
+        _imageFromSystemPicker = [[ZYQAssetPickerController alloc] init];
+        _imageFromSystemPicker.assetsFilter = [ALAssetsFilter allPhotos];
+        _imageFromSystemPicker.showEmptyGroups = NO;
+        _imageFromSystemPicker.delegate = self;
+        _imageFromSystemPicker.selectionFilter = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            if ([[(ALAsset*)evaluatedObject valueForProperty:ALAssetPropertyType] isEqual:ALAssetTypeVideo]) {
+                NSTimeInterval duration = [[(ALAsset*)evaluatedObject valueForProperty:ALAssetPropertyDuration] doubleValue];
+                return duration >= 5;
+            } else {
+                return YES;
+            }
+        }];
+    }
+    
+    return _imageFromSystemPicker;
+}
+
 #pragma mark - collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [collectionView showContentWithMessage:@"未发现设备!\n请点击右上角\"设置\"按钮\"发现设备\"" image:[UIImage imageNamed:@"未发现设备图标"] forNumberOfItemsInSection:self.deviceArray.count];
@@ -188,6 +260,65 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
     
+}
+
+#pragma mark UIImagePickerControllerDelegate协议的方法
+//用户点击图像选取器中的“cancel”按钮时被调用，这说明用户想要中止选取图像的操作
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+//用户点击选取器中的“choose”按钮时被调用，告知委托对象，选取操作已经完成，同时将返回选取图片的实例
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    // 图片类型
+    if([[info objectForKey:UIImagePickerControllerMediaType] isEqualToString:(NSString*)kUTTypeImage]) {
+        //编辑后的图片
+        UIImage* image = [info objectForKey:UIImagePickerControllerEditedImage];
+        
+        //如果想之后立刻调用UIVideoEditor,animated不能是YES。最好的还是dismiss结束后再调用editor。
+        [picker dismissViewControllerAnimated:YES completion:^{
+            [[UserPublic getInstance].summaryArray addObject:image];
+            [self.summaryView.collectionView reloadData];
+        }];
+    }
+}
+
+#pragma mark - ZYQAssetPickerController Delegate
+- (void)assetPickerController:(ZYQAssetPickerController *)picker didFinishPickingAssets:(NSArray *)assets{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            for (ALAsset *asset in assets) {
+                [[UserPublic getInstance].summaryArray addObject:[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage]];
+            }
+            [self.summaryView.collectionView reloadData];
+        });
+        
+    });
+}
+
+#pragma UIResponder+Router
+- (void)routerEventWithName:(NSString *)eventName userInfo:(NSObject *)userInfo{
+    if ([eventName isEqualToString:Event_SummaryCellClicked]) {
+        NSUInteger index = [(NSNumber *)userInfo integerValue];
+        if (index == 0) {
+            QKWEAKSELF;
+            BlockActionSheet *sheet = [[BlockActionSheet alloc] initWithTitle:@"添加图片" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil clickButton:^(NSInteger buttonIndex){
+                if (buttonIndex == 1) {
+                    [weakself requestAccessForMedia:buttonIndex];
+                }
+                else if (buttonIndex == 2) {
+                    [weakself chooseHeadImage:buttonIndex];
+                }
+            } otherButtonTitles:@"拍照", @"从手机相册选取", nil];
+            [sheet showInView:self.view];
+        }
+        else {
+            
+        }
+    }
+    else if ([eventName isEqualToString:Event_SummaryRemoveBtnClicked]) {
+        
+    }
 }
 
 @end

@@ -21,6 +21,8 @@
 @property (strong, nonatomic) AppUserInfo *userData;
 //用户会议室数据
 @property (strong, nonatomic) NSMutableArray *roomsArray;
+//会议纪要图片数据
+@property (strong, nonatomic) NSMutableArray *summaryArray;
 
 //保存用户数据
 - (void)saveUserData:(AppUserInfo *)data;
