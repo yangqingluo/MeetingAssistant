@@ -168,7 +168,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
 }
 
 @end
