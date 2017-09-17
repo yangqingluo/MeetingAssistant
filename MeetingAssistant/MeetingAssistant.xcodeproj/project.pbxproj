@@ -219,6 +219,8 @@
 		E4EA4EC21F6A83D00057179F /* RoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4EC11F6A83D00057179F /* RoomDetailViewController.m */; };
 		E4EA4EC51F6A84170057179F /* DeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EA4EC41F6A84170057179F /* DeviceCell.m */; };
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
+		E4F3FA091F6E2B1700B17AD8 /* NamePlateConfigItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3FA081F6E2B1700B17AD8 /* NamePlateConfigItemsView.m */; };
+		E4F3FA0C1F6E2C0F00B17AD8 /* CustomPopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -541,6 +543,10 @@
 		E4EA4EC41F6A84170057179F /* DeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceCell.m; sourceTree = "<group>"; };
 		E4ECD3AF1F678941005AE1B1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E4ECD3B01F678941005AE1B1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		E4F3FA071F6E2B1700B17AD8 /* NamePlateConfigItemsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamePlateConfigItemsView.h; sourceTree = "<group>"; };
+		E4F3FA081F6E2B1700B17AD8 /* NamePlateConfigItemsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamePlateConfigItemsView.m; sourceTree = "<group>"; };
+		E4F3FA0A1F6E2C0F00B17AD8 /* CustomPopOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPopOverView.h; sourceTree = "<group>"; };
+		E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPopOverView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +709,10 @@
 				E4EA4EC41F6A84170057179F /* DeviceCell.m */,
 				E45B93D61F690EE600C67AA9 /* UICollectionView+Empty.h */,
 				E45B93D71F690EE600C67AA9 /* UICollectionView+Empty.m */,
+				E4F3FA071F6E2B1700B17AD8 /* NamePlateConfigItemsView.h */,
+				E4F3FA081F6E2B1700B17AD8 /* NamePlateConfigItemsView.m */,
+				E4F3FA0A1F6E2C0F00B17AD8 /* CustomPopOverView.h */,
+				E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */,
 				E4111BE91F6BC105008103F8 /* AddFriendView.h */,
 				E4111BEA1F6BC105008103F8 /* AddFriendView.m */,
 				E4111BEB1F6BC105008103F8 /* AddFriendView.xib */,
@@ -1392,6 +1402,7 @@
 				E4E3A1E81F67B1A100019065 /* IQToolbar.m in Sources */,
 				E4E3A22B1F67B1D500019065 /* UIWebView+AFNetworking.m in Sources */,
 				E4E3A1831F67B0EB00019065 /* UIImage+SubImage.m in Sources */,
+				E4F3FA0C1F6E2C0F00B17AD8 /* CustomPopOverView.m in Sources */,
 				E4E3A2261F67B1D500019065 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				E4E3A17D1F67B0EB00019065 /* AppType.m in Sources */,
 				E4E3A1841F67B0EB00019065 /* UIResponder+Router.m in Sources */,
@@ -1442,6 +1453,7 @@
 				E4EA4EC51F6A84170057179F /* DeviceCell.m in Sources */,
 				E4E3A1F71F67B1A100019065 /* NSObject+MJProperty.m in Sources */,
 				E4B3A8C11F692A9600055D12 /* FMResultSet.m in Sources */,
+				E4F3FA091F6E2B1700B17AD8 /* NamePlateConfigItemsView.m in Sources */,
 				E4E3A1F21F67B1A100019065 /* MJPropertyKey.m in Sources */,
 				E4EA4EBA1F6A529D0057179F /* MJRefreshStateHeader.m in Sources */,
 				E4E3A1E91F67B1A100019065 /* IQUIView+IQKeyboardToolbar.m in Sources */,

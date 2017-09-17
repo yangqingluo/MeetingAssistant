@@ -42,7 +42,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
         else if (nIndex == 1){
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [btn setImage:[UIImage imageNamed:@"创建会议室按钮"] forState:UIControlStateNormal];
-            [btn setFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
+            [btn setFrame:CGRectMake(screen_width - 64, 0, 54, 44)];
             [btn addTarget:self action:@selector(creatButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }

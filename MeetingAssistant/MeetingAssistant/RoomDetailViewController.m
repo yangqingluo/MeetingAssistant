@@ -12,12 +12,15 @@
 #import "UICollectionView+Empty.h"
 #import "DeviceCell.h"
 #import "AddFriendView.h"
+#import "CustomPopOverView.h"
+#import "UIButton+ImageAndText.h"
 
 static NSString *identify_DeviceCell = @"DeviceCell";
 
 @interface RoomDetailViewController ()
 
 @property (strong, nonatomic) AddFriendView *addFriedView;
+@property (strong, nonatomic) CustomPopOverView *popItemsView;
 
 @end
 
@@ -41,8 +44,8 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         else if (nIndex == 1){
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [btn setImage:[UIImage imageNamed:@"配置按钮"] forState:UIControlStateNormal];
-            [btn setFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
-            [btn addTarget:self action:@selector(editButtonAction) forControlEvents:UIControlEventTouchUpInside];
+            [btn setFrame:CGRectMake(screen_width - 64, 0, 54, 44)];
+            [btn addTarget:self action:@selector(editButtonAction:) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }
         
@@ -54,15 +57,16 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)editButtonAction {
-    if (!_addFriedView) {
-        NSArray * nib = [[NSBundle mainBundle] loadNibNamed:@"AddFriendView" owner:self options:nil] ;
-        _addFriedView = (AddFriendView *)[nib objectAtIndex:0];
-        _addFriedView.frame=CGRectMake(self.view.bounds.size.width-125, 0, 121, 138);
-        _addFriedView.hidden=YES;
-        [self.view addSubview:_addFriedView];
-    }
-    _addFriedView.hidden = !_addFriedView.hidden;
+- (void)editButtonAction:(UIButton *)button {
+//    if (!_addFriedView) {
+//        NSArray * nib = [[NSBundle mainBundle] loadNibNamed:@"AddFriendView" owner:self options:nil] ;
+//        _addFriedView = (AddFriendView *)[nib objectAtIndex:0];
+//        _addFriedView.frame=CGRectMake(self.view.bounds.size.width-125, 0, 121, 138);
+//        _addFriedView.hidden=YES;
+//        [self.view addSubview:_addFriedView];
+//    }
+//    _addFriedView.hidden = !_addFriedView.hidden;
+    [self.popItemsView showFrom:button alignStyle:CPAlignStyleRight];
 }
 
 -(IBAction)act:(UIButton *)sender
@@ -78,6 +82,53 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         
     }
     
+}
+
+- (void)itemsButtonAction:(UIButton *)button {
+    [self.popItemsView dismiss];
+}
+
+#pragma mark - getter
+- (CustomPopOverView *)popItemsView {
+    if (!_popItemsView) {
+        UIView *_itemsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400 * screen_width / 1024, 200)];
+        
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _itemsView.width, 50)];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.textColor = RGBA(0x6e, 0x6e, 0x6e, 1.0);
+        titleLabel.font = [UIFont systemFontOfSize:16.0];
+        titleLabel.text = @"设置";
+        [_itemsView addSubview:titleLabel];
+        
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, titleLabel.bottom - 1.0, _itemsView.width, 1.0)];
+        lineView.backgroundColor = baseSeparatorColor;
+        [_itemsView addSubview:lineView];
+        
+        NSArray *itemsArray = @[@{@"name": @"发现设备", @"icon": @"发现设备按钮"},
+                                @{@"name": @"会议纪要设置", @"icon": @"会议纪要设置"},
+                                @{@"name": @"名牌风格设置", @"icon": @"名牌风格设置"},
+                                ];
+        NSUInteger itemsCount = itemsArray.count;
+        CGFloat btnWidth = _itemsView.width / itemsCount;
+        CGFloat btnHeight = _itemsView.height - titleLabel.bottom;
+        for (NSUInteger i = 0; i < itemsCount; i++) {
+            NSDictionary *m_dic = itemsArray[i];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setFrame:CGRectMake(i * btnWidth, titleLabel.bottom, btnWidth, btnHeight)];
+            [button setImage:[UIImage imageNamed:m_dic[@"icon"]] forState:UIControlStateNormal];
+            [button setTitle:m_dic[@"name"] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button verticalImageAndTitle:kEdge];
+            [button addTarget:self action:@selector(itemsButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            button.tag = i;
+            [_itemsView addSubview:button];
+        }
+        
+        _popItemsView = [CustomPopOverView new];
+        _popItemsView.content = _itemsView;
+    }
+    return _popItemsView;
 }
 
 #pragma mark - collection view
