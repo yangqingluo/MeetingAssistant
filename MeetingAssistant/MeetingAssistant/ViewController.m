@@ -48,7 +48,7 @@
     [self.udpSocket sendData:[self.messageTextField.text dataUsingEncoding:NSUTF8StringEncoding] toHost:self.hostTextField.text port:port withTimeout:-1 tag:0];
 }
 
--(void)addTextToLog:(NSString *)str{
+- (void)addTextToLog:(NSString *)str{
     self.logTextView.text = [NSString stringWithFormat:@"%@\n%@", str, self.logTextView.text];
     [self.logTextView scrollsToTop];
 }
@@ -57,6 +57,7 @@
 - (GCDAsyncUdpSocket *)udpSocket {
     if (!_udpSocket) {
         _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+//        [_udpSocket bindToPort:1001 error:nil];
         [_udpSocket enableBroadcast:YES error:nil];
         [_udpSocket beginReceiving:nil];
     }

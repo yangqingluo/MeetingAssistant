@@ -176,7 +176,7 @@
 }
 
 #pragma mark - textfield
-- (void)textFieldDidChange :(UITextField *)textField{
+- (void)textFieldDidChange:(UITextField *)textField{
     textField.rightViewMode = textField.text.length ? UITextFieldViewModeAlways : UITextFieldViewModeNever;
 }
 

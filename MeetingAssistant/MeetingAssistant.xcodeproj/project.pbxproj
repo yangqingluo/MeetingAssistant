@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E41EC1781F690202007D8BCA /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E41EC1771F690202007D8BCA /* BlockAlertView.m */; };
+		E43727701F8FABD800042FC4 /* SocketConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = E437276F1F8FABD800042FC4 /* SocketConnect.m */; };
 		E45A783E1F58F801006BD787 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E45A783D1F58F801006BD787 /* main.m */; };
 		E45A78411F58F801006BD787 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E45A78401F58F801006BD787 /* AppDelegate.m */; };
 		E45A78441F58F801006BD787 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45A78431F58F801006BD787 /* ViewController.m */; };
@@ -273,6 +274,10 @@
 /* Begin PBXFileReference section */
 		E41EC1761F690202007D8BCA /* BlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockAlertView.h; sourceTree = "<group>"; };
 		E41EC1771F690202007D8BCA /* BlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockAlertView.m; sourceTree = "<group>"; };
+		E437276C1F8FA90200042FC4 /* MACommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACommand.h; sourceTree = "<group>"; };
+		E437276D1F8FA91900042FC4 /* MAStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAStruct.h; sourceTree = "<group>"; };
+		E437276E1F8FABD800042FC4 /* SocketConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketConnect.h; sourceTree = "<group>"; };
+		E437276F1F8FABD800042FC4 /* SocketConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketConnect.m; sourceTree = "<group>"; };
 		E45A78391F58F801006BD787 /* MeetingAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45A783D1F58F801006BD787 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E45A783F1F58F801006BD787 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -965,6 +970,10 @@
 				E4E3A15C1F67B0EB00019065 /* UIResponder+Router.m */,
 				E46CF5401F6EDBA300EDF2B5 /* EaseMessageReadManager.h */,
 				E46CF5411F6EDBA300EDF2B5 /* EaseMessageReadManager.m */,
+				E437276E1F8FABD800042FC4 /* SocketConnect.h */,
+				E437276F1F8FABD800042FC4 /* SocketConnect.m */,
+				E437276C1F8FA90200042FC4 /* MACommand.h */,
+				E437276D1F8FA91900042FC4 /* MAStruct.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1752,6 +1761,7 @@
 				E46CF53C1F6EDB0D00EDF2B5 /* PSTGridLayoutItem.m in Sources */,
 				E46CF4B11F6EC05100EDF2B5 /* DeviceStyleView.m in Sources */,
 				E46CF5391F6EDB0D00EDF2B5 /* PSTCollectionViewLayout.m in Sources */,
+				E43727701F8FABD800042FC4 /* SocketConnect.m in Sources */,
 				E4B3A8C01F692A9600055D12 /* FMDatabaseQueue.m in Sources */,
 				E46CF51C1F6EDB0D00EDF2B5 /* MWPhoto.m in Sources */,
 				E46CF5481F6EE80800EDF2B5 /* DeviceFontSizeCell.m in Sources */,
