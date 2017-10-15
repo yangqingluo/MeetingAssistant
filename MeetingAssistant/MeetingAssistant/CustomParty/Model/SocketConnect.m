@@ -137,7 +137,7 @@ __strong static SocketConnect  *_singleManger = nil;
         case RESP_REGISTER_BROADCAST :{
             REGISTER_BROADCAST_RESP resp = {0};
             memcpy(&resp, package.data, package.data_len);
-            NSLog(@"****");
+            [[UserPublic getInstance] addDeviceWithHost:[GCDAsyncUdpSocket hostFromAddress:address] port:resp.port];
         }
             break;
             

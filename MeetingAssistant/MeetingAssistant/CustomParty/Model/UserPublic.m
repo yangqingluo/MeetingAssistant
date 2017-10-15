@@ -86,10 +86,25 @@ __strong static UserPublic *_singleManger = nil;
         for (APPDeviceInfo *device in self.selectedRoomInfo.deviceArray) {
             if ([device.host isEqualToString:host]) {
                 isExisted = YES;
+                device.port = port;
                 break;
             }
         }
+        if (!isExisted) {
+            APPDeviceInfo *device = [APPDeviceInfo new];
+            device.host = [host copy];
+            device.port = port;
+            [self.selectedRoomInfo.deviceArray addObject:device];
+        }
+        
+        [self postNotificationName:kNotification_DeviceRefresh object:nil];
     }
+}
+
+- (void)postNotificationName:(NSString *)name object:(id)anObject{
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [[NSNotificationCenter defaultCenter] postNotificationName:name object:anObject];
+    });
 }
 
 #pragma mark - getter

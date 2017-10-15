@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "PublicNavViewController.h"
 
+#define kNotification_DeviceRefresh    @"kNotification_DeviceRefresh"
+
 @interface UserPublic : NSObject
 
 + (UserPublic *)getInstance;

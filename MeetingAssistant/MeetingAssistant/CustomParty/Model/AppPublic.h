@@ -81,9 +81,6 @@
 #define kUserData                    @"userdata_CRM"
 
 #define defaultHeadImageName         @"默认头像"
-#define kNotifi_Customer_Refresh     @"kNotification_Customer_Refresh_CRM"
-#define kNotifi_Order_Refresh        @"kNotification_Order_Refresh_CRM"
-#define kNotifi_RMoney_Refresh       @"kNotification_RMoney_Refresh_CRM"
 
 //result is [from to]
 #define RandomInAggregate(from, to) ((int)(from + (arc4random() % (to - from + 1))))
