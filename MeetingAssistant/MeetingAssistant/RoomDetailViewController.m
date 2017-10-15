@@ -47,7 +47,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 }
 
 - (void)setupNav {
-    [self createNavWithTitle:self.roomInfo.room_name createMenuItem:^UIView *(int nIndex){
+    [self createNavWithTitle:[UserPublic getInstance].selectedRoomInfo.room_name createMenuItem:^UIView *(int nIndex){
         if (nIndex == 0){
             UIButton *btn = NewBackButton(nil);
             [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -100,17 +100,21 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 //            [self.deviceArray removeAllObjects];
 //            [self.deviceArray addObjectsFromArray:[APPDeviceInfo mj_objectArrayWithKeyValuesArray:m_array]];
 //            [self.collectionView reloadData];
-            [[SocketConnect getInstance] senfRegisterBroadcast];
+            [[SocketConnect getInstance] sendRegisterBroadcast];
         }
             break;
             
         case 1: {
-            [self.summaryView showInView:self.view];
+//            [self.summaryView showInView:self.view];
+            
+//            [[SocketConnect getInstance] connectToHost:@"192.168.1.107" onPort:12321 withTimeout:-1 error:nil];
+            [[SocketConnect getInstance] connectToAddress:nil error:nil];
         }
             break;
             
         case 2: {
-            [self.styleView showInView:self.view];
+//            [self.styleView showInView:self.view];
+            [[SocketConnect getInstance] sendFileData];
         }
             break;
             

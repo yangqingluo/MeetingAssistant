@@ -24,7 +24,13 @@
 
 @implementation AppMeetingRoomInfo
 
-
+#pragma mark - getter
+- (NSMutableArray *)deviceArray {
+    if (!_deviceArray) {
+        _deviceArray = [NSMutableArray new];
+    }
+    return _deviceArray;
+}
 
 @end
 

@@ -21,6 +21,8 @@
 @property (strong, nonatomic) AppUserInfo *userData;
 //用户会议室数据
 @property (strong, nonatomic) NSMutableArray *roomsArray;
+//选中的会议室
+@property (strong, nonatomic) AppMeetingRoomInfo *selectedRoomInfo;
 //会议纪要图片数据
 @property (strong, nonatomic) NSMutableArray *summaryArray;
 //名牌风格数据
@@ -36,5 +38,7 @@
 - (BOOL)creatMeetingRoom:(NSString *)name;
 //删除会议室
 - (BOOL)removeMeetingRoom:(NSUInteger)index;
+//添加名牌设备
+- (void)addDeviceWithHost:(NSString *)host port:(int)port;
 
 @end

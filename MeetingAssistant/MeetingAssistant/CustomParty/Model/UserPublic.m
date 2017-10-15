@@ -39,7 +39,6 @@ __strong static UserPublic *_singleManger = nil;
     if (data) {
         _userData = data;
     }
-    
     if (_userData) {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         [ud setObject:[_userData mj_keyValues] forKey:kUserData];
@@ -79,6 +78,18 @@ __strong static UserPublic *_singleManger = nil;
         [self.roomsArray removeObjectAtIndex:index];
     }
     return result;
+}
+
+- (void)addDeviceWithHost:(NSString *)host port:(int)port {
+    if (self.selectedRoomInfo) {
+        BOOL isExisted = NO;
+        for (APPDeviceInfo *device in self.selectedRoomInfo.deviceArray) {
+            if ([device.host isEqualToString:host]) {
+                isExisted = YES;
+                break;
+            }
+        }
+    }
 }
 
 #pragma mark - getter

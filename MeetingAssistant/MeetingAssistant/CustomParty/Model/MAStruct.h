@@ -26,6 +26,19 @@ struct _register_broadcast {
 };
 typedef struct _register_broadcast REGISTER_BROADCAST;
 
+struct  _register_broadcast_resp{
+    int ipaddr;		/* host ipaddr, 4 bytes for each position */
+    unsigned int port;	/* 端口号 */
+};
+typedef struct _register_broadcast_resp REGISTER_BROADCAST_RESP;
+
+struct  _file_begin{
+    int type;	/* 下发文件类型，比如0x00名牌名称图片, 0x01会议纪要图片重新添加*/
+    unsigned char pic_name[32];//固定长度32
+    unsigned int total; /* 分包总数 */
+};
+typedef struct _file_begin FILE_BEGIN;
+
 #pragma pack()
 
 #endif /* MAStruct_h */

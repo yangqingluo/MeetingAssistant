@@ -100,7 +100,7 @@
     self.imgView.highlighted = data.lighted;
     self.tagImageView.highlighted = data.lighted;
     self.nameLabel.text = data.device_name;
-    self.addressLabel.text = [NSString stringWithFormat:@"IP：%@", data.ip_address];
+    self.addressLabel.text = [NSString stringWithFormat:@"IP：%@", data.host];
     self.summaryLabel.text = [NSString stringWithFormat:@"会议纪要：%@", data.summary.count ? @"[图片]" : @"无"];
     self.lightButton.selected = data.lighted;
     self.loadButton.hidden = (data.summary.count > 0);

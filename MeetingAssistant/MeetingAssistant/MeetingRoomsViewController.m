@@ -184,7 +184,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     RoomDetailViewController *vc = [RoomDetailViewController new];
-    vc.roomInfo = [UserPublic getInstance].roomsArray[indexPath.row];
+    [UserPublic getInstance].selectedRoomInfo = [UserPublic getInstance].roomsArray[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

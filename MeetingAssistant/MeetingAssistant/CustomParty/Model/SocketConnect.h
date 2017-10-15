@@ -12,6 +12,16 @@
 
 + (SocketConnect *)getInstance;
 
-- (void)senfRegisterBroadcast;
+- (void)sendRegisterBroadcast;
+
+/**
+ *  Connect to server
+ *
+ *  @return YES-success;other-fail
+ */
+- (BOOL)connectToHost:(NSString *)host onPort:(uint16_t)port withTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr;
+- (BOOL)connectToAddress:(NSData *)address error:(NSError **)errPtr;
+- (void)disconnectToSocketServer;
+- (void)sendFileData;
 
 @end
