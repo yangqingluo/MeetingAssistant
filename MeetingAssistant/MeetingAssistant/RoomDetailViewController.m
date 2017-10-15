@@ -40,6 +40,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[SocketConnect getInstance] stopSearchingDevices];
 }
 
 - (void)viewDidLoad {
@@ -111,16 +112,12 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             break;
             
         case 1: {
-//            [self.summaryView showInView:self.view];
-            
-//            [[SocketConnect getInstance] connectToHost:@"192.168.1.107" onPort:12321 withTimeout:-1 error:nil];
-            [[SocketConnect getInstance] connectToAddress:nil error:nil];
+            [self.summaryView showInView:self.view];
         }
             break;
             
         case 2: {
-//            [self.styleView showInView:self.view];
-            [[SocketConnect getInstance] sendFileData];
+            [self.styleView showInView:self.view];
         }
             break;
             
@@ -277,6 +274,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DeviceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify_DeviceCell forIndexPath:indexPath];
     cell.data = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+    cell.indexPath = indexPath;
     
     return cell;
 }
@@ -348,6 +346,15 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         }
         
     }
+    else if ([eventName isEqualToString:Event_DeviceCellLightButton]) {
+        NSIndexPath *indexPath = (NSIndexPath *)userInfo;
+        if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
+            APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+            
+            [self showHudInView:self.view hint:nil];
+            [[SocketConnect getInstance] operationLightOpen:!device.lighted host:device.host port:device.port];
+        }
+    }
 }
 
 #pragma mark - notification
@@ -356,15 +363,24 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 }
 
 - (void)socketNotification:(NSNotification*)notification {
+    [self hideHud];
+    
     NSDictionary *m_dic = notification.object;
     int cmd = [m_dic[@"cmd"] intValue];
     switch (cmd) {
         case socket_searchDone:{
-            [self hideHud];
             BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"共发现%d个设备", (int)[UserPublic getInstance].selectedRoomInfo.deviceArray.count] cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
             }otherButtonTitles:nil];
             [alert show];
 
+        }
+            break;
+            
+        case RESP_OPERATION_LIGHT_OPEN:
+        case RESP_OPERATION_LIGHT_CLOSE:{
+            BOOL result = [m_dic[@"result"] boolValue];
+            [self showHint:result ? @"操作成功" : @"操作失败" ];
+            [self.collectionView reloadData];
         }
             break;
             

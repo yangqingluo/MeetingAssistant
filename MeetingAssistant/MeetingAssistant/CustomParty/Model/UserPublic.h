@@ -41,6 +41,8 @@
 //删除会议室
 - (BOOL)removeMeetingRoom:(NSUInteger)index;
 //添加名牌设备
-- (void)addDeviceWithHost:(NSString *)host port:(int)port;
+- (BOOL)addDeviceWithHost:(NSString *)host port:(int)port;
+//设置名牌点亮状态
+- (void)updateDeviceLighted:(BOOL)lighted host:(NSString *)host;
 
 @end

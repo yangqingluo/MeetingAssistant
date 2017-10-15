@@ -32,6 +32,21 @@ struct  _register_broadcast_resp{
 };
 typedef struct _register_broadcast_resp REGISTER_BROADCAST_RESP;
 
+struct  _register_result{
+    Byte result;	/* 注册结果 0x00失败， 0x01成功 */
+};
+typedef struct _register_result REGISTER_RESULT;
+
+struct  _operation_light{
+    Byte result;	/* 点亮操作：0x00，关闭操作：0x01 */
+};
+typedef struct _operation_light OPERATION_LIGHT;
+
+struct  _operation_light_resp{
+    Byte result;	/* 成功：0x00，失败：0x01 */
+};
+typedef struct _operation_light_resp OPERATION_LIGHT_RESP;
+
 struct  _file_begin{
     int type;	/* 下发文件类型，比如0x00名牌名称图片, 0x01会议纪要图片重新添加*/
     unsigned char pic_name[32];//固定长度32

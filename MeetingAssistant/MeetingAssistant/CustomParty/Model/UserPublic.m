@@ -80,7 +80,7 @@ __strong static UserPublic *_singleManger = nil;
     return result;
 }
 
-- (void)addDeviceWithHost:(NSString *)host port:(int)port {
+- (BOOL)addDeviceWithHost:(NSString *)host port:(int)port {
     if (self.selectedRoomInfo) {
         BOOL isExisted = NO;
         for (APPDeviceInfo *device in self.selectedRoomInfo.deviceArray) {
@@ -98,6 +98,20 @@ __strong static UserPublic *_singleManger = nil;
         }
         
         [self postNotificationName:kNotification_DeviceRefresh object:nil];
+        return YES;
+    }
+    return NO;
+}
+
+//设置名牌点亮状态
+- (void)updateDeviceLighted:(BOOL)lighted host:(NSString *)host {
+    if (self.selectedRoomInfo) {
+        for (APPDeviceInfo *device in self.selectedRoomInfo.deviceArray) {
+            if ([device.host isEqualToString:host]) {
+                device.lighted = lighted;
+                break;
+            }
+        }
     }
 }
 

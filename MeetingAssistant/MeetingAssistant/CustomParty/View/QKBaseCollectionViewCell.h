@@ -11,6 +11,7 @@
 
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UIButton *removeButton;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 
 - (void)startAnimation;
 - (void)stopAnimation;

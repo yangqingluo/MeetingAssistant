@@ -11,11 +11,16 @@
 #import "GCDAsyncUdpSocket.h"
 #import "GCDAsyncSocket.h"
 
+#define searchTimerDelay     30.0
+#define cmdTimerDelay        10.0
+
 @interface SocketConnect ()<GCDAsyncUdpSocketDelegate, GCDAsyncSocketDelegate> {
     Byte m_ucRecvBuffer[MAX_UDP_DATA_LEN];
     unsigned int m_nRecvLen;
     unsigned int m_nRecvFrameLen;
     int m_nRecvType;
+    
+    NSString *cmdHost;//发送cmd命令的名牌地址
 }
 
 @property (strong, nonatomic) GCDAsyncUdpSocket *udpSocket;
@@ -71,14 +76,16 @@ __strong static SocketConnect  *_singleManger = nil;
     [self sendRegisterBroadcast];
 }
 
-- (void)searchDelayTimerFired {
-    [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_searchDone)}];
+- (void)stopSearchingDevices {
+    if ([self.searchTimer isValid]) {
+        [self.searchTimer invalidate];
+    }
 }
 
-- (void)sendRegisterBroadcast {
-    REGISTER_BROADCAST package = {0};
-    package.port = 10001;
-    [self.udpSocket sendData:[self buildWithType:CMD_REGISTER_BROADCAST Pbuf:(char *)&package Len:sizeof(REGISTER_BROADCAST)] toHost:@"255.255.255.255" port:9527 withTimeout:-1 tag:0];
+- (void)operationLightOpen:(BOOL)open host:(NSString *)host port:(int)port {
+    OPERATION_LIGHT package = {0};
+    package.result = open ? 0x00 : 0x01;
+    [self sendUDPCMD:open ? CMD_OPERATION_LIGHT_OPEN : CMD_OPERATION_LIGHT_CLOSE Pbuf:(char *)&package Len:sizeof(OPERATION_LIGHT) host:host port:port];
 }
 
 - (BOOL)connectToHost:(NSString *)host
@@ -121,6 +128,37 @@ __strong static SocketConnect  *_singleManger = nil;
 }
 
 #pragma mark - private
+- (void)searchDelayTimerFired {
+    [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_searchDone)}];
+}
+
+- (void)cmdDelayTimerFired {
+    [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_cmdTimeout)}];
+}
+
+- (void)sendRegisterBroadcast {
+    REGISTER_BROADCAST package = {0};
+    package.port = 10001;
+    [self.udpSocket sendData:[self buildWithType:CMD_REGISTER_BROADCAST Pbuf:(char *)&package Len:sizeof(REGISTER_BROADCAST)] toHost:@"255.255.255.255" port:9527 withTimeout:-1 tag:0];
+}
+
+- (void)sendRegisterResult:(BOOL)success host:(NSString *)host port:(int)port{
+    REGISTER_RESULT package = {0};
+    package.result = success ? 0x01 : 0x00;
+    [self.udpSocket sendData:[self buildWithType:CMD_REGISTER_RESULT Pbuf:(char *)&package Len:sizeof(REGISTER_RESULT)] toHost:host port:port withTimeout:-1 tag:0];
+}
+
+
+- (void)sendUDPCMD:(int)type Pbuf:(char *)pbuf Len:(int)len host:(NSString *)host port:(int)port{
+    if ([self.cmdTimer isValid]) {
+        [self.cmdTimer invalidate];
+    }
+    cmdHost = [host copy];
+    self.cmdTimer = [NSTimer timerWithTimeInterval:cmdTimerDelay target:self selector:@selector(cmdDelayTimerFired) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:self.searchTimer forMode:NSRunLoopCommonModes];
+    [self.udpSocket sendData:[self buildWithType:type Pbuf:pbuf Len:len] toHost:host port:port withTimeout:-1 tag:0];
+}
+
 - (NSData *)buildWithType:(int)type Pbuf:(char *)pbuf Len:(int)len{
     NET_UDP_PACKAGE package = {0};
     package.header = NET_PACK_HEADER;
@@ -131,6 +169,7 @@ __strong static SocketConnect  *_singleManger = nil;
     }
     NSMutableData *theData = [NSMutableData data];
     [theData appendBytes:&package length:12 + len];
+    NSLog(@"build data:%@", theData);
     return theData;
 }
 
@@ -174,7 +213,28 @@ __strong static SocketConnect  *_singleManger = nil;
         case RESP_REGISTER_BROADCAST :{
             REGISTER_BROADCAST_RESP resp = {0};
             memcpy(&resp, package.data, package.data_len);
-            [[UserPublic getInstance] addDeviceWithHost:[GCDAsyncUdpSocket hostFromAddress:address] port:resp.port];
+            NSString *host = [GCDAsyncUdpSocket hostFromAddress:address];
+            BOOL result = [[UserPublic getInstance] addDeviceWithHost:host port:resp.port];
+            [self sendRegisterResult:result host:host port:resp.port];
+        }
+            break;
+            
+        case RESP_OPERATION_LIGHT_OPEN:
+        case RESP_OPERATION_LIGHT_CLOSE:{
+            if ([self.cmdTimer isValid]) {
+                [self.cmdTimer invalidate];
+            }
+            OPERATION_LIGHT_RESP resp = {0};
+            memcpy(&resp, package.data, package.data_len);
+            
+            BOOL result = (resp.result == 0x00);
+            BOOL lighted = NO;
+            if (package.type == RESP_OPERATION_LIGHT_OPEN && result) {
+                lighted = YES;
+            }
+            
+            [[UserPublic getInstance] updateDeviceLighted:lighted host:cmdHost];
+            [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(package.type), @"result" : @(result)}];
         }
             break;
             

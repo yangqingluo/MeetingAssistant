@@ -8,6 +8,8 @@
 
 #import "QKBaseCollectionViewCell.h"
 
+#define Event_DeviceCellLightButton @"Event_DeviceCellLightButton"
+
 @interface DeviceCell : QKBaseCollectionViewCell
 
 @property (strong, nonatomic) UIView *baseView;

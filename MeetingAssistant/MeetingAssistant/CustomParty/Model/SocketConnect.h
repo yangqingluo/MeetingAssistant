@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MACommand.h"
 
-#define searchTimerDelay 30
 #define socket_searchDone  0x1000
+#define socket_cmdTimeout  0x1001
+//#define socket_cmdResp     0x1002
 
 #define kNotification_Socket    @"kNotification_Socket"
 
@@ -19,7 +21,8 @@
 + (SocketConnect *)getInstance;
 
 - (void)startSearchingDevices;
-//- (void)sendRegisterBroadcast;
+- (void)stopSearchingDevices;
+- (void)operationLightOpen:(BOOL)open host:(NSString *)host port:(int)port;
 
 - (BOOL)connectToHost:(NSString *)host onPort:(uint16_t)port withTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr;
 - (BOOL)connectToAddress:(NSData *)address error:(NSError **)errPtr;

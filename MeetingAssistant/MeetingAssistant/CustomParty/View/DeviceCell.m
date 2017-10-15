@@ -8,6 +8,8 @@
 
 #import "DeviceCell.h"
 
+#import "UIResponder+Router.h"
+
 @implementation DeviceCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -67,6 +69,7 @@
         [_lightButton setTitle:@"点亮" forState:UIControlStateNormal];
         [_lightButton setTitle:@"关闭" forState:UIControlStateSelected];
         [_lightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_lightButton addTarget:self action:@selector(lightBtnAction) forControlEvents:UIControlEventTouchUpInside];
         [self.baseView addSubview:_lightButton];
         
         _loadButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -91,6 +94,12 @@
     }
     
     return self;
+}
+
+- (void)lightBtnAction {
+    if (self.indexPath) {
+        [self routerEventWithName:Event_DeviceCellLightButton userInfo:self.indexPath];
+    }
 }
 
 #pragma mark - setter
