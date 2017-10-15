@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#define searchTimerDelay 30
+#define socket_searchDone  0x1000
+
+#define kNotification_Socket    @"kNotification_Socket"
+
+
 @interface SocketConnect : NSObject
 
 + (SocketConnect *)getInstance;
 
-- (void)sendRegisterBroadcast;
+- (void)startSearchingDevices;
+//- (void)sendRegisterBroadcast;
 
 - (BOOL)connectToHost:(NSString *)host onPort:(uint16_t)port withTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr;
 - (BOOL)connectToAddress:(NSData *)address error:(NSError **)errPtr;

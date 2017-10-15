@@ -21,6 +21,10 @@
 @property (strong, nonatomic) GCDAsyncUdpSocket *udpSocket;
 @property (strong, nonatomic) GCDAsyncSocket *tcpSocket;
 
+@property (strong, nonatomic) NSTimer *searchTimer;
+@property (strong, nonatomic) NSTimer *connectTimer;
+@property (strong, nonatomic) NSTimer *cmdTimer;
+
 @end
 
 @implementation SocketConnect
@@ -43,6 +47,32 @@ __strong static SocketConnect  *_singleManger = nil;
         
     }
     return self;
+}
+
+- (void)dealloc{
+    if ([self.searchTimer isValid]) {
+        [self.searchTimer invalidate];
+    }
+    if ([self.connectTimer isValid]) {
+        [self.connectTimer invalidate];
+    }
+    if ([self.cmdTimer isValid]) {
+        [self.cmdTimer invalidate];
+    }
+}
+
+- (void)startSearchingDevices {
+    if ([self.searchTimer isValid]) {
+        [self.searchTimer invalidate];
+    }
+    self.searchTimer = [NSTimer timerWithTimeInterval:searchTimerDelay target:self selector:@selector(searchDelayTimerFired) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:self.searchTimer forMode:NSRunLoopCommonModes];
+    
+    [self sendRegisterBroadcast];
+}
+
+- (void)searchDelayTimerFired {
+    [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_searchDone)}];
 }
 
 - (void)sendRegisterBroadcast {
@@ -84,6 +114,13 @@ __strong static SocketConnect  *_singleManger = nil;
     [self.tcpSocket writeData:[self buildWithType:CMD_FILE_BEGIN Pbuf:(char *)&package Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
 }
 
+- (void)postNotificationName:(NSString *)name object:(id)anObject{
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [[NSNotificationCenter defaultCenter] postNotificationName:name object:anObject];
+    });
+}
+
+#pragma mark - private
 - (NSData *)buildWithType:(int)type Pbuf:(char *)pbuf Len:(int)len{
     NET_UDP_PACKAGE package = {0};
     package.header = NET_PACK_HEADER;

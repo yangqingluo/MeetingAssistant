@@ -18,6 +18,7 @@
 #import "SummaryView.h"
 #import "DeviceStyleView.h"
 #import "BlockActionSheet.h"
+#import "BlockAlertView.h"
 #import "EaseMessageReadManager.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -27,7 +28,6 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 @interface RoomDetailViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, ZYQAssetPickerControllerDelegate>
 
 @property (strong, nonatomic) CustomPopOverView *popItemsView;
-@property (strong, nonatomic) NSMutableArray *deviceArray;
 @property (strong, nonatomic) SummaryView *summaryView;
 @property (strong, nonatomic) DeviceStyleView *styleView;
 
@@ -38,12 +38,19 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 @implementation RoomDetailViewController
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
     
     [self.collectionView registerClass:[DeviceCell class] forCellWithReuseIdentifier:identify_DeviceCell];
     self.collectionView.alwaysBounceVertical = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceNotification:) name:kNotification_DeviceRefresh object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(socketNotification:) name:kNotification_Socket object:nil];
 }
 
 - (void)setupNav {
@@ -97,10 +104,9 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 //                                 @{@"ip_address" : @"192.168.0.07", @"device_name" : @"李逵", @"lighted" : @NO, @"state" : @1},
 //                                 @{@"ip_address" : @"192.168.0.11", @"device_name" : @"刘爱丽", @"summary" : @[@"image1", @"image2"], @"lighted" : @YES, @"state" : @2},
 //                                 @{@"ip_address" : @"192.168.0.25", @"device_name" : @"王哲东", @"lighted" : @YES, @"state" : @2}];
-//            [self.deviceArray removeAllObjects];
-//            [self.deviceArray addObjectsFromArray:[APPDeviceInfo mj_objectArrayWithKeyValuesArray:m_array]];
-//            [self.collectionView reloadData];
-            [[SocketConnect getInstance] sendRegisterBroadcast];
+            
+            [self showHudInView:self.view hint:@"发现中..."];
+            [[SocketConnect getInstance] startSearchingDevices];
         }
             break;
             
@@ -219,13 +225,6 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     return _popItemsView;
 }
 
-- (NSMutableArray *)deviceArray {
-    if (!_deviceArray) {
-        _deviceArray = [NSMutableArray new];
-    }
-    return _deviceArray;
-}
-
 - (SummaryView *)summaryView {
     if (!_summaryView) {
         _summaryView = [[SummaryView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
@@ -272,12 +271,12 @@ static NSString *identify_DeviceCell = @"DeviceCell";
 
 #pragma mark - collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [collectionView showContentWithMessage:@"未发现设备!\n请点击右上角\"设置\"按钮\"发现设备\"" image:[UIImage imageNamed:@"未发现设备图标"] forNumberOfItemsInSection:self.deviceArray.count];
+    return [collectionView showContentWithMessage:@"未发现设备!\n请点击右上角\"设置\"按钮\"发现设备\"" image:[UIImage imageNamed:@"未发现设备图标"] forNumberOfItemsInSection:[UserPublic getInstance].selectedRoomInfo.deviceArray.count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DeviceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify_DeviceCell forIndexPath:indexPath];
-    cell.data = self.deviceArray[indexPath.row];
+    cell.data = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
     
     return cell;
 }
@@ -348,6 +347,29 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             [self.summaryView.collectionView reloadData];
         }
         
+    }
+}
+
+#pragma mark - notification
+- (void)deviceNotification:(NSNotification*)notification {
+    [self.collectionView reloadData];
+}
+
+- (void)socketNotification:(NSNotification*)notification {
+    NSDictionary *m_dic = notification.object;
+    int cmd = [m_dic[@"cmd"] intValue];
+    switch (cmd) {
+        case socket_searchDone:{
+            [self hideHud];
+            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"共发现%d个设备", (int)[UserPublic getInstance].selectedRoomInfo.deviceArray.count] cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
+            }otherButtonTitles:nil];
+            [alert show];
+
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
