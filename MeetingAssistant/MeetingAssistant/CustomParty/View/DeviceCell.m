@@ -24,12 +24,12 @@
         self.imgView.frame = CGRectMake(18, 20, 60, 60);
         self.imgView.backgroundColor = [UIColor whiteColor];
         self.imgView.image = [UIImage imageNamed:@"已关闭头像"];
-        self.imgView.highlightedImage = [UIImage imageNamed:@"点亮状态头像"];
+//        self.imgView.highlightedImage = [UIImage imageNamed:@"点亮状态头像"];
         [self.baseView addSubview:self.imgView];
         
         _tagImageView = [[UIImageView alloc] initWithFrame:CGRectMake(58, 71, 18, 18)];
         _tagImageView.image = [UIImage imageNamed:@"已关闭状态"];
-        _tagImageView.highlightedImage = [UIImage imageNamed:@"已点亮状态"];
+//        _tagImageView.highlightedImage = [UIImage imageNamed:@"已点亮状态"];
         [self.baseView addSubview:_tagImageView];
         
         self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(92, 23, 200, 25)];
@@ -106,8 +106,11 @@
 - (void)setData:(APPDeviceInfo *)data {
     _data = data;
     
-    self.imgView.highlighted = data.lighted;
-    self.tagImageView.highlighted = data.lighted;
+//    self.imgView.highlighted = data.lighted;
+//    self.tagImageView.highlighted = data.lighted;
+    self.imgView.image = [UIImage imageNamed:data.lighted ? @"点亮状态头像" :@"已关闭头像"];
+    self.tagImageView.image = [UIImage imageNamed:data.lighted ? @"已点亮状态" : @"已关闭状态"];
+    
     self.nameLabel.text = data.device_name.length ? data.device_name : @"待设置";
     self.addressLabel.text = [NSString stringWithFormat:@"IP：%@", data.host];
     self.summaryLabel.text = [NSString stringWithFormat:@"会议纪要：%@", data.summary.count ? @"[图片]" : @"无"];
