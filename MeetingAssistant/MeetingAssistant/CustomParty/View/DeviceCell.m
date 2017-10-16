@@ -76,6 +76,7 @@
         _loadButton.frame = CGRectMake(0, 20, 27, 27);
         _loadButton.right = self.summaryButton.right;
         [_loadButton setImage:[UIImage imageNamed:@"下载按钮"] forState:UIControlStateNormal];
+        [_loadButton addTarget:self action:@selector(loadBtnAction) forControlEvents:UIControlEventTouchUpInside];
         [self.baseView addSubview:_loadButton];
         
         _loadLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];
@@ -99,6 +100,12 @@
 - (void)lightBtnAction {
     if (self.indexPath) {
         [self routerEventWithName:Event_DeviceCellLightButton userInfo:self.indexPath];
+    }
+}
+
+- (void)loadBtnAction {
+    if (self.indexPath) {
+        [self routerEventWithName:Event_DeviceCellLoadButton userInfo:self.indexPath];
     }
 }
 

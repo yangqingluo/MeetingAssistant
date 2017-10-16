@@ -9,6 +9,7 @@
 #import "QKBaseCollectionViewCell.h"
 
 #define Event_DeviceCellLightButton @"Event_DeviceCellLightButton"
+#define Event_DeviceCellLoadButton @"Event_DeviceCellLoadButton"
 
 @interface DeviceCell : QKBaseCollectionViewCell
 

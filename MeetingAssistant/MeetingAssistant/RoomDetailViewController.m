@@ -355,6 +355,13 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             [[SocketConnect getInstance] operationLightOpen:!device.lighted host:device.host port:device.port];
         }
     }
+    else if ([eventName isEqualToString:Event_DeviceCellLoadButton]) {
+        NSIndexPath *indexPath = (NSIndexPath *)userInfo;
+        if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
+            APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+            
+        }
+    }
 }
 
 #pragma mark - notification
@@ -368,6 +375,10 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     NSDictionary *m_dic = notification.object;
     int cmd = [m_dic[@"cmd"] intValue];
     switch (cmd) {
+        case socket_cmdTimeout:{
+            [self showHint:@"命令超时"];
+        }
+            break;
         case socket_searchDone:{
             BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"共发现%d个设备", (int)[UserPublic getInstance].selectedRoomInfo.deviceArray.count] cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
             }otherButtonTitles:nil];

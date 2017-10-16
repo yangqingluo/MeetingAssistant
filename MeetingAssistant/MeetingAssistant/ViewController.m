@@ -57,7 +57,7 @@
 - (GCDAsyncUdpSocket *)udpSocket {
     if (!_udpSocket) {
         _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-//        [_udpSocket bindToPort:1001 error:nil];
+        [_udpSocket bindToPort:1001 error:nil];
         [_udpSocket enableBroadcast:YES error:nil];
         [_udpSocket beginReceiving:nil];
     }

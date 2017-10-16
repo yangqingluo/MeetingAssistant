@@ -11,7 +11,7 @@
 #import "GCDAsyncUdpSocket.h"
 #import "GCDAsyncSocket.h"
 
-#define searchTimerDelay     30.0
+#define searchTimerDelay     15.0
 #define cmdTimerDelay        10.0
 
 @interface SocketConnect ()<GCDAsyncUdpSocketDelegate, GCDAsyncSocketDelegate> {
@@ -155,7 +155,7 @@ __strong static SocketConnect  *_singleManger = nil;
     }
     cmdHost = [host copy];
     self.cmdTimer = [NSTimer timerWithTimeInterval:cmdTimerDelay target:self selector:@selector(cmdDelayTimerFired) userInfo:nil repeats:NO];
-    [[NSRunLoop mainRunLoop] addTimer:self.searchTimer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop mainRunLoop] addTimer:self.cmdTimer forMode:NSRunLoopCommonModes];
     [self.udpSocket sendData:[self buildWithType:type Pbuf:pbuf Len:len] toHost:host port:port withTimeout:-1 tag:0];
 }
 
