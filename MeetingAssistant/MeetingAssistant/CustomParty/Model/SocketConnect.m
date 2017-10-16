@@ -106,7 +106,7 @@ __strong static SocketConnect  *_singleManger = nil;
         begin.type = 0x00;
         memcpy(begin.pic_name, [name UTF8String], name.length);
         begin.total = total;
-        [self.tcpSocket writeData:[self buildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
+        [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
         
         for (int i = 0; i < total; i++) {
             FILE_CONTENT content = {0};
@@ -118,8 +118,10 @@ __strong static SocketConnect  *_singleManger = nil;
                 content.len = countOnce;
             }
             memcpy(content.buf, data.bytes + i * countOnce, content.len);
-            [self.tcpSocket writeData:[self buildWithType:CMD_FILE_CONTENT Pbuf:(char *)&content Len:8 + content.len] withTimeout:-1 tag:0];
+            [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_CONTENT Pbuf:(char *)&content Len:8 + content.len] withTimeout:-1 tag:0];
         }
+        
+        [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_FINISH Pbuf:NULL Len:0] withTimeout:-1 tag:0];
     }
     else {
         
@@ -148,13 +150,13 @@ __strong static SocketConnect  *_singleManger = nil;
 - (void)sendRegisterBroadcast {
     REGISTER_BROADCAST package = {0};
     package.port = udpPortSelf;
-    [self.udpSocket sendData:[self buildWithType:CMD_REGISTER_BROADCAST Pbuf:(char *)&package Len:sizeof(REGISTER_BROADCAST)] toHost:@"255.255.255.255" port:9527 withTimeout:-1 tag:0];
+    [self.udpSocket sendData:[self udpBuildWithType:CMD_REGISTER_BROADCAST Pbuf:(char *)&package Len:sizeof(REGISTER_BROADCAST)] toHost:@"255.255.255.255" port:9527 withTimeout:-1 tag:0];
 }
 
 - (void)sendRegisterResult:(BOOL)success host:(NSString *)host port:(int)port{
     REGISTER_RESULT package = {0};
     package.result = success ? 0x01 : 0x00;
-    [self.udpSocket sendData:[self buildWithType:CMD_REGISTER_RESULT Pbuf:(char *)&package Len:sizeof(REGISTER_RESULT)] toHost:host port:port withTimeout:-1 tag:0];
+    [self.udpSocket sendData:[self udpBuildWithType:CMD_REGISTER_RESULT Pbuf:(char *)&package Len:sizeof(REGISTER_RESULT)] toHost:host port:port withTimeout:-1 tag:0];
 }
 
 - (BOOL)connectToHost:(NSString *)host onPort:(uint16_t)port withTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr{
@@ -171,14 +173,6 @@ __strong static SocketConnect  *_singleManger = nil;
     }
 }
 
-- (void)sendFileData {
-    FILE_BEGIN package = {0};
-    package.type = 0x00;
-    memcpy(package.pic_name, "text_pic", 8);
-    package.total = 0;
-    [self.tcpSocket writeData:[self buildWithType:CMD_FILE_BEGIN Pbuf:(char *)&package Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
-}
-
 - (void)sendUDPCMD:(int)type Pbuf:(char *)pbuf Len:(int)len host:(NSString *)host port:(int)port{
     if ([self.cmdTimer isValid]) {
         [self.cmdTimer invalidate];
@@ -186,16 +180,30 @@ __strong static SocketConnect  *_singleManger = nil;
     cmdHost = [host copy];
     self.cmdTimer = [NSTimer timerWithTimeInterval:cmdTimerDelay target:self selector:@selector(cmdDelayTimerFired) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:self.cmdTimer forMode:NSRunLoopCommonModes];
-    [self.udpSocket sendData:[self buildWithType:type Pbuf:pbuf Len:len] toHost:host port:port withTimeout:-1 tag:0];
+    [self.udpSocket sendData:[self udpBuildWithType:type Pbuf:pbuf Len:len] toHost:host port:port withTimeout:-1 tag:0];
 }
 
-- (NSData *)buildWithType:(int)type Pbuf:(char *)pbuf Len:(int)len{
+- (NSData *)udpBuildWithType:(int)type Pbuf:(char *)pbuf Len:(int)len{
     NET_UDP_PACKAGE package = {0};
     package.header = NET_PACK_HEADER;
     package.type = type;
     package.data_len = len;
     if (pbuf && len > 0){
-        memcpy((void *)(package.data), (void *)pbuf, len);
+        memcpy(package.data, pbuf, len);
+    }
+    NSMutableData *theData = [NSMutableData data];
+    [theData appendBytes:&package length:12 + len];
+    NSLog(@"build data:%@", theData);
+    return theData;
+}
+
+- (NSData *)tcpBuildWithType:(int)type Pbuf:(char *)pbuf Len:(int)len{
+    NET_TCP_PACKAGE package = {0};
+    package.header = NET_PACK_HEADER;
+    package.type = type;
+    package.data_len = len;
+    if (pbuf && len > 0){
+        memcpy(package.data, pbuf, len);
     }
     NSMutableData *theData = [NSMutableData data];
     [theData appendBytes:&package length:12 + len];
@@ -244,8 +252,11 @@ __strong static SocketConnect  *_singleManger = nil;
             REGISTER_BROADCAST_RESP resp = {0};
             memcpy(&resp, package.data, package.data_len);
             NSString *host = [GCDAsyncUdpSocket hostFromAddress:address];
-            BOOL result = [[UserPublic getInstance] addDeviceWithHost:host port:resp.port];
-            [self sendRegisterResult:result host:host port:resp.port];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                BOOL result = [[UserPublic getInstance] addDeviceWithHost:host port:resp.port];
+                [self sendRegisterResult:result host:host port:resp.port];
+            });
+            
         }
             break;
             
@@ -263,7 +274,10 @@ __strong static SocketConnect  *_singleManger = nil;
                 lighted = YES;
             }
             
-            [[UserPublic getInstance] updateDeviceLighted:lighted host:cmdHost];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [[UserPublic getInstance] updateDeviceLighted:lighted host:cmdHost];
+            });
+            
             [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(package.type), @"result" : @(result)}];
         }
             break;

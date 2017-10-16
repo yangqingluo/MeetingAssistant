@@ -77,6 +77,8 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     if (isEditing) {
         [self updateEditState];
     }
+    
+    QKWEAKSELF;
     [self jxt_showAlertWithTitle:@"创建会议室" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
         alertMaker
         .addActionCancelTitle(@"取消")
@@ -87,7 +89,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
         if (buttonIndex == 1) {
             UITextField *textField = alertSelf.textFields.firstObject;
-            [self doCreatMeetingRoomAction:textField.text];
+            [weakself doCreatMeetingRoomAction:textField.text];
         }
     }];
 }
@@ -168,6 +170,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
     MeetingRoomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify_MeetingRoomCell forIndexPath:indexPath];
     if (!cell.removeButton.allTargets.count) {
         [cell.removeButton addTarget:self action:@selector(removeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.removeButton setImage:[UIImage imageNamed:@"已关闭状态"] forState:UIControlStateNormal];
     }
     cell.roomInfo = [UserPublic getInstance].roomsArray[indexPath.row];
     cell.removeButton.hidden = !isEditing;

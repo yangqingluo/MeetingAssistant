@@ -26,7 +26,7 @@
 
 static NSString *identify_DeviceCell = @"DeviceCell";
 
-@interface RoomDetailViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, ZYQAssetPickerControllerDelegate>
+@interface RoomDetailViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, ZYQAssetPickerControllerDelegate>
 
 @property (strong, nonatomic) CustomPopOverView *popItemsView;
 @property (strong, nonatomic) SummaryView *summaryView;
@@ -390,20 +390,34 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     else if ([eventName isEqualToString:Event_DeviceCellLoadButton]) {
         NSIndexPath *indexPath = (NSIndexPath *)userInfo;
         if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
-            
-            [self jxt_showAlertWithTitle:@"设置名称" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
-                alertMaker
-                .addActionCancelTitle(@"取消")
-                .addActionDefaultTitle(@"确定");
-                [alertMaker addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                    textField.placeholder = @"请输入名牌显示的名称";
-                }];
-            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+            QKWEAKSELF;
+//            [self jxt_showAlertWithTitle:@"设置名称" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+//                alertMaker
+//                .addActionCancelTitle(@"取消")
+//                .addActionDefaultTitle(@"确定");
+//                [alertMaker addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//                    textField.placeholder = @"请输入名牌显示的名称";
+//                }];
+//            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+//                if (buttonIndex == 1) {
+//                    UITextField *textField = alertSelf.textFields.firstObject;
+//                    [weakself doEditDeviceNameAction:textField.text indexPath:indexPath];
+//                }
+//            }];
+            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:@"设置名称" message:nil cancelButtonTitle:@"取消" callBlock:^(UIAlertView *view, NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
-                    UITextField *textField = alertSelf.textFields.firstObject;
-                    [self doEditDeviceNameAction:textField.text indexPath:indexPath];
+                    UITextField *textField = [view textFieldAtIndex:0];
+                    [weakself doEditDeviceNameAction:textField.text indexPath:indexPath];
                 }
-            }];
+            }otherButtonTitles:@"确定", nil];
+            
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            UITextField *alertTextField = [alert textFieldAtIndex:0];
+            alertTextField.clearButtonMode = UITextFieldViewModeAlways;
+            alertTextField.returnKeyType = UIReturnKeyDone;
+            alertTextField.delegate = self;
+            alertTextField.placeholder = @"请输入名牌显示的名称";
+            [alert show];
         }
     }
 }
