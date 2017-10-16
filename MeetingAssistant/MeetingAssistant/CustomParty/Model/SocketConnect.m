@@ -282,14 +282,15 @@ __strong static SocketConnect  *_singleManger = nil;
     memcpy(&package, pbuf, len);
     switch (package.type) {
         case RESP_REGISTER_BROADCAST :{
-            REGISTER_BROADCAST_RESP resp = {0};
-            memcpy(&resp, package.data, package.data_len);
-            NSString *host = [GCDAsyncUdpSocket hostFromAddress:address];
-            dispatch_async(dispatch_get_main_queue(), ^(void){
-                BOOL result = [[UserPublic getInstance] addDeviceWithHost:host port:resp.port];
-                [self sendRegisterResult:result host:host port:resp.port];
-            });
-            
+            if ([self.searchTimer isValid]) {
+                REGISTER_BROADCAST_RESP resp = {0};
+                memcpy(&resp, package.data, package.data_len);
+                NSString *host = [GCDAsyncUdpSocket hostFromAddress:address];
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    BOOL result = [[UserPublic getInstance] addDeviceWithHost:host port:resp.port];
+                    [self sendRegisterResult:result host:host port:resp.port];
+                });
+            }
         }
             break;
             
