@@ -59,6 +59,7 @@
         _summaryButton.titleLabel.font = [UIFont systemFontOfSize:15.0];
         [_summaryButton setTitle:@"会议纪要" forState:UIControlStateNormal];
         [_summaryButton setTitleColor:baseBlueColor forState:UIControlStateNormal];
+        [_summaryButton addTarget:self action:@selector(summaryBtnAction) forControlEvents:UIControlEventTouchUpInside];
         [self.baseView addSubview:_summaryButton];
         
         _lightButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -109,6 +110,12 @@
 - (void)loadBtnAction {
     if (self.indexPath) {
         [self routerEventWithName:Event_DeviceCellLoadButton userInfo:self.indexPath];
+    }
+}
+
+- (void)summaryBtnAction {
+    if (self.indexPath) {
+        [self routerEventWithName:Event_DeviceCellSummaryButton userInfo:self.indexPath];
     }
 }
 

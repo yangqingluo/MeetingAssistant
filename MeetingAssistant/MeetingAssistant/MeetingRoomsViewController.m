@@ -16,7 +16,7 @@
 
 static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
-@interface MeetingRoomsViewController () {
+@interface MeetingRoomsViewController ()<UITextFieldDelegate> {
     BOOL isEditing;
 }
 
@@ -85,6 +85,8 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
         .addActionDefaultTitle(@"确定");
         [alertMaker addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             textField.placeholder = @"请输入会议室名称";
+            textField.delegate = self;
+            [textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         }];
     } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
         if (buttonIndex == 1) {
@@ -208,5 +210,24 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 //- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 //    return 0;
 //}
+
+#pragma mark - TextField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if ([string isEqualToString:@""]) {
+        return YES;
+    }
+    return (range.location < kNameLengthMax);
+}
+
+- (void)textFieldDidChange:(UITextField *)textField {
+    if (textField.text.length > kNameLengthMax) {
+        textField.text = [textField.text substringToIndex:kNameLengthMax];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

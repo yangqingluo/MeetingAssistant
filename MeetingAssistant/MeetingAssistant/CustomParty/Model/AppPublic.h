@@ -70,7 +70,7 @@
 #define kVCodeNumberLength           0x06
 #define kPasswordLengthMin           0x03
 #define kPasswordLengthMax           0x10
-#define kNameLengthMax               0x30
+#define kNameLengthMax               0x10
 #define kNumberLengthMax             0x09
 #define kInputLengthMax              0x60
 

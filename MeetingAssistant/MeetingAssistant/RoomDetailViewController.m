@@ -190,9 +190,9 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     CGFloat scale = [UIScreen mainScreen].scale;
     UILabel *m_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 800 / scale, 480 / scale)];
     m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
-    NSLog(@"*****%f",m_label.font.pointSize);
     m_label.textColor = [UIColor blackColor];
     m_label.textAlignment = NSTextAlignmentCenter;
+    m_label.numberOfLines = 0;
     m_label.text = nameString;
     UIImage *image = [AppPublic viewToImage:m_label];
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
@@ -343,6 +343,25 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     });
 }
 
+#pragma mark - TextField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if ([string isEqualToString:@""]) {
+        return YES;
+    }
+    return (range.location < kNameLengthMax);
+}
+
+- (void)textFieldDidChange:(UITextField *)textField {
+    if (textField.text.length > kNameLengthMax) {
+        textField.text = [textField.text substringToIndex:kNameLengthMax];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma UIResponder+Router
 - (void)routerEventWithName:(NSString *)eventName userInfo:(NSObject *)userInfo{
     if ([eventName isEqualToString:Event_SummaryCellClicked]) {
@@ -383,7 +402,18 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     else if ([eventName isEqualToString:Event_DeviceCellLoadButton]) {
         NSIndexPath *indexPath = (NSIndexPath *)userInfo;
         if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
-            
+            if ([UserPublic getInstance].summaryArray.count) {
+                [self showHint:@"会议纪要功能敬请期待"];
+            }
+            else {
+                [self showHint:@"请添加会议纪要图片"];
+            }
+        }
+    }
+    else if ([eventName isEqualToString:Event_DeviceCellSummaryButton]) {
+        NSIndexPath *indexPath = (NSIndexPath *)userInfo;
+        if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
+            [self.summaryView showInView:self.view];
         }
     }
     else if ([eventName isEqualToString:Event_DeviceCellNameLabel]) {
@@ -416,6 +446,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             alertTextField.returnKeyType = UIReturnKeyDone;
             alertTextField.delegate = self;
             alertTextField.placeholder = @"请输入名牌显示的名称";
+            [alertTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
             [alert show];
         }
     }
