@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "MACommand.h"
 
-#define socket_searchDone  0x1000
-#define socket_cmdTimeout  0x1001
-//#define socket_cmdResp     0x1002
+#define socket_searchDone        0x1000
+#define socket_cmdTimeout        0x1010
+//#define socket_cmdResp          0x1011
+#define socket_connectTimeout    0x1020
 
 #define kNotification_Socket    @"kNotification_Socket"
 

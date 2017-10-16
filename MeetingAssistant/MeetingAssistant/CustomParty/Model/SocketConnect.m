@@ -13,9 +13,9 @@
 
 #define udpPortSelf          10001
 
-#define searchTimerDelay     10.0
+#define searchTimerDelay     5.0
 #define connectTimerDelay    5.0
-#define cmdTimerDelay        10.0
+#define cmdTimerDelay        5.0
 
 @interface SocketConnect ()<GCDAsyncUdpSocketDelegate, GCDAsyncSocketDelegate> {
     Byte m_ucRecvBuffer[MAX_UDP_DATA_LEN];
@@ -92,6 +92,11 @@ __strong static SocketConnect  *_singleManger = nil;
 }
 
 - (void)updateDeviceNameImage:(NSData *)data host:(NSString *)host {
+    if ([self.connectTimer isValid]) {
+        [self.connectTimer invalidate];
+    }
+    self.connectTimer = [NSTimer timerWithTimeInterval:connectTimerDelay target:self selector:@selector(connectDelayTimerFired) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:self.connectTimer forMode:NSRunLoopCommonModes];
     BOOL result = [self connectToHost:host onPort:12321 withTimeout:connectTimerDelay error:nil];
     if (result) {
         int countOnce = (MAX_TCP_DATA_LEN - 20);
@@ -99,12 +104,21 @@ __strong static SocketConnect  *_singleManger = nil;
         NSString *name = @"SL0000.bmp";
         FILE_BEGIN begin = {0};
         begin.type = 0x00;
-        memcmp(&begin.pic_name, [name UTF8String], name.length);
+        memcpy(begin.pic_name, [name UTF8String], name.length);
         begin.total = total;
         [self.tcpSocket writeData:[self buildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
         
         for (int i = 0; i < total; i++) {
-            
+            FILE_CONTENT content = {0};
+            content.seq = i;
+            if (i == total - 1) {
+                content.len = (int)data.length - countOnce * i;
+            }
+            else {
+                content.len = countOnce;
+            }
+            memcpy(content.buf, data.bytes + i * countOnce, content.len);
+            [self.tcpSocket writeData:[self buildWithType:CMD_FILE_CONTENT Pbuf:(char *)&content Len:8 + content.len] withTimeout:-1 tag:0];
         }
     }
     else {
@@ -125,6 +139,10 @@ __strong static SocketConnect  *_singleManger = nil;
 
 - (void)cmdDelayTimerFired {
     [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_cmdTimeout)}];
+}
+
+- (void)connectDelayTimerFired {
+    [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_connectTimeout)}];
 }
 
 - (void)sendRegisterBroadcast {
@@ -255,7 +273,7 @@ __strong static SocketConnect  *_singleManger = nil;
     }
 }
 
-#pragma getter
+#pragma mark - getter
 - (GCDAsyncUdpSocket *)udpSocket {
     if (!_udpSocket) {
         dispatch_queue_t socketQueue = dispatch_queue_create("com.meeting_assistant.socket.udp", DISPATCH_QUEUE_SERIAL);
@@ -276,7 +294,7 @@ __strong static SocketConnect  *_singleManger = nil;
     return _tcpSocket;
 }
 
-#pragma GCDAsyncUdpSocketDelegate
+#pragma mark - GCDAsyncUdpSocketDelegate
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data
       fromAddress:(NSData *)address
 withFilterContext:(id)filterContext {
@@ -288,7 +306,7 @@ withFilterContext:(id)filterContext {
     NSLog(@"udpSocket didSendData.");
 }
 
-#pragma GCDAsyncSocketDelegate
+#pragma mark - GCDAsyncSocketDelegate
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     NSLog(@"socketDidDisconnect:%@", err);
 }
