@@ -272,7 +272,7 @@
 		E4FEB99A1F9461860069E052 /* UIImage+BitmapData.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB9991F9461860069E052 /* UIImage+BitmapData.m */; };
 		E4FEB99D1F94887F0069E052 /* MicrosoftYaHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB99B1F94887F0069E052 /* MicrosoftYaHei.ttf */; };
 		E4FEB9A81F9490CE0069E052 /* STKaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB9A71F9490CE0069E052 /* STKaiti.ttf */; };
-		E4FEB9AE1F94931F0069E052 /* STSongti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB9AD1F94931F0069E052 /* STSongti.ttf */; };
+		E4FEB9AE1F94931F0069E052 /* AppSongti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB9AD1F94931F0069E052 /* AppSongti.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -706,7 +706,7 @@
 		E4FEB9991F9461860069E052 /* UIImage+BitmapData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BitmapData.m"; sourceTree = "<group>"; };
 		E4FEB99B1F94887F0069E052 /* MicrosoftYaHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MicrosoftYaHei.ttf; sourceTree = "<group>"; };
 		E4FEB9A71F9490CE0069E052 /* STKaiti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STKaiti.ttf; sourceTree = "<group>"; };
-		E4FEB9AD1F94931F0069E052 /* STSongti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STSongti.ttf; sourceTree = "<group>"; };
+		E4FEB9AD1F94931F0069E052 /* AppSongti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppSongti.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1393,7 +1393,7 @@
 		E4E3A3011F67C3B500019065 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E4FEB9AD1F94931F0069E052 /* STSongti.ttf */,
+				E4FEB9AD1F94931F0069E052 /* AppSongti.ttf */,
 				E4FEB9A71F9490CE0069E052 /* STKaiti.ttf */,
 				E4FEB99B1F94887F0069E052 /* MicrosoftYaHei.ttf */,
 				E4E3A3021F67C3B500019065 /* JLinXin.ttf */,
@@ -1627,7 +1627,7 @@
 				E4E3A1EE1F67B1A100019065 /* Info.plist in Resources */,
 				E4E3A2BF1F67B32B00019065 /* 字号+按钮.png in Resources */,
 				E46CF53F1F6EDB0E00EDF2B5 /* MWPhotoBrowser.bundle in Resources */,
-				E4FEB9AE1F94931F0069E052 /* STSongti.ttf in Resources */,
+				E4FEB9AE1F94931F0069E052 /* AppSongti.ttf in Resources */,
 				E4E3A2A51F67B32B00019065 /* 会议室背景色块@2x.png in Resources */,
 				E4E3A2F31F67B32B00019065 /* 网络不给力@2x.png in Resources */,
 				E4E3A2C21F67B32B00019065 /* 字号-按钮.png in Resources */,

@@ -185,28 +185,29 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         [self showHint:@"名称不能为空"];
         return;
     }
-//    APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+    APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+    NSDictionary *m_dic = [UserPublic getInstance].fontArray[[UserPublic getInstance].selectedRoomInfo.styleInfo.index];
     CGFloat scale = [UIScreen mainScreen].scale;
     UILabel *m_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 800 / scale, 480 / scale)];
-    m_label.font = [UIFont fontWithName:@"STHeiti TC" size:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
-//    m_label.textColor = [UIColor blackColor];
+    m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+    m_label.textColor = [UIColor blackColor];
     m_label.textAlignment = NSTextAlignmentCenter;
     m_label.text = nameString;
     UIImage *image = [AppPublic viewToImage:m_label];
-//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
-    
-    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"1.jpg"];
-    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath atomically:YES];
-    
-    NSString *filePath1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"2.bmp"];
-    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath1 atomically:YES];
-    
-    NSString *filePathBMP = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.bmp"];
-    [[image bitmapDataWithFileHeader] writeToFile:filePathBMP atomically:YES];
-    
-    NSString *filePathBMP1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test1.bmp"];
-    [[image bitmapDataWithFileHeader] writeToFile:filePathBMP atomically:YES];
-    [[image convertUIImageToBitmapRGBA8:image] writeToFile:filePathBMP1 atomically:YES];;
+    [[SocketConnect getInstance] updateDeviceNameImage:UIImageJPEGRepresentation(image, 1.0) host:device.host];
+//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);    
+//    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"1.jpg"];
+//    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath atomically:YES];
+//    
+//    NSString *filePath1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"2.bmp"];
+//    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath1 atomically:YES];
+//    
+//    NSString *filePathBMP = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.bmp"];
+//    [[image bitmapDataWithFileHeader] writeToFile:filePathBMP atomically:YES];
+//    
+//    NSString *filePathBMP1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test1.bmp"];
+//    [[image bitmapDataWithFileHeader] writeToFile:filePathBMP atomically:YES];
+//    [[image convertUIImageToBitmapRGBA8:image] writeToFile:filePathBMP1 atomically:YES];;
     
 }
 

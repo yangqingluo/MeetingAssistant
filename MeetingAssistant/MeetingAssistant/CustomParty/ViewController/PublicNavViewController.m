@@ -32,7 +32,8 @@
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    return self.childViewControllers.count > 1;
+    return NO;
+//    return self.childViewControllers.count > 1;
 }
 
 @end

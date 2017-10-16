@@ -24,9 +24,6 @@
 - (void)stopSearchingDevices;
 - (void)operationLightOpen:(BOOL)open host:(NSString *)host port:(int)port;
 
-- (BOOL)connectToHost:(NSString *)host onPort:(uint16_t)port withTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr;
-- (BOOL)connectToAddress:(NSData *)address error:(NSError **)errPtr;
-- (void)disconnectToSocketServer;
-- (void)sendFileData;
+- (void)updateDeviceNameImage:(NSData *)data host:(NSString *)host;
 
 @end

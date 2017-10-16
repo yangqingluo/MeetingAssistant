@@ -21,6 +21,14 @@ struct _net_udp_package {
 };
 typedef struct _net_udp_package NET_UDP_PACKAGE;
 
+struct _net_tcp_package {
+    int header;/* static value : NET_PACK_HEADER */
+    int type;/* CMD_REGISTER_BROADCAST, RESP _REGISTER_BROADCAST etc. */
+    unsigned int data_len;	/* data buf len */
+    unsigned char data[MAX_TCP_DATA_LEN - 12];
+};
+typedef struct _net_tcp_package NET_TCP_PACKAGE;
+
 struct _register_broadcast {
     unsigned int port;	/* 端口号 */
 };
@@ -53,6 +61,14 @@ struct  _file_begin{
     unsigned int total; /* 分包总数 */
 };
 typedef struct _file_begin FILE_BEGIN;
+
+struct  _file_content{
+    unsigned int seq;/* 分包序数 */
+    unsigned int len;/*  */
+    unsigned char buf[MAX_TCP_DATA_LEN - 20];
+};
+typedef struct _file_content FILE_CONTENT;
+
 
 #pragma pack()
 

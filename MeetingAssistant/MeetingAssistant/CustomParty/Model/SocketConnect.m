@@ -11,7 +11,10 @@
 #import "GCDAsyncUdpSocket.h"
 #import "GCDAsyncSocket.h"
 
-#define searchTimerDelay     5.0
+#define udpPortSelf          10001
+
+#define searchTimerDelay     10.0
+#define connectTimerDelay    5.0
 #define cmdTimerDelay        10.0
 
 @interface SocketConnect ()<GCDAsyncUdpSocketDelegate, GCDAsyncSocketDelegate> {
@@ -88,37 +91,25 @@ __strong static SocketConnect  *_singleManger = nil;
     [self sendUDPCMD:open ? CMD_OPERATION_LIGHT_OPEN : CMD_OPERATION_LIGHT_CLOSE Pbuf:(char *)&package Len:sizeof(OPERATION_LIGHT) host:host port:port];
 }
 
-- (BOOL)connectToHost:(NSString *)host
-               onPort:(uint16_t)port
-          withTimeout:(NSTimeInterval)timeout
-                error:(NSError **)errPtr{
-    if ([self.tcpSocket isDisconnected]) {
-        return [self.tcpSocket connectToHost:host onPort:port withTimeout:timeout error:errPtr];
+- (void)updateDeviceNameImage:(NSData *)data host:(NSString *)host {
+    BOOL result = [self connectToHost:host onPort:12321 withTimeout:connectTimerDelay error:nil];
+    if (result) {
+        int countOnce = (MAX_TCP_DATA_LEN - 20);
+        int total = data.length / countOnce + data.length % countOnce == 0 ? 0 : 1;
+        NSString *name = @"SL0000.bmp";
+        FILE_BEGIN begin = {0};
+        begin.type = 0x00;
+        memcmp(&begin.pic_name, [name UTF8String], name.length);
+        begin.total = total;
+        [self.tcpSocket writeData:[self buildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
+        
+        for (int i = 0; i < total; i++) {
+            
+        }
     }
-    
-    return YES;
-}
-
-- (BOOL)connectToAddress:(NSData *)address error:(NSError **)errPtr {
-    if ([self.tcpSocket isDisconnected]) {
-//        return [self.tcpSocket connectToHost:[GCDAsyncUdpSocket hostFromAddress:self.address] onPort:12321 withTimeout:-1 error:errPtr];
+    else {
+        
     }
-    
-    return YES;
-}
-
-- (void)disconnectToSocketServer{
-    if ([self.tcpSocket isConnected]) {
-        [self.tcpSocket disconnect];
-    }
-}
-
-- (void)sendFileData {
-    FILE_BEGIN package = {0};
-    package.type = 0x00;
-    memcpy(package.pic_name, "text_pic", 8);
-    package.total = 0;
-    [self.tcpSocket writeData:[self buildWithType:CMD_FILE_BEGIN Pbuf:(char *)&package Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
 }
 
 - (void)postNotificationName:(NSString *)name object:(id)anObject{
@@ -138,7 +129,7 @@ __strong static SocketConnect  *_singleManger = nil;
 
 - (void)sendRegisterBroadcast {
     REGISTER_BROADCAST package = {0};
-    package.port = 10001;
+    package.port = udpPortSelf;
     [self.udpSocket sendData:[self buildWithType:CMD_REGISTER_BROADCAST Pbuf:(char *)&package Len:sizeof(REGISTER_BROADCAST)] toHost:@"255.255.255.255" port:9527 withTimeout:-1 tag:0];
 }
 
@@ -148,6 +139,27 @@ __strong static SocketConnect  *_singleManger = nil;
     [self.udpSocket sendData:[self buildWithType:CMD_REGISTER_RESULT Pbuf:(char *)&package Len:sizeof(REGISTER_RESULT)] toHost:host port:port withTimeout:-1 tag:0];
 }
 
+- (BOOL)connectToHost:(NSString *)host onPort:(uint16_t)port withTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr{
+    if ([self.tcpSocket isDisconnected]) {
+        return [self.tcpSocket connectToHost:host onPort:port withTimeout:timeout error:errPtr];
+    }
+    
+    return YES;
+}
+
+- (void)disconnectToSocketServer{
+    if ([self.tcpSocket isConnected]) {
+        [self.tcpSocket disconnect];
+    }
+}
+
+- (void)sendFileData {
+    FILE_BEGIN package = {0};
+    package.type = 0x00;
+    memcpy(package.pic_name, "text_pic", 8);
+    package.total = 0;
+    [self.tcpSocket writeData:[self buildWithType:CMD_FILE_BEGIN Pbuf:(char *)&package Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
+}
 
 - (void)sendUDPCMD:(int)type Pbuf:(char *)pbuf Len:(int)len host:(NSString *)host port:(int)port{
     if ([self.cmdTimer isValid]) {
@@ -248,7 +260,7 @@ __strong static SocketConnect  *_singleManger = nil;
     if (!_udpSocket) {
         dispatch_queue_t socketQueue = dispatch_queue_create("com.meeting_assistant.socket.udp", DISPATCH_QUEUE_SERIAL);
         _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:socketQueue];
-        [_udpSocket bindToPort:10001 error:nil];
+        [_udpSocket bindToPort:udpPortSelf error:nil];
         [_udpSocket enableBroadcast:YES error:nil];
         [_udpSocket beginReceiving:nil];
     }

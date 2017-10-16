@@ -34,6 +34,13 @@
         self.contentView.layer.shadowOffset = CGSizeMake(0, 1);
         self.contentView.layer.shadowColor = [UIColor blackColor].CGColor;
         self.contentView.layer.shadowOpacity = 0.12;
+        
+//        UILabel *label1 = [[UILabel alloc] initWithFrame:self.nameLabel.frame];
+//        label1.font = [UIFont fontWithName:@"AppSongti" size:17];
+//        NSLog(@"%@", label1.font.fontName);
+//        label1.numberOfLines = 0;
+//        label1.text = @"\n\n测试";
+//        [self.baseView addSubview:label1];
     }
     
     return self;
