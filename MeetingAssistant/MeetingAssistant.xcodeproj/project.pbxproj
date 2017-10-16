@@ -269,6 +269,7 @@
 		E4ECD3B11F678941005AE1B1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECD3B01F678941005AE1B1 /* LoginViewController.m */; };
 		E4F3FA091F6E2B1700B17AD8 /* NamePlateConfigItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3FA081F6E2B1700B17AD8 /* NamePlateConfigItemsView.m */; };
 		E4F3FA0C1F6E2C0F00B17AD8 /* CustomPopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */; };
+		E4FEB99A1F9461860069E052 /* UIImage+BitmapData.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB9991F9461860069E052 /* UIImage+BitmapData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -698,6 +699,8 @@
 		E4F3FA081F6E2B1700B17AD8 /* NamePlateConfigItemsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamePlateConfigItemsView.m; sourceTree = "<group>"; };
 		E4F3FA0A1F6E2C0F00B17AD8 /* CustomPopOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPopOverView.h; sourceTree = "<group>"; };
 		E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPopOverView.m; sourceTree = "<group>"; };
+		E4FEB9981F9461850069E052 /* UIImage+BitmapData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BitmapData.h"; sourceTree = "<group>"; };
+		E4FEB9991F9461860069E052 /* UIImage+BitmapData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BitmapData.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -989,6 +992,8 @@
 				E4E3A1581F67B0EB00019065 /* UIImage+Rotate.m */,
 				E4E3A1591F67B0EB00019065 /* UIImage+SubImage.h */,
 				E4E3A15A1F67B0EB00019065 /* UIImage+SubImage.m */,
+				E4FEB9981F9461850069E052 /* UIImage+BitmapData.h */,
+				E4FEB9991F9461860069E052 /* UIImage+BitmapData.m */,
 			);
 			path = "UIImage+Categories";
 			sourceTree = "<group>";
@@ -1759,6 +1764,7 @@
 				E4E3A21E1F67B1D500019065 /* AFNetworkReachabilityManager.m in Sources */,
 				E4E3A2281F67B1D500019065 /* UIImageView+AFNetworking.m in Sources */,
 				E46CF53C1F6EDB0D00EDF2B5 /* PSTGridLayoutItem.m in Sources */,
+				E4FEB99A1F9461860069E052 /* UIImage+BitmapData.m in Sources */,
 				E46CF4B11F6EC05100EDF2B5 /* DeviceStyleView.m in Sources */,
 				E46CF5391F6EDB0D00EDF2B5 /* PSTCollectionViewLayout.m in Sources */,
 				E43727701F8FABD800042FC4 /* SocketConnect.m in Sources */,

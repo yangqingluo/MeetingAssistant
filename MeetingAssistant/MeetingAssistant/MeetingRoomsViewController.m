@@ -112,7 +112,7 @@ static NSString *identify_MeetingRoomCell = @"MeetingRoomCellCell";
 
 - (void)doCreatMeetingRoomAction:(NSString *)nameString {
     if (!nameString.length) {
-        [self showHint:@"会议室名称不能为空"];
+        [self showHint:@"名称不能为空"];
         return;
     }
     

@@ -11,7 +11,7 @@
 #import "GCDAsyncUdpSocket.h"
 #import "GCDAsyncSocket.h"
 
-#define searchTimerDelay     15.0
+#define searchTimerDelay     5.0
 #define cmdTimerDelay        10.0
 
 @interface SocketConnect ()<GCDAsyncUdpSocketDelegate, GCDAsyncSocketDelegate> {

@@ -153,6 +153,9 @@ NSString *stringFromDate(NSDate *date, NSString *format);
 //设置视图autoresizingMask
 + (void)autoresizeMaskFlexibleLeftAndRightMargin:(UIView *)view;
 
+//View转Image
++ (UIImage *)viewToImage:(UIView *)view;
+
 //顶部状态栏颜色
 + (void)changeStatusBarLightContent:(BOOL)isWhite;
 

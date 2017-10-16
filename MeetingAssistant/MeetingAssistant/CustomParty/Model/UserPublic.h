@@ -27,8 +27,8 @@
 @property (strong, nonatomic) AppMeetingRoomInfo *selectedRoomInfo;
 //会议纪要图片数据
 @property (strong, nonatomic) NSMutableArray *summaryArray;
-//名牌风格数据
-@property (strong, nonatomic) AppFontStyleInfo *styleInfo;
+////名牌风格数据
+//@property (strong, nonatomic) AppFontStyleInfo *styleInfo;
 //字体名称
 @property (strong, nonatomic) NSArray *fontNameArray;
 

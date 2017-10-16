@@ -19,18 +19,6 @@
 
 @end
 
-
-@interface AppMeetingRoomInfo : AppType
-
-@property (strong, nonatomic) NSString *user_id;
-@property (strong, nonatomic) NSString *room_id;
-@property (strong, nonatomic) NSString *room_name;
-@property (strong, nonatomic) NSString *room_image;
-
-@property (strong, nonatomic) NSMutableArray *deviceArray;
-
-@end
-
 @interface APPDeviceInfo : AppType
 
 @property (strong, nonatomic) NSString *device_name;
@@ -46,5 +34,18 @@
 
 @property (assign, nonatomic) NSUInteger index;
 @property (assign, nonatomic) NSInteger fontSize;
+
+@end
+
+@interface AppMeetingRoomInfo : AppType
+
+@property (strong, nonatomic) NSString *user_id;
+@property (strong, nonatomic) NSString *room_id;
+@property (strong, nonatomic) NSString *room_name;
+@property (strong, nonatomic) NSString *room_image;
+
+@property (strong, nonatomic) NSMutableArray *deviceArray;
+//名牌风格数据
+@property (strong, nonatomic) AppFontStyleInfo *styleInfo;
 
 @end

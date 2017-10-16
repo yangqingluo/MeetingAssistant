@@ -122,7 +122,7 @@
         }
         
         cell.title = [UserPublic getInstance].fontNameArray[indexPath.row];
-        cell.like = [UserPublic getInstance].styleInfo.index % [UserPublic getInstance].fontNameArray.count == indexPath.row;
+        cell.like = [UserPublic getInstance].selectedRoomInfo.styleInfo.index % [UserPublic getInstance].fontNameArray.count == indexPath.row;
         return cell;
     }
     else if (indexPath.section == 1) {
@@ -145,7 +145,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
-        [UserPublic getInstance].styleInfo.index = indexPath.row;
+        [UserPublic getInstance].selectedRoomInfo.styleInfo.index = indexPath.row;
         [tableView reloadData];
     }
     else if (indexPath.section == 1) {

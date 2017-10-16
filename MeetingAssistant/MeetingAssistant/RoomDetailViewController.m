@@ -179,6 +179,22 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     }
 }
 
+- (void)doEditDeviceNameAction:(NSString *)nameString indexPath:(NSIndexPath *)indexPath {
+    if (!nameString.length) {
+        [self showHint:@"名称不能为空"];
+        return;
+    }
+//    APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+    CGFloat scale = [UIScreen mainScreen].scale;
+    UILabel *m_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 800 / scale, 480 / scale)];
+    m_label.font = [UIFont systemFontOfSize:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+//    m_label.textColor = [UIColor blackColor];
+    m_label.textAlignment = NSTextAlignmentCenter;
+    m_label.text = nameString;
+    UIImage *image = [AppPublic viewToImage:m_label];
+    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+}
+
 #pragma mark - getter
 - (CustomPopOverView *)popItemsView {
     if (!_popItemsView) {
@@ -358,8 +374,20 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     else if ([eventName isEqualToString:Event_DeviceCellLoadButton]) {
         NSIndexPath *indexPath = (NSIndexPath *)userInfo;
         if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
-            APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
             
+            [self jxt_showAlertWithTitle:@"设置名称" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                alertMaker
+                .addActionCancelTitle(@"取消")
+                .addActionDefaultTitle(@"确定");
+                [alertMaker addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                    textField.placeholder = @"请输入名牌显示的名称";
+                }];
+            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+                if (buttonIndex == 1) {
+                    UITextField *textField = alertSelf.textFields.firstObject;
+                    [self doEditDeviceNameAction:textField.text indexPath:indexPath];
+                }
+            }];
         }
     }
 }
@@ -380,9 +408,16 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         }
             break;
         case socket_searchDone:{
-            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"共发现%d个设备", (int)[UserPublic getInstance].selectedRoomInfo.deviceArray.count] cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
-            }otherButtonTitles:nil];
-            [alert show];
+//            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"共发现%d个设备", (int)[UserPublic getInstance].selectedRoomInfo.deviceArray.count] cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
+//            }otherButtonTitles:nil];
+//            [alert show];
+            
+            [self jxt_showAlertWithTitle:[NSString stringWithFormat:@"共发现%d个设备", (int)[UserPublic getInstance].selectedRoomInfo.deviceArray.count] message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                alertMaker
+                .addActionCancelTitle(@"确定");
+            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+                
+            }];
 
         }
             break;

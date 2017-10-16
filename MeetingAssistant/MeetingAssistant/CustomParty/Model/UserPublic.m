@@ -176,14 +176,6 @@ __strong static UserPublic *_singleManger = nil;
     return _summaryArray;
 }
 
-- (AppFontStyleInfo *)styleInfo {
-    if (!_styleInfo) {
-        _styleInfo = [AppFontStyleInfo new];
-        _styleInfo.fontSize = 8;
-    }
-    return _styleInfo;
-}
-
 - (NSArray *)fontNameArray {
     if (!_fontNameArray) {
         _fontNameArray = @[@"宋体", @"微软雅黑", @"黑体"];

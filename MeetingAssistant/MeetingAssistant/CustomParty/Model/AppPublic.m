@@ -294,6 +294,16 @@ NSString *stringFromDate(NSDate *date, NSString *format) {
 //    [view.superview addConstraint:centerXConstraint];
 }
 
+//View转Image
++ (UIImage *)viewToImage:(UIView *)view {
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, [[UIScreen mainScreen] scale]);
+// [TOP_VIEW.layer renderInContext:UIGraphicsGetCurrentContext()]; // 此方法，除却iOS8以外其他系统都OK
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snapshot;
+}
+
 //顶部状态栏颜色
 + (void)changeStatusBarLightContent:(BOOL)isWhite {
     [[UIApplication sharedApplication] setStatusBarStyle:isWhite ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault];

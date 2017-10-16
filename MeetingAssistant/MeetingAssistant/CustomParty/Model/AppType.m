@@ -22,18 +22,6 @@
 @end
 
 
-@implementation AppMeetingRoomInfo
-
-#pragma mark - getter
-- (NSMutableArray *)deviceArray {
-    if (!_deviceArray) {
-        _deviceArray = [NSMutableArray new];
-    }
-    return _deviceArray;
-}
-
-@end
-
 @implementation APPDeviceInfo
 
 
@@ -45,3 +33,26 @@
 
 
 @end
+
+
+@implementation AppMeetingRoomInfo
+
+#pragma mark - getter
+- (NSMutableArray *)deviceArray {
+    if (!_deviceArray) {
+        _deviceArray = [NSMutableArray new];
+    }
+    return _deviceArray;
+}
+
+- (AppFontStyleInfo *)styleInfo {
+    if (!_styleInfo) {
+        _styleInfo = [AppFontStyleInfo new];
+        _styleInfo.fontSize = 40;
+    }
+    return _styleInfo;
+}
+
+@end
+
+

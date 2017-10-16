@@ -40,7 +40,7 @@
         [_minusButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         _plusButton.tag = 1;
         [_plusButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self updateSizeLabel:[UserPublic getInstance].styleInfo.fontSize];
+        [self updateSizeLabel:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
     }
     
     return self;
@@ -63,18 +63,18 @@
 
 - (void)buttonAction:(UIButton *)button {
     if (button.tag == 0) {
-        [UserPublic getInstance].styleInfo.fontSize--;
-        if ([UserPublic getInstance].styleInfo.fontSize < 1) {
-            [UserPublic getInstance].styleInfo.fontSize = 1;
+        [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize--;
+        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize < 1) {
+            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = 1;
         }
     }
     else {
-        [UserPublic getInstance].styleInfo.fontSize++;
-        if ([UserPublic getInstance].styleInfo.fontSize > 50) {
-            [UserPublic getInstance].styleInfo.fontSize = 50;
+        [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize++;
+        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize > 50) {
+            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = 50;
         }
     }
-    [self updateSizeLabel:[UserPublic getInstance].styleInfo.fontSize];
+    [self updateSizeLabel:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
 }
 
 @end
