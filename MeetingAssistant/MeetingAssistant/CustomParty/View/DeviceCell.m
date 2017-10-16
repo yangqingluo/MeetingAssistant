@@ -36,6 +36,9 @@
         self.nameLabel.font = [UIFont systemFontOfSize:18];
         self.nameLabel.textColor = [UIColor blackColor];
         [self.baseView addSubview:self.nameLabel];
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nameLabelAction)];
+        self.nameLabel.userInteractionEnabled = YES;
+        [self.nameLabel addGestureRecognizer:gesture];
         
         _addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(92, 52, 200, 20)];
         _addressLabel.font = [UIFont systemFontOfSize:14];
@@ -109,6 +112,12 @@
     }
 }
 
+- (void)nameLabelAction {
+    if (self.indexPath) {
+        [self routerEventWithName:Event_DeviceCellNameLabel userInfo:self.indexPath];
+    }
+}
+
 #pragma mark - setter
 - (void)setData:(APPDeviceInfo *)data {
     _data = data;
@@ -118,7 +127,7 @@
     self.imgView.image = [UIImage imageNamed:data.lighted ? @"点亮状态头像" :@"已关闭头像"];
     self.tagImageView.image = [UIImage imageNamed:data.lighted ? @"已点亮状态" : @"已关闭状态"];
     
-    self.nameLabel.text = data.device_name.length ? data.device_name : @"待设置";
+    self.nameLabel.text = data.device_name.length ? data.device_name : @"待编辑";
     self.addressLabel.text = [NSString stringWithFormat:@"IP：%@", data.host];
     self.summaryLabel.text = [NSString stringWithFormat:@"会议纪要：%@", data.summary.count ? @"[图片]" : @"无"];
     self.lightButton.selected = data.lighted;

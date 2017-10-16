@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define kFontSizeMax             120
+#define kFontSizeMin             40
+
 @interface DeviceFontSizeCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *sizeLabel;

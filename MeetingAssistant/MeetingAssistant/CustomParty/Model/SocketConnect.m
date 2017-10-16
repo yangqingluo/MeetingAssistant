@@ -17,6 +17,22 @@
 #define connectTimerDelay    5.0
 #define cmdTimerDelay        5.0
 
+
+@interface TCPSendFileData : AppType
+
+@property (strong, nonatomic) NSData *data;
+@property (strong, nonatomic) NSString *host;
+@property (strong, nonatomic) NSString *imageName;
+@property (assign, nonatomic) int type;
+
+@end
+
+@implementation TCPSendFileData
+
+
+
+@end
+
 @interface SocketConnect ()<GCDAsyncUdpSocketDelegate, GCDAsyncSocketDelegate> {
     Byte m_ucRecvBuffer[MAX_UDP_DATA_LEN];
     unsigned int m_nRecvLen;
@@ -24,10 +40,12 @@
     int m_nRecvType;
     
     NSString *cmdHost;//发送cmd命令的名牌地址
+    NSUInteger indexToSend;
 }
 
 @property (strong, nonatomic) GCDAsyncUdpSocket *udpSocket;
 @property (strong, nonatomic) GCDAsyncSocket *tcpSocket;
+@property (strong, nonatomic) NSMutableArray *tcpSendFiles;
 
 @property (strong, nonatomic) NSTimer *searchTimer;
 @property (strong, nonatomic) NSTimer *connectTimer;
@@ -95,37 +113,17 @@ __strong static SocketConnect  *_singleManger = nil;
     if ([self.connectTimer isValid]) {
         [self.connectTimer invalidate];
     }
+    [self.tcpSendFiles removeAllObjects];
+    TCPSendFileData *m_data = [TCPSendFileData new];
+    m_data.data = [data copy];
+    m_data.host = host;
+    m_data.imageName = @"SL0000.bmp";
+    m_data.type = 0x00;
+    [self.tcpSendFiles addObject:m_data];
+    
     self.connectTimer = [NSTimer timerWithTimeInterval:connectTimerDelay target:self selector:@selector(connectDelayTimerFired) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:self.connectTimer forMode:NSRunLoopCommonModes];
-    BOOL result = [self connectToHost:host onPort:12321 withTimeout:connectTimerDelay error:nil];
-    if (result) {
-        int countOnce = (MAX_TCP_DATA_LEN - 20);
-        int total = data.length / countOnce + data.length % countOnce == 0 ? 0 : 1;
-        NSString *name = @"SL0000.bmp";
-        FILE_BEGIN begin = {0};
-        begin.type = 0x00;
-        memcpy(begin.pic_name, [name UTF8String], name.length);
-        begin.total = total;
-        [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
-        
-        for (int i = 0; i < total; i++) {
-            FILE_CONTENT content = {0};
-            content.seq = i;
-            if (i == total - 1) {
-                content.len = (int)data.length - countOnce * i;
-            }
-            else {
-                content.len = countOnce;
-            }
-            memcpy(content.buf, data.bytes + i * countOnce, content.len);
-            [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_CONTENT Pbuf:(char *)&content Len:8 + content.len] withTimeout:-1 tag:0];
-        }
-        
-        [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_FINISH Pbuf:NULL Len:0] withTimeout:-1 tag:0];
-    }
-    else {
-        
-    }
+    [self connectToHost:host onPort:12321 withTimeout:connectTimerDelay error:nil];
 }
 
 - (void)postNotificationName:(NSString *)name object:(id)anObject{
@@ -181,6 +179,41 @@ __strong static SocketConnect  *_singleManger = nil;
     self.cmdTimer = [NSTimer timerWithTimeInterval:cmdTimerDelay target:self selector:@selector(cmdDelayTimerFired) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:self.cmdTimer forMode:NSRunLoopCommonModes];
     [self.udpSocket sendData:[self udpBuildWithType:type Pbuf:pbuf Len:len] toHost:host port:port withTimeout:-1 tag:0];
+}
+
+- (void)doSendTCPFileData {
+    if (indexToSend == self.tcpSendFiles.count) {
+        [self disconnectToSocketServer];
+        [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_tcpSendDone)}];
+        return;
+    }
+    
+    TCPSendFileData *fileData = self.tcpSendFiles[indexToSend];
+    NSData *data = fileData.data;
+    int countOnce = (MAX_TCP_DATA_LEN - 20);
+    int total = data.length / countOnce + data.length % countOnce == 0 ? 0 : 1;
+    FILE_BEGIN begin = {0};
+    begin.type = fileData.type;
+    memcpy(begin.pic_name, [fileData.imageName UTF8String], fileData.imageName.length);
+    begin.total = total;
+    [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)] withTimeout:-1 tag:0];
+    
+    for (int i = 0; i < total; i++) {
+        FILE_CONTENT content = {0};
+        content.seq = i;
+        if (i == total - 1) {
+            content.len = (int)data.length - countOnce * i;
+        }
+        else {
+            content.len = countOnce;
+        }
+        memcpy(content.buf, data.bytes + i * countOnce, content.len);
+        [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_CONTENT Pbuf:(char *)&content Len:8 + content.len] withTimeout:-1 tag:0];
+    }
+    
+    [self.tcpSocket writeData:[self tcpBuildWithType:CMD_FILE_FINISH Pbuf:NULL Len:0] withTimeout:-1 tag:0];
+    indexToSend++;
+    [self doSendTCPFileData];
 }
 
 - (NSData *)udpBuildWithType:(int)type Pbuf:(char *)pbuf Len:(int)len{
@@ -308,6 +341,13 @@ __strong static SocketConnect  *_singleManger = nil;
     return _tcpSocket;
 }
 
+- (NSMutableArray *)tcpSendFiles {
+    if (!_tcpSendFiles) {
+        _tcpSendFiles = [NSMutableArray new];
+    }
+    return _tcpSendFiles;
+}
+
 #pragma mark - GCDAsyncUdpSocketDelegate
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data
       fromAddress:(NSData *)address
@@ -323,10 +363,19 @@ withFilterContext:(id)filterContext {
 #pragma mark - GCDAsyncSocketDelegate
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     NSLog(@"socketDidDisconnect:%@", err);
+    if ([self.connectTimer isValid]) {
+        [self.connectTimer invalidate];
+        [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_connectFailed)}];
+    }
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
     NSLog(@"socketDidConnectToHost:%@ port:%d", host, port);
+    if ([self.connectTimer isValid]) {
+        [self.connectTimer invalidate];
+//        [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_connectDone)}];
+        [self doSendTCPFileData];
+    }
     [sock readDataWithTimeout:-1 tag:0];
 }
 

@@ -64,17 +64,23 @@
 - (void)buttonAction:(UIButton *)button {
     if (button.tag == 0) {
         [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize--;
-        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize < 1) {
-            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = 1;
+        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize < kFontSizeMin) {
+            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = kFontSizeMin;
         }
     }
     else {
         [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize++;
-        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize > 50) {
-            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = 50;
+        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize > kFontSizeMax) {
+            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = kFontSizeMax;
         }
     }
     [self updateSizeLabel:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+    
+    NSDictionary *m_dic = [UserPublic getInstance].fontArray[[UserPublic getInstance].selectedRoomInfo.styleInfo.index];
+    CGFloat scale = [UIScreen mainScreen].scale;
+    UILabel *m_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 800 / scale, 480 / scale)];
+    m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+    NSLog(@"*****%f",m_label.font.pointSize);
 }
 
 @end

@@ -12,7 +12,11 @@
 #define socket_searchDone        0x1000
 #define socket_cmdTimeout        0x1010
 //#define socket_cmdResp          0x1011
-#define socket_connectTimeout    0x1020
+
+#define socket_tcpSendDone       0x2000
+#define socket_connectTimeout    0x2001
+#define socket_connectFailed     0x2002
+#define socket_connectDone       0x2003
 
 #define kNotification_Socket    @"kNotification_Socket"
 

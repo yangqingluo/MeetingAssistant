@@ -190,25 +190,18 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     CGFloat scale = [UIScreen mainScreen].scale;
     UILabel *m_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 800 / scale, 480 / scale)];
     m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+    NSLog(@"*****%f",m_label.font.pointSize);
     m_label.textColor = [UIColor blackColor];
     m_label.textAlignment = NSTextAlignmentCenter;
     m_label.text = nameString;
     UIImage *image = [AppPublic viewToImage:m_label];
-    [[SocketConnect getInstance] updateDeviceNameImage:UIImageJPEGRepresentation(image, 1.0) host:device.host];
-//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);    
-//    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"1.jpg"];
-//    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath atomically:YES];
-//    
-//    NSString *filePath1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"2.bmp"];
-//    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath1 atomically:YES];
-//    
-//    NSString *filePathBMP = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.bmp"];
-//    [[image bitmapDataWithFileHeader] writeToFile:filePathBMP atomically:YES];
-//    
-//    NSString *filePathBMP1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test1.bmp"];
-//    [[image bitmapDataWithFileHeader] writeToFile:filePathBMP atomically:YES];
-//    [[image convertUIImageToBitmapRGBA8:image] writeToFile:filePathBMP1 atomically:YES];;
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    [self showHudInView:self.view hint:nil];
     
+    [[SocketConnect getInstance] updateDeviceNameImage:imageData host:device.host];
+//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);    
+    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"SL0000.jpg"];
+    [imageData writeToFile:filePath atomically:YES];
 }
 
 #pragma mark - getter
@@ -390,20 +383,26 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     else if ([eventName isEqualToString:Event_DeviceCellLoadButton]) {
         NSIndexPath *indexPath = (NSIndexPath *)userInfo;
         if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
+            
+        }
+    }
+    else if ([eventName isEqualToString:Event_DeviceCellNameLabel]) {
+        NSIndexPath *indexPath = (NSIndexPath *)userInfo;
+        if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
             QKWEAKSELF;
-//            [self jxt_showAlertWithTitle:@"设置名称" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
-//                alertMaker
-//                .addActionCancelTitle(@"取消")
-//                .addActionDefaultTitle(@"确定");
-//                [alertMaker addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//                    textField.placeholder = @"请输入名牌显示的名称";
-//                }];
-//            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
-//                if (buttonIndex == 1) {
-//                    UITextField *textField = alertSelf.textFields.firstObject;
-//                    [weakself doEditDeviceNameAction:textField.text indexPath:indexPath];
-//                }
-//            }];
+            //            [self jxt_showAlertWithTitle:@"设置名称" message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+            //                alertMaker
+            //                .addActionCancelTitle(@"取消")
+            //                .addActionDefaultTitle(@"确定");
+            //                [alertMaker addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            //                    textField.placeholder = @"请输入名牌显示的名称";
+            //                }];
+            //            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+            //                if (buttonIndex == 1) {
+            //                    UITextField *textField = alertSelf.textFields.firstObject;
+            //                    [weakself doEditDeviceNameAction:textField.text indexPath:indexPath];
+            //                }
+            //            }];
             BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:@"设置名称" message:nil cancelButtonTitle:@"取消" callBlock:^(UIAlertView *view, NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
                     UITextField *textField = [view textFieldAtIndex:0];
@@ -457,6 +456,21 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             BOOL result = [m_dic[@"result"] boolValue];
             [self showHint:result ? @"操作成功" : @"操作失败" ];
             [self.collectionView reloadData];
+        }
+            break;
+            
+        case socket_connectTimeout:{
+            [self showHint:@"连接超时"];
+        }
+            break;
+            
+        case socket_connectFailed:{
+            [self showHint:@"连接失败"];
+        }
+            break;
+            
+        case socket_tcpSendDone:{
+            [self showHint:@"发送成功"];
         }
             break;
             

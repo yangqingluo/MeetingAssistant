@@ -48,7 +48,7 @@
 - (AppFontStyleInfo *)styleInfo {
     if (!_styleInfo) {
         _styleInfo = [AppFontStyleInfo new];
-        _styleInfo.fontSize = 40;
+        _styleInfo.fontSize = 80;
     }
     return _styleInfo;
 }

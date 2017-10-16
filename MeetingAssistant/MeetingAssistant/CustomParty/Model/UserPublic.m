@@ -178,7 +178,7 @@ __strong static UserPublic *_singleManger = nil;
 
 - (NSArray *)fontArray {
     if (!_fontArray) {
-        _fontArray = @[@{@"name" : @"STSongti", @"showName" : @"宋体"},
+        _fontArray = @[@{@"name" : @"STKaiti", @"showName" : @"楷体"},
                        @{@"name" : @"MicrosoftYaHei", @"showName" : @"微软雅黑"},
                        @{@"name" : @"STHeitiSC-Medium", @"showName" : @"黑体"}];
     }
