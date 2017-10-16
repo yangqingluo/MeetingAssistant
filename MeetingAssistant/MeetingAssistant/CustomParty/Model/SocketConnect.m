@@ -277,9 +277,16 @@ __strong static SocketConnect  *_singleManger = nil;
     }
 }
 
-- (void)parser_dataWithType:(int )type Pbuf:(char *)pbuf Len:(long)len fromAddress:(NSData *)address{
+- (void)parser_dataWithType:(int )type Pbuf:(char *)pbuf Len:(long)len fromAddress:(NSData *)address {
     NET_UDP_PACKAGE package = {0};
     memcpy(&package, pbuf, len);
+    
+    if (package.type != RESP_REGISTER_BROADCAST) {
+        if ([self.searchTimer isValid]) {
+            //搜索发现设备期间对其他命令不做响应
+            return;
+        }
+    }
     switch (package.type) {
         case RESP_REGISTER_BROADCAST :{
             if ([self.searchTimer isValid]) {
