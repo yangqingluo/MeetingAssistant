@@ -28,7 +28,10 @@
 	<string>App需要您的同意,才能访问相册</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string> JLinXin.ttf</string>
+		<string>JLinXin.ttf</string>
+		<string>MicrosoftYaHei.ttf</string>
+		<string>STKaiti.ttf</string>
+		<string>STSongti.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

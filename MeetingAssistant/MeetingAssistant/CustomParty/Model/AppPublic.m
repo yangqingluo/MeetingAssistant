@@ -157,14 +157,12 @@ NSData *dataOfImageCompression(UIImage *image, BOOL isHead) {
     //调整大小
     CGFloat scale = 1.0;
     NSData *imageData;
-    
     do {
         if (imageData) {
             scale *= (imageDataMax / imageData.length);
         }
         imageData = UIImageJPEGRepresentation(image, scale);
     } while (imageData.length > imageDataMax);
-    
     return imageData;
 }
 

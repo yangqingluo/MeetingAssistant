@@ -61,7 +61,7 @@
 #pragma mark - tableView datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return [UserPublic getInstance].fontNameArray.count;
+        return [UserPublic getInstance].fontArray.count;
     }
     else if (section == 1) {
         return 1;
@@ -121,8 +121,9 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
-        cell.title = [UserPublic getInstance].fontNameArray[indexPath.row];
-        cell.like = [UserPublic getInstance].selectedRoomInfo.styleInfo.index % [UserPublic getInstance].fontNameArray.count == indexPath.row;
+        NSDictionary *m_dic = [UserPublic getInstance].fontArray[indexPath.row];
+        cell.title = m_dic[@"showName"];
+        cell.like = [UserPublic getInstance].selectedRoomInfo.styleInfo.index % [UserPublic getInstance].fontArray.count == indexPath.row;
         return cell;
     }
     else if (indexPath.section == 1) {

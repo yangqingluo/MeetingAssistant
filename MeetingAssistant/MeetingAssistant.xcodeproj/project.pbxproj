@@ -237,7 +237,7 @@
 		E4E3A2FE1F67B32B00019065 /* 配置按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2951F67B32B00019065 /* 配置按钮.png */; };
 		E4E3A2FF1F67B32B00019065 /* 配置按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */; };
 		E4E3A3001F67B32B00019065 /* 配置按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */; };
-		E4E3A3031F67C3B500019065 /*  JLinXin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A3021F67C3B500019065 /*  JLinXin.ttf */; };
+		E4E3A3031F67C3B500019065 /* JLinXin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E3A3021F67C3B500019065 /* JLinXin.ttf */; };
 		E4E3A3061F67EC7600019065 /* PublicNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E3A3051F67EC7600019065 /* PublicNavViewController.m */; };
 		E4E86BE21F68264E008D6C53 /* AppBasicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BE11F68264E008D6C53 /* AppBasicCollectionViewController.m */; };
 		E4E86BE51F68269E008D6C53 /* LongPressFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E86BE41F68269E008D6C53 /* LongPressFlowLayout.m */; };
@@ -270,6 +270,9 @@
 		E4F3FA091F6E2B1700B17AD8 /* NamePlateConfigItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3FA081F6E2B1700B17AD8 /* NamePlateConfigItemsView.m */; };
 		E4F3FA0C1F6E2C0F00B17AD8 /* CustomPopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */; };
 		E4FEB99A1F9461860069E052 /* UIImage+BitmapData.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB9991F9461860069E052 /* UIImage+BitmapData.m */; };
+		E4FEB99D1F94887F0069E052 /* MicrosoftYaHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB99B1F94887F0069E052 /* MicrosoftYaHei.ttf */; };
+		E4FEB9A81F9490CE0069E052 /* STKaiti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB9A71F9490CE0069E052 /* STKaiti.ttf */; };
+		E4FEB9AE1F94931F0069E052 /* STSongti.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB9AD1F94931F0069E052 /* STSongti.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -636,7 +639,7 @@
 		E4E3A2951F67B32B00019065 /* 配置按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮.png"; sourceTree = "<group>"; };
 		E4E3A2961F67B32B00019065 /* 配置按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@2x.png"; sourceTree = "<group>"; };
 		E4E3A2971F67B32B00019065 /* 配置按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "配置按钮@3x.png"; sourceTree = "<group>"; };
-		E4E3A3021F67C3B500019065 /*  JLinXin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = " JLinXin.ttf"; sourceTree = "<group>"; };
+		E4E3A3021F67C3B500019065 /* JLinXin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JLinXin.ttf; sourceTree = "<group>"; };
 		E4E3A3041F67EC7600019065 /* PublicNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicNavViewController.h; sourceTree = "<group>"; };
 		E4E3A3051F67EC7600019065 /* PublicNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicNavViewController.m; sourceTree = "<group>"; };
 		E4E86BE01F68264E008D6C53 /* AppBasicCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicCollectionViewController.h; sourceTree = "<group>"; };
@@ -701,6 +704,9 @@
 		E4F3FA0B1F6E2C0F00B17AD8 /* CustomPopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPopOverView.m; sourceTree = "<group>"; };
 		E4FEB9981F9461850069E052 /* UIImage+BitmapData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BitmapData.h"; sourceTree = "<group>"; };
 		E4FEB9991F9461860069E052 /* UIImage+BitmapData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BitmapData.m"; sourceTree = "<group>"; };
+		E4FEB99B1F94887F0069E052 /* MicrosoftYaHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MicrosoftYaHei.ttf; sourceTree = "<group>"; };
+		E4FEB9A71F9490CE0069E052 /* STKaiti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STKaiti.ttf; sourceTree = "<group>"; };
+		E4FEB9AD1F94931F0069E052 /* STSongti.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STSongti.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1387,7 +1393,10 @@
 		E4E3A3011F67C3B500019065 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E4E3A3021F67C3B500019065 /*  JLinXin.ttf */,
+				E4FEB9AD1F94931F0069E052 /* STSongti.ttf */,
+				E4FEB9A71F9490CE0069E052 /* STKaiti.ttf */,
+				E4FEB99B1F94887F0069E052 /* MicrosoftYaHei.ttf */,
+				E4E3A3021F67C3B500019065 /* JLinXin.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1602,6 +1611,7 @@
 				E4E3A2E91F67B32B00019065 /* 登录界面竖版背景图.png in Resources */,
 				E4E3A2D41F67B32B00019065 /* 已点亮状态.png in Resources */,
 				E4E3A2CA1F67B32B00019065 /* 密码可见@3x.png in Resources */,
+				E4FEB99D1F94887F0069E052 /* MicrosoftYaHei.ttf in Resources */,
 				E4E3A2BE1F67B32B00019065 /* 名牌风格设置@3x.png in Resources */,
 				E4E3A2B11F67B32B00019065 /* 删除内容按钮@2x.png in Resources */,
 				E4E3A2F91F67B32B00019065 /* 返回按钮@2x.png in Resources */,
@@ -1617,6 +1627,7 @@
 				E4E3A1EE1F67B1A100019065 /* Info.plist in Resources */,
 				E4E3A2BF1F67B32B00019065 /* 字号+按钮.png in Resources */,
 				E46CF53F1F6EDB0E00EDF2B5 /* MWPhotoBrowser.bundle in Resources */,
+				E4FEB9AE1F94931F0069E052 /* STSongti.ttf in Resources */,
 				E4E3A2A51F67B32B00019065 /* 会议室背景色块@2x.png in Resources */,
 				E4E3A2F31F67B32B00019065 /* 网络不给力@2x.png in Resources */,
 				E4E3A2C21F67B32B00019065 /* 字号-按钮.png in Resources */,
@@ -1654,10 +1665,11 @@
 				E4E3A2A41F67B32B00019065 /* 会议室背景色块.png in Resources */,
 				E4E3A2FD1F67B32B00019065 /* 选择字体右上角角标@3x.png in Resources */,
 				E4E3A2F41F67B32B00019065 /* 网络不给力@3x.png in Resources */,
-				E4E3A3031F67C3B500019065 /*  JLinXin.ttf in Resources */,
+				E4E3A3031F67C3B500019065 /* JLinXin.ttf in Resources */,
 				E4E3A2F71F67B32B00019065 /* 输入清楚按钮@3x.png in Resources */,
 				E4E3A2B31F67B32B00019065 /* 删除内容按钮背景.png in Resources */,
 				E4E3A2A21F67B32B00019065 /* 会议室图标3@2x.png in Resources */,
+				E4FEB9A81F9490CE0069E052 /* STKaiti.ttf in Resources */,
 				E4E3A2B51F67B32B00019065 /* 删除内容按钮背景@3x.png in Resources */,
 				E4E3A2A31F67B32B00019065 /* 会议室图标3@3x.png in Resources */,
 				E4E3A2D91F67B32B00019065 /* 未发现设备图标@3x.png in Resources */,

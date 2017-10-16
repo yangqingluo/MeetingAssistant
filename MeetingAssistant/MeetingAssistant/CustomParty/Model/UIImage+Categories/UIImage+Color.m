@@ -106,7 +106,7 @@
     return grayImage;
 }
 
-- (unsigned char *)convertUIImageToBitmapRGBA8:(UIImage *)image {
+- (NSData *)convertUIImageToBitmapRGBA8:(UIImage *)image {
     CGImageRef imageRef = image.CGImage;
     // Create a bitmap context to draw the uiimage into
     CGContextRef context = [self newBitmapRGBA8ContextFromImage:imageRef];
@@ -136,7 +136,7 @@
         NSLog(@"Error getting bitmap pixel data\n");
     }
     CGContextRelease(context);
-    return newBitmap;
+    return [NSData dataWithBytes:newBitmap length:bufferLength];
 }
 
 - (CGContextRef)newBitmapRGBA8ContextFromImage:(CGImageRef)image {

@@ -30,7 +30,7 @@
 ////名牌风格数据
 //@property (strong, nonatomic) AppFontStyleInfo *styleInfo;
 //字体名称
-@property (strong, nonatomic) NSArray *fontNameArray;
+@property (strong, nonatomic) NSArray *fontArray;
 
 //保存用户数据
 - (void)saveUserData:(AppUserInfo *)data;

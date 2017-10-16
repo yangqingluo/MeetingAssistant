@@ -176,11 +176,13 @@ __strong static UserPublic *_singleManger = nil;
     return _summaryArray;
 }
 
-- (NSArray *)fontNameArray {
-    if (!_fontNameArray) {
-        _fontNameArray = @[@"宋体", @"微软雅黑", @"黑体"];
+- (NSArray *)fontArray {
+    if (!_fontArray) {
+        _fontArray = @[@{@"name" : @"STSongti", @"showName" : @"宋体"},
+                       @{@"name" : @"MicrosoftYaHei", @"showName" : @"微软雅黑"},
+                       @{@"name" : @"STHeitiSC-Medium", @"showName" : @"黑体"}];
     }
-    return _fontNameArray;
+    return _fontArray;
 }
 
 @end

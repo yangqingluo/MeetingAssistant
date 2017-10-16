@@ -22,4 +22,6 @@
 /** 获得灰度图 */
 - (UIImage *)convertToGrayImage;
 
+- (NSData *)convertUIImageToBitmapRGBA8:(UIImage *)image;
+
 @end
