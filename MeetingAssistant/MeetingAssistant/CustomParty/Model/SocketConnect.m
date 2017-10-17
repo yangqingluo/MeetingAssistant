@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSData *data;
 @property (strong, nonatomic) NSString *host;
 @property (strong, nonatomic) NSString *imageName;
+@property (strong, nonatomic) NSString *deviceName;
 @property (assign, nonatomic) int type;
 
 @end
@@ -109,7 +110,7 @@ __strong static SocketConnect  *_singleManger = nil;
     [self sendUDPCMD:open ? CMD_OPERATION_LIGHT_OPEN : CMD_OPERATION_LIGHT_CLOSE Pbuf:(char *)&package Len:sizeof(OPERATION_LIGHT) host:host port:port];
 }
 
-- (void)updateDeviceNameImage:(NSData *)data host:(NSString *)host {
+- (void)updateDeviceName:(NSString *)name imageData:(NSData *)data host:(NSString *)host {
     if ([self.connectTimer isValid]) {
         [self.connectTimer invalidate];
     }
@@ -118,6 +119,7 @@ __strong static SocketConnect  *_singleManger = nil;
     m_data.data = [data copy];
     m_data.host = host;
     m_data.imageName = @"SL0000.bmp";
+    m_data.deviceName = [name copy];
     m_data.type = 0x00;
     [self.tcpSendFiles addObject:m_data];
     
@@ -184,6 +186,13 @@ __strong static SocketConnect  *_singleManger = nil;
 - (void)doSendTCPFileData {
     if (indexToSend == self.tcpSendFiles.count) {
         [self disconnectToSocketServer];
+        if (self.tcpSendFiles.count == 1) {
+            //设置设备显示名称图片
+            TCPSendFileData *fileData = self.tcpSendFiles[0];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [[UserPublic getInstance] updateDeviceShowName:fileData.deviceName host:fileData.host];
+            });
+        }
         [self postNotificationName:kNotification_Socket object:@{@"cmd" : @(socket_tcpSendDone)}];
         return;
     }

@@ -44,5 +44,7 @@
 - (BOOL)addDeviceWithHost:(NSString *)host port:(int)port;
 //设置名牌点亮状态
 - (void)updateDeviceLighted:(BOOL)lighted host:(NSString *)host;
+//设置名牌显示名称
+- (void)updateDeviceShowName:(NSString *)name host:(NSString *)host;
 
 @end

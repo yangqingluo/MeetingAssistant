@@ -115,6 +115,18 @@ __strong static UserPublic *_singleManger = nil;
     }
 }
 
+//设置名牌显示名称
+- (void)updateDeviceShowName:(NSString *)name host:(NSString *)host {
+    if (self.selectedRoomInfo) {
+        for (APPDeviceInfo *device in self.selectedRoomInfo.deviceArray) {
+            if ([device.host isEqualToString:host]) {
+                device.device_name = [name copy];
+                break;
+            }
+        }
+    }
+}
+
 - (void)postNotificationName:(NSString *)name object:(id)anObject{
     dispatch_async(dispatch_get_main_queue(), ^(void){
         [[NSNotificationCenter defaultCenter] postNotificationName:name object:anObject];

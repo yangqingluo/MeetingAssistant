@@ -29,6 +29,6 @@
 - (void)stopSearchingDevices;
 - (void)operationLightOpen:(BOOL)open host:(NSString *)host port:(int)port;
 
-- (void)updateDeviceNameImage:(NSData *)data host:(NSString *)host;
+- (void)updateDeviceName:(NSString *)name imageData:(NSData *)data host:(NSString *)host;
 
 @end

@@ -197,11 +197,10 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     UIImage *image = [AppPublic viewToImage:m_label];
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     [self showHudInView:self.view hint:nil];
-    
-    [[SocketConnect getInstance] updateDeviceNameImage:imageData host:device.host];
+    [[SocketConnect getInstance] updateDeviceName:nameString imageData:imageData host:device.host];
 //    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);    
-    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"SL0000.jpg"];
-    [imageData writeToFile:filePath atomically:YES];
+//    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"SL0000.jpg"];
+//    [imageData writeToFile:filePath atomically:YES];
 }
 
 #pragma mark - getter
@@ -502,6 +501,7 @@ static NSString *identify_DeviceCell = @"DeviceCell";
             
         case socket_tcpSendDone:{
             [self showHint:@"发送成功"];
+            [self.collectionView reloadData];
         }
             break;
             
