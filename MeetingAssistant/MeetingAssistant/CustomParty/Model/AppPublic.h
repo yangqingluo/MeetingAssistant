@@ -29,6 +29,7 @@
 #define baseSeparatorAlphaColor      RGBA(0xdb, 0xdb, 0xdb, 0.6)
 
 #define baseRedColor                 RGBA(0xd9, 0x55, 0x55, 1.0)
+#define basePinkColor                RGBA(0xFF, 0xC0, 0xCB, 1.0)
 #define baseBlueColor                RGBA(0x04, 0xae, 0xfc, 1.0)
 #define lightWhiteColor              RGBA(0xf8, 0xf8, 0xf8, 1.0)
 #define silverColor                  RGBA(0xc0, 0xc0, 0xc0, 1.0)
