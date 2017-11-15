@@ -114,7 +114,9 @@ __strong static SocketConnect  *_singleManger = nil;
     if ([self.connectTimer isValid]) {
         [self.connectTimer invalidate];
     }
+    indexToSend = 0;
     [self.tcpSendFiles removeAllObjects];
+    
     TCPSendFileData *m_data = [TCPSendFileData new];
     m_data.data = [data copy];
     m_data.host = host;
@@ -375,6 +377,15 @@ withFilterContext:(id)filterContext {
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didSendDataWithTag:(long)tag {
     NSLog(@"udpSocket didSendData.");
+}
+
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error {
+    NSLog(@"udpSocket didNotSendData:%@", error);
+}
+
+- (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError  *)error {
+    NSLog(@"udpSocketDidClose:%@", error);
+    _udpSocket = nil;
 }
 
 #pragma mark - GCDAsyncSocketDelegate
