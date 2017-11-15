@@ -186,7 +186,7 @@ __strong static SocketConnect  *_singleManger = nil;
 }
 
 - (void)doSendTCPFileData {
-    if (indexToSend == self.tcpSendFiles.count) {
+    if (indexToSend >= self.tcpSendFiles.count) {
         [self disconnectToSocketServer];
         if (self.tcpSendFiles.count == 1) {
             //设置设备显示名称图片
