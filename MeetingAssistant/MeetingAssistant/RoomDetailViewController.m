@@ -196,12 +196,18 @@ static NSString *identify_DeviceCell = @"DeviceCell";
     m_label.numberOfLines = 0;
     m_label.text = nameString;
     UIImage *image = [AppPublic viewToImage:m_label];
-    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    
     [self showHudInView:self.view hint:nil];
-    [[SocketConnect getInstance] updateDeviceName:nameString imageData:imageData host:device.host];
+    [[SocketConnect getInstance] updateDeviceName:nameString image:image host:device.host];
 //    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);    
 //    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"SL0000.jpg"];
 //    [imageData writeToFile:filePath atomically:YES];
+}
+
+- (void)doEditDeviceMeetingSummaryActionWithIndexPath:(NSIndexPath *)indexPath {
+    APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+    [self showHudInView:self.view hint:nil];
+    [[SocketConnect getInstance] updateMeetingSummary:[NSArray arrayWithArray:[UserPublic getInstance].summaryArray] host:device.host];
 }
 
 #pragma mark - getter
@@ -402,9 +408,13 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         NSIndexPath *indexPath = (NSIndexPath *)userInfo;
         if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
             if ([UserPublic getInstance].summaryArray.count) {
-                APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
-                [self showHudInView:self.view hint:nil];
-                [[SocketConnect getInstance] updateMeetingSummary:[NSArray arrayWithArray:[UserPublic getInstance].summaryArray] host:device.host];
+                QKWEAKSELF;
+                BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:@"设置会议纪要图片" message:nil cancelButtonTitle:@"取消" callBlock:^(UIAlertView *view, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        [weakself doEditDeviceMeetingSummaryActionWithIndexPath:indexPath];
+                    }
+                }otherButtonTitles:@"确定", nil];
+                [alert show];
             }
             else {
                 [self showHint:@"请添加会议纪要图片"];

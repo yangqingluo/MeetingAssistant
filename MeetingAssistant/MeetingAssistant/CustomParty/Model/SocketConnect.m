@@ -112,10 +112,10 @@ __strong static SocketConnect  *_singleManger = nil;
     [self sendUDPCMD:open ? CMD_OPERATION_LIGHT_OPEN : CMD_OPERATION_LIGHT_CLOSE Pbuf:(char *)&package Len:sizeof(OPERATION_LIGHT) host:host port:port];
 }
 
-- (void)updateDeviceName:(NSString *)name imageData:(NSData *)data host:(NSString *)host {
+- (void)updateDeviceName:(NSString *)name image:(UIImage *)image host:(NSString *)host {
     [self prepareForSendingImageData];
     TCPSendFileData *m_data = [TCPSendFileData new];
-    m_data.data = [data copy];
+    m_data.data = dataOfImageCompression(image, NO);
     m_data.host = host;
     m_data.imageName = @"SL0000.bmp";
     m_data.deviceName = [name copy];
@@ -129,7 +129,7 @@ __strong static SocketConnect  *_singleManger = nil;
     for (NSUInteger i = 0; i < imageArray.count; i++) {
         UIImage *image = imageArray[i];
         TCPSendFileData *m_data = [TCPSendFileData new];
-        m_data.data = UIImageJPEGRepresentation(image, 1.0);
+        m_data.data = dataOfImageCompression(image, NO);
         m_data.host = host;
         m_data.imageName = [NSString stringWithFormat:@"SL%04d.bmp", (int)i + 1];
         m_data.type = i == 0 ? 0x01 : 0x02;
@@ -234,7 +234,7 @@ __strong static SocketConnect  *_singleManger = nil;
     memcpy(begin.pic_name, [fileData.imageName UTF8String], fileData.imageName.length);
     begin.total = total;
     
-    [self tcpWriteData:[self tcpBuildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)]];
+    [self tcpWriteData:[self tcpBuildWithType:CMD_FILE_BEGIN Pbuf:(char *)&begin Len:sizeof(FILE_BEGIN)] tag:1024];
     
     for (int i = 0; i < total; i++) {
         FILE_CONTENT content = {0};
@@ -246,26 +246,17 @@ __strong static SocketConnect  *_singleManger = nil;
             content.len = countOnce;
         }
         memcpy(content.buf, data.bytes + i * countOnce, content.len);
-        [self tcpWriteData:[self tcpBuildWithType:CMD_FILE_CONTENT Pbuf:(char *)&content Len:8 + content.len]];
+        [self tcpWriteData:[self tcpBuildWithType:CMD_FILE_CONTENT Pbuf:(char *)&content Len:8 + content.len] tag:1024];
     }
-    [self tcpWriteData:[self tcpBuildWithType:CMD_FILE_FINISH Pbuf:NULL Len:0]];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSLog(@"等待单个文件发送完成...");
-        dispatch_semaphore_wait(self.send_single_file_lock, DISPATCH_TIME_FOREVER);
-        NSLog(@"单个文件发送已完成。");
-        dispatch_semaphore_signal(self.send_single_file_lock);
-        indexToSend++;
-        [self doSendTCPFileData];
-    });
+    [self tcpWriteData:[self tcpBuildWithType:CMD_FILE_FINISH Pbuf:NULL Len:0] tag:-1024];
 }
 
-- (void)tcpWriteData:(NSData *)data {
+- (void)tcpWriteData:(NSData *)data tag:(long)tag {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSLog(@"准备执行tcp数据写入...");
         dispatch_semaphore_wait(self.send_single_file_lock, DISPATCH_TIME_FOREVER);
         NSLog(@"tcp数据写入中...");
-        [self.tcpSocket writeData:data withTimeout:-1 tag:0];
+        [self.tcpSocket writeData:data withTimeout:-1 tag:tag];
     });
 }
 
@@ -460,7 +451,14 @@ withFilterContext:(id)filterContext {
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag{
     NSLog(@"tcp socket did write data:%ld",tag);
-    dispatch_semaphore_signal(self.send_single_file_lock);
+    if (tag == 1024) {
+        dispatch_semaphore_signal(self.send_single_file_lock);
+    }
+    else if (tag == -1024) {
+        dispatch_semaphore_signal(self.send_single_file_lock);
+        indexToSend++;
+        [self doSendTCPFileData];
+    }
 }
 - (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag{
     NSLog(@"tcp socket didWritePartialDataOfLength:%ld tag:%ld", partialLength, tag);

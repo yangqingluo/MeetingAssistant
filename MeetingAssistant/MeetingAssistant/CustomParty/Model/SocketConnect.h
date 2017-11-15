@@ -29,7 +29,7 @@
 - (void)stopSearchingDevices;
 - (void)operationLightOpen:(BOOL)open host:(NSString *)host port:(int)port;
 
-- (void)updateDeviceName:(NSString *)name imageData:(NSData *)data host:(NSString *)host;
+- (void)updateDeviceName:(NSString *)name image:(UIImage *)image host:(NSString *)host;
 - (void)updateMeetingSummary:(NSArray *)imageArray host:(NSString *)host;
 
 @end
