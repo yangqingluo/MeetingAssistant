@@ -394,7 +394,6 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         NSIndexPath *indexPath = (NSIndexPath *)userInfo;
         if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
             APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
-            
             [self showHudInView:self.view hint:nil];
             [[SocketConnect getInstance] operationLightOpen:!device.lighted host:device.host port:device.port];
         }
@@ -403,7 +402,9 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         NSIndexPath *indexPath = (NSIndexPath *)userInfo;
         if (indexPath.row < [UserPublic getInstance].selectedRoomInfo.deviceArray.count) {
             if ([UserPublic getInstance].summaryArray.count) {
-                [self showHint:@"会议纪要功能敬请期待"];
+                APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
+                [self showHudInView:self.view hint:nil];
+                [[SocketConnect getInstance] updateMeetingSummary:[NSArray arrayWithArray:[UserPublic getInstance].summaryArray] host:device.host];
             }
             else {
                 [self showHint:@"请添加会议纪要图片"];
