@@ -46,6 +46,6 @@
 
 @property (strong, nonatomic) NSMutableArray *deviceArray;
 //名牌风格数据
-@property (strong, nonatomic) AppFontStyleInfo *styleInfo;
+@property (strong, nonatomic) AppFontStyleInfo *style_info;
 
 @end

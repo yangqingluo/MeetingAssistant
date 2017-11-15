@@ -61,7 +61,11 @@ __strong static UserPublic *_singleManger = nil;
         return NO;
     }
     
-    BOOL result = [self.fmdb executeUpdate:@"INSERT INTO meeting_room (user_id, room_name, room_image) VALUES (?, ?, ?)", self.userData.user_id, name, [NSString stringWithFormat:@"会议室图标%@", @(RandomInAggregate(1, 3))]];
+    AppFontStyleInfo *styleInfo = [AppFontStyleInfo new];
+    styleInfo.index = 0;
+    styleInfo.fontSize = 60;
+    
+    BOOL result = [self.fmdb executeUpdate:@"INSERT INTO meeting_room (user_id, room_name, room_image, style_info) VALUES (?, ?, ?, ?)", self.userData.user_id, name, [NSString stringWithFormat:@"会议室图标%@", @(RandomInAggregate(1, 3))], [styleInfo mj_keyValues]];
     if (result) {
         _roomsArray = nil;
     }
@@ -76,6 +80,15 @@ __strong static UserPublic *_singleManger = nil;
     BOOL result = [self.fmdb executeUpdate:@"DELETE FROM meeting_room WHERE room_id = ?", room.room_id];
     if (result) {
         [self.roomsArray removeObjectAtIndex:index];
+    }
+    return result;
+}
+
+//更新会议室名牌风格
+- (BOOL)updateMeetingRoomFontStyle {
+    BOOL result = NO;
+    if (self.selectedRoomInfo) {
+        result = [self.fmdb executeUpdate:@"UPDATE meeting_room SET style_info = ? WHERE room_id = ?", [self.selectedRoomInfo.style_info mj_JSONString], self.selectedRoomInfo.room_id];
     }
     return result;
 }
@@ -139,7 +152,7 @@ __strong static UserPublic *_singleManger = nil;
         NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"user_meeting_rooms.sqlite"];
         _fmdb = [FMDatabase databaseWithPath:filePath];
         if ([_fmdb open]){
-            BOOL result = [_fmdb executeUpdate:@"CREATE TABLE IF NOT EXISTS meeting_room (room_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, room_name TEXT, room_image TEXT)"];
+            BOOL result = [_fmdb executeUpdate:@"CREATE TABLE IF NOT EXISTS meeting_room (room_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, room_name TEXT, room_image TEXT, style_info TEXT)"];
             if (result) {
                 
             }

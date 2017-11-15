@@ -45,12 +45,12 @@
     return _deviceArray;
 }
 
-- (AppFontStyleInfo *)styleInfo {
-    if (!_styleInfo) {
-        _styleInfo = [AppFontStyleInfo new];
-        _styleInfo.fontSize = 60;
+- (AppFontStyleInfo *)style_info {
+    if (!_style_info) {
+        _style_info = [AppFontStyleInfo new];
+        _style_info.fontSize = 60;
     }
-    return _styleInfo;
+    return _style_info;
 }
 
 @end

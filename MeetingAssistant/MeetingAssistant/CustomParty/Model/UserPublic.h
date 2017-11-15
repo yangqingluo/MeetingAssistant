@@ -40,6 +40,8 @@
 - (BOOL)creatMeetingRoom:(NSString *)name;
 //删除会议室
 - (BOOL)removeMeetingRoom:(NSUInteger)index;
+//更新会议室名牌风格
+- (BOOL)updateMeetingRoomFontStyle;
 //添加名牌设备
 - (BOOL)addDeviceWithHost:(NSString *)host port:(int)port;
 //设置名牌点亮状态

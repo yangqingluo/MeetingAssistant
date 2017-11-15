@@ -40,6 +40,7 @@
 }
 
 - (void)saveButtonAction {
+    [[UserPublic getInstance] updateMeetingRoomFontStyle];
     [self dismiss];
 }
 
@@ -123,7 +124,7 @@
         
         NSDictionary *m_dic = [UserPublic getInstance].fontArray[indexPath.row];
         cell.title = m_dic[@"showName"];
-        cell.like = [UserPublic getInstance].selectedRoomInfo.styleInfo.index % [UserPublic getInstance].fontArray.count == indexPath.row;
+        cell.like = [UserPublic getInstance].selectedRoomInfo.style_info.index % [UserPublic getInstance].fontArray.count == indexPath.row;
         return cell;
     }
     else if (indexPath.section == 1) {
@@ -146,7 +147,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
-        [UserPublic getInstance].selectedRoomInfo.styleInfo.index = indexPath.row;
+        [UserPublic getInstance].selectedRoomInfo.style_info.index = indexPath.row;
         [tableView reloadData];
     }
     else if (indexPath.section == 1) {

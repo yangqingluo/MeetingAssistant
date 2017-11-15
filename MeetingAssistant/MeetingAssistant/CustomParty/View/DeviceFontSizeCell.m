@@ -40,7 +40,7 @@
         [_minusButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         _plusButton.tag = 1;
         [_plusButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self updateSizeLabel:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+        [self updateSizeLabel:[UserPublic getInstance].selectedRoomInfo.style_info.fontSize];
     }
     
     return self;
@@ -63,23 +63,23 @@
 
 - (void)buttonAction:(UIButton *)button {
     if (button.tag == 0) {
-        [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize--;
-        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize < kFontSizeMin) {
-            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = kFontSizeMin;
+        [UserPublic getInstance].selectedRoomInfo.style_info.fontSize--;
+        if ([UserPublic getInstance].selectedRoomInfo.style_info.fontSize < kFontSizeMin) {
+            [UserPublic getInstance].selectedRoomInfo.style_info.fontSize = kFontSizeMin;
         }
     }
     else {
-        [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize++;
-        if ([UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize > kFontSizeMax) {
-            [UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize = kFontSizeMax;
+        [UserPublic getInstance].selectedRoomInfo.style_info.fontSize++;
+        if ([UserPublic getInstance].selectedRoomInfo.style_info.fontSize > kFontSizeMax) {
+            [UserPublic getInstance].selectedRoomInfo.style_info.fontSize = kFontSizeMax;
         }
     }
-    [self updateSizeLabel:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+    [self updateSizeLabel:[UserPublic getInstance].selectedRoomInfo.style_info.fontSize];
     
-    NSDictionary *m_dic = [UserPublic getInstance].fontArray[[UserPublic getInstance].selectedRoomInfo.styleInfo.index];
+    NSDictionary *m_dic = [UserPublic getInstance].fontArray[[UserPublic getInstance].selectedRoomInfo.style_info.index];
     CGFloat scale = [UIScreen mainScreen].scale;
     UILabel *m_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 800 / scale, 480 / scale)];
-    m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+    m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.style_info.fontSize];
     NSLog(@"*****%f",m_label.font.pointSize);
 }
 

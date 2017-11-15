@@ -186,11 +186,11 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         return;
     }
     APPDeviceInfo *device = [UserPublic getInstance].selectedRoomInfo.deviceArray[indexPath.row];
-    NSDictionary *m_dic = [UserPublic getInstance].fontArray[[UserPublic getInstance].selectedRoomInfo.styleInfo.index];
+    NSDictionary *m_dic = [UserPublic getInstance].fontArray[[UserPublic getInstance].selectedRoomInfo.style_info.index];
     CGFloat scale = [UIScreen mainScreen].scale;
     UILabel *m_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 800 / scale, 480 / scale)];
     m_label.backgroundColor = basePinkColor;
-    m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.styleInfo.fontSize];
+    m_label.font = [UIFont fontWithName:m_dic[@"name"] size:[UserPublic getInstance].selectedRoomInfo.style_info.fontSize];
     m_label.textColor = [UIColor blackColor];
     m_label.textAlignment = NSTextAlignmentCenter;
     m_label.numberOfLines = 0;
