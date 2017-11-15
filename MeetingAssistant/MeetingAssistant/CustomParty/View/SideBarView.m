@@ -79,6 +79,13 @@
     }];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    if ([touch view] == self) {
+        [self dismiss];
+    }
+}
+
 #pragma getter
 - (UILabel *)titleLabel{
     if (!_titleLabel) {

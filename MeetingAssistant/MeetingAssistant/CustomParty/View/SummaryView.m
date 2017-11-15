@@ -28,13 +28,13 @@ static NSString *identify = @"imageCell_Summary";
                 self.backButton = btn;
                 return btn;
             }
-            else if (nIndex == 1){
-                UIButton *btn = NewTextButton(@"保存", [UIColor whiteColor]);
-                [btn setFrame:CGRectMake(self.baseView.width - 64, 0, 54, 44)];
-                [btn addTarget:self action:@selector(saveButtonAction) forControlEvents:UIControlEventTouchUpInside];
-                self.saveButton = btn;
-                return btn;
-            }
+//            else if (nIndex == 1){
+//                UIButton *btn = NewTextButton(@"保存", [UIColor whiteColor]);
+//                [btn setFrame:CGRectMake(self.baseView.width - 64, 0, 54, 44)];
+//                [btn addTarget:self action:@selector(saveButtonAction) forControlEvents:UIControlEventTouchUpInside];
+//                self.saveButton = btn;
+//                return btn;
+//            }
             
             return nil;
         }];
