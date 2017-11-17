@@ -517,6 +517,11 @@ static NSString *identify_DeviceCell = @"DeviceCell";
         }
             break;
             
+        case socket_tcpSendTimeout:{
+            [self showHint:@"发送失败"];
+        }
+            break;
+            
         default:
             break;
     }
