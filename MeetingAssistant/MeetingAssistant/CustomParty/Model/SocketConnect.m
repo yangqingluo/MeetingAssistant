@@ -119,7 +119,7 @@ __strong static SocketConnect  *_singleManger = nil;
     TCPSendFileData *m_data = [TCPSendFileData new];
     m_data.data = dataOfImageCompression(image, NO);
     m_data.host = host;
-    m_data.imageName = @"SL0000.bmp";
+    m_data.imageName = @"SL0000.jpg";
     m_data.deviceName = [name copy];
     m_data.type = 0x00;
     [self updateSendDataWithSendFile:m_data];
@@ -133,7 +133,7 @@ __strong static SocketConnect  *_singleManger = nil;
         TCPSendFileData *m_data = [TCPSendFileData new];
         m_data.data = dataOfImageCompression(image, NO);
         m_data.host = host;
-        m_data.imageName = [NSString stringWithFormat:@"SL%04d.bmp", (int)i + 1];
+        m_data.imageName = [NSString stringWithFormat:@"SL%04d.jpg", (int)i + 1];
         m_data.type = i == 0 ? 0x01 : 0x02;
         [self updateSendDataWithSendFile:m_data];
     }
