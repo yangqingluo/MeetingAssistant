@@ -459,6 +459,7 @@ withFilterContext:(id)filterContext {
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag{
     NSLog(@"tcp socket did write data:%ld",tag);
     indexToSend++;
+//    [NSThread sleepForTimeInterval:0.1];
     [self doSendTCPFileData];
 }
 - (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag{
